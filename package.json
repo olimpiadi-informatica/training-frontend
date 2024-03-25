@@ -1,0 +1,57 @@
+{
+  "name": "training",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^3.0",
+    "@mdx-js/react": "^3.0",
+    "@next/mdx": "^14.2",
+    "@next/third-parties": "^14.1",
+    "@olinfo/react-components": "^0.1",
+    "@olinfo/tailwind": "^0.1",
+    "@olinfo/terry-api": "^0.1",
+    "@olinfo/training-api": "^0.1",
+    "@types/lodash-es": "^4.17",
+    "@types/mdx": "^2.0",
+    "@types/node": "^20",
+    "@types/react": "^18.2",
+    "@types/react-dom": "^18",
+    "@types/react-google-recaptcha": "^2.1",
+    "autoprefixer": "^10.0",
+    "clsx": "^2.1",
+    "katex": "^0.16",
+    "lodash-es": "^4.17",
+    "lucide-react": ">=0.377, <1",
+    "next": "^14.1",
+    "postcss": "^8.4",
+    "react": "^18.2",
+    "react-dom": "^18.2",
+    "react-google-recaptcha": "^3.1",
+    "react-markdown": "^9.0",
+    "rehype-katex": "^7.0",
+    "remark-math": "^6.0",
+    "shiki": "^1.2",
+    "swr": "^2.2",
+    "tailwindcss": "^3.3",
+    "typescript": "^5.4"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.0",
+    "@next/eslint-plugin-next": "^14.2",
+    "@olinfo/eslint": "^0.2",
+    "@olinfo/prettier": "^0.1"
+  },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": {},
+      "autoprefixer": {}
+    }
+  },
+  "prettier": "@olinfo/prettier"
+}
