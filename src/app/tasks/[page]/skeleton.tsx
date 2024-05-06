@@ -18,13 +18,14 @@ export function Skeleton({ page, pageSize, tags }: Props) {
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <H1 className="px-2">Pagina {page}</H1>
-        <form role="search" className="join">
+        <form role="search" className="join max-w-full">
           <input
-            className="input join-item input-bordered"
+            className="input join-item input-bordered w-48"
             name="task"
             type="search"
             placeholder="Nome del problema"
             aria-label="Nome del problema"
+            size={1}
             disabled
           />
           <select className="join-item select select-bordered" aria-label="Ordinamento" disabled>

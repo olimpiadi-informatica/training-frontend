@@ -109,9 +109,9 @@ function Filter() {
   };
 
   return (
-    <form role="search" className="join" onSubmit={(e) => e.preventDefault()}>
+    <form role="search" className="join max-w-full" onSubmit={(e) => e.preventDefault()}>
       <input
-        className="input join-item input-bordered"
+        className="input join-item input-bordered w-48"
         name="task"
         type="search"
         placeholder="Nome del problema"
@@ -119,6 +119,7 @@ function Filter() {
         defaultValue={searchParams.get("search") ?? ""}
         onChange={(e) => setFilter("search", e.target.value)}
         onBlur={() => setPush(true)}
+        size={1}
       />
       <select
         className="join-item select select-bordered"
