@@ -21,7 +21,7 @@ export default function Layout({ params, children }: Props) {
   );
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex grow flex-col gap-4">
       {task ? (
         <div>
           <h1 className="text-center text-3xl font-bold">{task?.title}</h1>

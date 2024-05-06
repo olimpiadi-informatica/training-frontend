@@ -20,7 +20,7 @@ export default function Page({ params: { name: taskName } }: Props) {
   if (user && !task) return notFound();
 
   return (
-    <div className="flex items-stretch gap-4">
+    <div className="grid gap-4 lg:grid-cols-[1fr_18rem]">
       {task ? (
         <Suspense fallback={<Loading />}>
           <Statement path={task.statement_path} />
@@ -28,7 +28,7 @@ export default function Page({ params: { name: taskName } }: Props) {
       ) : (
         <Loading />
       )}
-      <div className="shrink-0 basis-72 max-lg:hidden">
+      <div className="max-lg:hidden">
         <div className="my-6">
           <Submit params={{ name: taskName }} />
         </div>

@@ -1,12 +1,15 @@
 "use client";
 
+import { Suspense, lazy } from "react";
+
 import { Task, fileUrl, getTask } from "@olinfo/training-api";
 import useSWR from "swr";
 
 import Attachments from "./attachments/page";
-import { Skeleton } from "./skeleton";
 import Submit from "./submit/page";
 import Tags from "./tags/page";
+
+const MobileStatement = lazy(() => import("./mobile-statement"));
 
 type Props = {
   params: { name: string };
@@ -19,21 +22,41 @@ export default function Page({ params }: Props) {
     { revalidateIfStale: false },
   );
 
-  if (!task) return <Skeleton params={params} />;
-
-  const statement = fileUrl({
-    name: "testo.pdf",
-    digest: task.statements["it"] ?? Object.values(task.statements)[0],
-  });
+  const statement =
+    task &&
+    fileUrl({
+      name: "testo.pdf",
+      digest: task.statements["it"] ?? Object.values(task.statements)[0],
+    });
 
   return (
-    <div className="flex items-stretch gap-4">
-      <object data={statement} className="min-h-screen grow overflow-hidden rounded-lg" />
-      <div className="grid basis-72 gap-8 max-lg:hidden">
-        <Submit params={params} />
-        <Attachments params={params} />
-        <Tags params={params} />
+    <div className="grid grow gap-4 lg:grid-cols-[1fr_18rem]">
+      <div className="relative min-h-[min(32rem,75vh)] overflow-hidden rounded-lg">
+        <div className="absolute inset-0">
+          {statement ? (
+            navigator.pdfViewerEnabled ? (
+              <object data={statement} className="size-full" />
+            ) : (
+              <Suspense fallback={<LoadingStatement />}>
+                <MobileStatement url={statement} fallback={<LoadingStatement />} />
+              </Suspense>
+            )
+          ) : (
+            <LoadingStatement />
+          )}
+        </div>
+      </div>
+      <div className="max-lg:hidden">
+        <div className="grid gap-8">
+          <Submit params={params} />
+          <Attachments params={params} />
+          <Tags params={params} />
+        </div>
       </div>
     </div>
   );
+}
+
+function LoadingStatement() {
+  return <div className="skeleton absolute inset-0 rounded-none" />;
 }
