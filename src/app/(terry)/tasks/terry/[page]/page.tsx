@@ -26,8 +26,7 @@ export default function Page() {
   if (!user) return <Skeleton page={page} pageSize={pageSize} />;
 
   const tasks = user.contest.tasks.filter((t) => isMatched(t, searchParams.get("search")));
-  const pageCount = Math.ceil(tasks.length / pageSize);
-  console.log({ tasks, pageCount });
+  const pageCount = Math.max(Math.ceil(tasks.length / pageSize), 1);
   if (page > pageCount) notFound();
 
   const filteredTasks = tasks.slice((page - 1) * pageSize, page * pageSize);

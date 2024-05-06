@@ -36,7 +36,7 @@ export default function Page() {
   if (!taskList) return <Skeleton page={page} pageSize={pageSize} tags={options.tag?.split(",")} />;
 
   const { tasks, num, tags } = taskList;
-  const pageCount = Math.ceil(num / pageSize);
+  const pageCount = Math.max(Math.ceil(num / pageSize), 1);
   if (page > pageCount) notFound();
 
   return (

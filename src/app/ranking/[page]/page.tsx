@@ -30,7 +30,7 @@ export default function Page({ params: { page: pageStr } }: Props) {
   if (!ranking) return <Skeleton page={page} pageSize={pageSize} />;
 
   const { users, num } = ranking;
-  const pageCount = Math.ceil(num / pageSize);
+  const pageCount = Math.max(Math.ceil(num / pageSize), 1);
   if (page > pageCount) notFound();
 
   return (
