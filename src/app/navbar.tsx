@@ -78,10 +78,13 @@ function NavbarMenu() {
           <summary>Problemi</summary>
           <ul>
             <li>
-              <Link href="/tasks/1">Tutti i problemi</Link>
+              <Link href="https://scolastiche.olinfo.it">Scolastiche</Link>
             </li>
             <li>
-              <Link href="/tasks/terry/1">Problemi delle territoriali</Link>
+              <Link href="/tasks/terry/1">Territoriali</Link>
+            </li>
+            <li>
+              <Link href="/tasks/1">Nazionali e OIS</Link>
             </li>
             <li>
               <Link href="/tasks/techniques">Problemi per tecnica</Link>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ReactNode } from "react";
 
 import { Card, CardActions, CardBody } from "@olinfo/react-components";
-import { BookText, Dumbbell, LucideIcon, Route, UsersRound } from "lucide-react";
+import { BookText, LucideIcon, Route, UsersRound } from "lucide-react";
 
 import { Footer } from "./footer";
 
@@ -19,9 +19,18 @@ export default function Home() {
             numerosi problemi ai quali potrai inviare delle soluzioni scritte in un linguaggio di
             programmazione a tua scelta.
           </p>
-          <Link href="/tasks/1" className="btn btn-accent btn-lg">
-            <Dumbbell size={22} /> Inizia ad allenarti
-          </Link>
+          <h2 className="text-2xl font-bold">Inizia ad allenarti</h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="https://scolastiche.olinfo.it" className="btn btn-accent">
+              Scolastiche
+            </Link>
+            <Link href="/tasks/terry/1" className="btn btn-accent">
+              Territoriali
+            </Link>
+            <Link href="/tasks/1" className="btn btn-accent">
+              Nazionali, OIS e altre gare
+            </Link>
+          </div>
         </div>
       </div>
       <div className="grid gap-4 *:mb-auto md:grid-cols-3">
