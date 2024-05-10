@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
 import {
   EmailField,
@@ -27,6 +27,7 @@ import useSWR, { useSWRConfig } from "swr";
 
 import { H1, H2 } from "~/components/header";
 import { LocationField } from "~/components/location-field";
+import { useTheme } from "~/lib/theme";
 
 type FormValue = {
   email: string;
@@ -148,22 +149,4 @@ export default function Page() {
       <SubmitButton>Crea</SubmitButton>
     </Form>
   );
-}
-
-function useTheme() {
-  const [theme, setTheme] = useState<"light" | "dark">();
-
-  useEffect(() => {
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    setTheme(media.matches ? "dark" : "light");
-
-    media.addEventListener("change", updateTheme);
-    return () => media.removeEventListener("change", updateTheme);
-
-    function updateTheme(e: MediaQueryListEvent) {
-      setTheme(e.matches ? "dark" : "light");
-    }
-  }, []);
-
-  return theme;
 }
