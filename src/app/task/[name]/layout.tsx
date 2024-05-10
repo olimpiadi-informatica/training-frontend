@@ -46,16 +46,10 @@ export default function Layout({ params, children }: Props) {
       )}
       <Tabs>
         <Tab page="">Testo</Tab>
-        <Tab page="attachments" className="lg:hidden">
-          Allegati
-        </Tab>
-        <Tab page="tags" className="lg:hidden">
-          Tag
-        </Tab>
+        <Tab page="attachments">Allegati</Tab>
+        <Tab page="tags">Tag</Tab>
         <Tab page="stats">Statistiche</Tab>
-        <Tab page="submit" className="lg:hidden">
-          Invia
-        </Tab>
+        <Tab page="submit">Invia</Tab>
         <Tab page="submissions">Sottoposizioni</Tab>
       </Tabs>
       {children}
@@ -65,18 +59,17 @@ export default function Layout({ params, children }: Props) {
 
 type TabProps = {
   page: string;
-  className?: string;
   children: ReactNode;
 };
 
-function Tab({ page, className, children }: TabProps) {
+function Tab({ page, children }: TabProps) {
   const selectedPage = useSelectedLayoutSegment() ?? "";
   const { name: taskName } = useParams();
 
   return (
     <Link
       role="tab"
-      className={clsx("tab", selectedPage === page && "tab-active", className)}
+      className={clsx("tab", selectedPage === page && "tab-active")}
       href={`/task/${taskName}/${page}`}
       prefetch>
       {children}

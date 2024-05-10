@@ -1,10 +1,11 @@
 import { Menu } from "@olinfo/react-components";
 import clsx from "clsx";
 import { range } from "lodash-es";
+import { SquarePlus } from "lucide-react";
 
 import { H2 } from "~/components/header";
 
-export function Skeleton() {
+export function Skeleton({ isTagsPage }: { isTagsPage: boolean }) {
   const widths = ["w-2/12", "w-1/12", "w-3/12"];
 
   return (
@@ -19,6 +20,13 @@ export function Skeleton() {
           </li>
         ))}
       </Menu>
+      {isTagsPage && (
+        <div className="mt-4 flex justify-center">
+          <button className="btn btn-primary" disabled>
+            <SquarePlus size={22} /> Aggiungi tag
+          </button>
+        </div>
+      )}
     </div>
   );
 }

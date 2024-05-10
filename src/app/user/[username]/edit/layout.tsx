@@ -48,18 +48,17 @@ export default function Layout({ params: { username }, children }: Props) {
 
 type TabProps = {
   page: string;
-  className?: string;
   children: ReactNode;
 };
 
-function Tab({ page, className, children }: TabProps) {
+function Tab({ page, children }: TabProps) {
   const selectedPage = useSelectedLayoutSegment();
   const { username } = useParams();
 
   return (
     <Link
       role="tab"
-      className={clsx("tab", selectedPage === page && "tab-active", className)}
+      className={clsx("tab", selectedPage === page && "tab-active")}
       href={`/user/${username}/edit/${page}`}
       prefetch>
       {children}

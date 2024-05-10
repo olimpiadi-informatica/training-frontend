@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { MouseEvent, Ref, forwardRef, useRef, useState } from "react";
 
 import {
@@ -40,7 +40,9 @@ export default function Page({ params }: Props) {
     revalidateOnFocus: false,
   });
 
-  if (!task || !eventTags) return <Skeleton />;
+  const isTagsPage = usePathname().endsWith("/tags");
+
+  if (!task || !eventTags) return <Skeleton isTagsPage={isTagsPage} />;
 
   const tags = sortBy(task.tags, [(t) => !eventTags.includes(t.name), "name"]);
 
@@ -57,14 +59,15 @@ export default function Page({ params }: Props) {
             )}
           </li>
         ))}
-        {/* TODO: aggiungi tag */}
       </Menu>
-      <div className="mt-4 flex justify-center">
-        <button className="btn btn-primary" onClick={() => modalRef.current?.showModal()}>
-          <SquarePlus size={22} /> Aggiungi tag
-        </button>
-      </div>
-      <AddTagModal ref={modalRef} taskName={params.name} />
+      {isTagsPage && (
+        <div className="mt-4 flex justify-center">
+          <button className="btn btn-primary" onClick={() => modalRef.current?.showModal()}>
+            <SquarePlus size={22} /> Aggiungi tag
+          </button>
+          <AddTagModal ref={modalRef} taskName={params.name} />
+        </div>
+      )}
     </div>
   );
 }
