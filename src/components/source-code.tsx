@@ -15,11 +15,11 @@ export function SourceCode({ url }: { url: string }) {
     <div className="relative overflow-hidden rounded-box border border-base-content/10">
       {source ? (
         <div
-          className="max-h-[75vh] overflow-y-auto"
+          className="max-h-[min(32rem,75vh)] overflow-y-auto"
           dangerouslySetInnerHTML={{ __html: source }}
         />
       ) : (
-        <div className="skeleton h-[75vh]" />
+        <div className="skeleton h-[min(32rem,75vh)]" />
       )}
       <div className="absolute right-0 top-0 flex rounded-bl-xl border-b border-l border-base-content/10 bg-base-100">
         <Link
@@ -44,7 +44,7 @@ async function sourceFetcher([, url]: [string, string]) {
     lang,
     themes: {
       light: "github-light",
-      dark: "github-dark-dimmed",
+      dark: "github-dark",
     },
   });
 }

@@ -117,9 +117,9 @@ function Timer({ date }: { date: Date }) {
   );
 }
 
-function validateSource(file: File): ["error", string] | undefined {
+function validateSource(file: File) {
   const lang = language(file.name);
   if (lang === "N/A") {
-    return ["error", "Seleziona il file sorgente"];
+    return "Seleziona il file sorgente";
   }
 }
