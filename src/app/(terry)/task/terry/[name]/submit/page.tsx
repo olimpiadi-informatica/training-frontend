@@ -54,6 +54,7 @@ export default function Page({ params: { name: taskName } }: Props) {
     const submission = await submit(input!.id, source.id, output.id);
     await mutate(["terry/user", user.token]);
     router.push(`/task/terry/${taskName}/submissions/${submission.id}`);
+    await new Promise(() => {});
   };
 
   return (

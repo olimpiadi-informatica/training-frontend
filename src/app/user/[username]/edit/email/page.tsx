@@ -29,9 +29,9 @@ export default function Page({ params: { username } }: Props) {
     } catch (err) {
       switch ((err as Error).message) {
         case "Invalid e-mail":
-          throw new FormFieldError("email", "E-mail non valida");
+          throw new FormFieldError("email", "Email non valida");
         case "E-mail already used":
-          throw new FormFieldError("email", "E-mail già in uso");
+          throw new FormFieldError("email", "Email già in uso");
         default:
           throw err;
       }
@@ -40,7 +40,8 @@ export default function Page({ params: { username } }: Props) {
     await mutate(["api/user", username]);
     router.push(`/user/${username}`);
     router.refresh();
-    notifySuccess("E-mail modificata con successo");
+    notifySuccess("Email modificata con successo");
+    await new Promise(() => {});
   };
 
   return (

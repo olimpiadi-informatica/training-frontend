@@ -80,6 +80,7 @@ export default function Page() {
     await mutate("api/me");
     router.push("/");
     router.refresh();
+    await new Promise(() => {});
   };
 
   return (

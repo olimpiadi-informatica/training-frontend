@@ -38,6 +38,7 @@ export default function Page() {
     await mutate("api/me");
     router.push(params.get("redirect") || "/");
     router.refresh();
+    await new Promise(() => {});
   };
 
   return (

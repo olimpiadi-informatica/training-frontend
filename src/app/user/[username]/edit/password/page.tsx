@@ -39,6 +39,7 @@ export default function Page({ params: { username } }: Props) {
     router.push(`/user/${username}`);
     router.refresh();
     notifySuccess("Password modificata con successo");
+    await new Promise(() => {});
   };
 
   return (

@@ -38,6 +38,7 @@ export default function Page() {
     if (recover.code) {
       notifySuccess("Una password temporanea è stata inviata alla tua email");
       router.push("/login");
+      await new Promise(() => {});
     } else {
       notifySuccess("Un codice di recupero è stato inviato alla tua email");
       setSent(true);
