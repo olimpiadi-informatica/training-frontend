@@ -80,9 +80,12 @@ export default function Page({ params: { id, name: taskName } }: Props) {
                 <div>
                   Subtask {subtask.idx}{" "}
                   {subtask.testcases.every((tc) => tc.outcome === "Correct") ? (
-                    <Check size={28} className="inline text-success" />
+                    <Check
+                      size={28}
+                      className="inline text-success forced-colors:text-base-content"
+                    />
                   ) : (
-                    <X size={28} className="inline text-error" />
+                    <X size={28} className="inline text-error forced-colors:text-base-content" />
                   )}
                 </div>
               )}

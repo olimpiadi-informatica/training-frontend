@@ -146,8 +146,10 @@ function Difficulty({ difficulty }: { difficulty: number }) {
         <div
           key={i}
           className={clsx(
-            "mask mask-star-2 h-4 w-2 odd:mask-half-1 even:mask-half-2 even:mr-0.5",
-            i > level && "[--tw-bg-opacity:0.2]",
+            "mask mask-star-2 h-4 w-2 forced-color-adjust-none odd:mask-half-1 even:mask-half-2 even:mr-0.5",
+            i > level
+              ? "[--tw-bg-opacity:0.2] forced-colors:bg-transparent"
+              : "forced-colors:bg-base-content",
             colors[Math.floor(level / 2)],
           )}
         />

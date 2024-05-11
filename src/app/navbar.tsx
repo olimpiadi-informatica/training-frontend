@@ -75,7 +75,7 @@ function NavbarMenu() {
       </li>
       <li>
         <details ref={ref}>
-          <summary>Problemi</summary>
+          <summary className="after:forced-color-adjust-none">Problemi</summary>
           <ul>
             <li>
               <Link href="https://scolastiche.olinfo.it">Scolastiche</Link>

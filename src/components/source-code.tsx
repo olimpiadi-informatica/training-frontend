@@ -24,7 +24,7 @@ export function SourceCode({ url }: { url: string }) {
       <div className="absolute right-0 top-0 flex rounded-bl-xl border-b border-l border-base-content/10 bg-base-100">
         <Link
           href={url}
-          className="btn btn-square btn-ghost"
+          className="btn btn-square btn-ghost forced-colors:border-none"
           aria-label="Scarica soluzione"
           download>
           <Download />
