@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -82,6 +83,11 @@ export function SubmitBatch({ task }: { task: Task }) {
           </div>
         );
       }}
+      {task.attachments.some((a) => a.name.startsWith("grader")) && (
+        <Link href="https://wiki.olinfo.it/Guide/grader" className="link link-info mb-4">
+          Come si usano i grader?
+        </Link>
+      )}
       {isSubmitPage &&
         (({ lang, src }) => (
           <div className="relative min-h-[min(32rem,75vh)] w-full grow overflow-hidden rounded border border-base-content/10 *:absolute *:inset-0">
