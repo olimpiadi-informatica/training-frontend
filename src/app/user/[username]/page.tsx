@@ -107,7 +107,7 @@ function TaskBadge({ name, title, score }: { name: string; title: string; score:
       <Link
         href={`/task/${name}`}
         className={clsx("inline-block rounded-lg px-2 py-0.5 text-sm", color)}>
-        {title} <span className="text-xs">({Math.round(score)})</span>
+        {title} <span className="align-text-bottom text-xs">({Math.round(score)})</span>
       </Link>
     </div>
   );
