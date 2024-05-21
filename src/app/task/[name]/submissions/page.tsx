@@ -10,7 +10,7 @@ import useSWR from "swr";
 import { H2 } from "~/components/header";
 import { Outcome } from "~/components/outcome";
 import { useUser } from "~/components/user";
-import { language } from "~/lib/language";
+import { fileLanguageName } from "~/lib/language";
 
 import { Skeleton } from "./skeleton";
 
@@ -72,7 +72,7 @@ export default function Page({ params: { name: taskName } }: Props) {
                 href={`/task/${taskName}/submissions/${sub.id}`}
                 className="col-span-4 grid grid-cols-subgrid text-nowrap">
                 <div className="w-20 font-mono">{sub.id}</div>
-                <div>{language(sub.files[0].name)}</div>
+                <div>{fileLanguageName(sub.files[0].name)}</div>
                 <div>
                   <DateTime date={sub.timestamp} />
                 </div>

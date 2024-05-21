@@ -24,7 +24,7 @@ export function Skeleton() {
         </div>
       </div>
       {isSubmitPage && (
-        <div className="skeleton h-[min(32rem,75vh)] w-full grow rounded border border-base-content/10" />
+        <div className="skeleton h-[75vh] w-full grow rounded border border-base-content/10" />
       )}
     </Form>
   );

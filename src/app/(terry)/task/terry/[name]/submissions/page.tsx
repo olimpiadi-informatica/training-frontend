@@ -9,7 +9,7 @@ import useSWR from "swr";
 import { H2 } from "~/components/header";
 import { OutcomeScore } from "~/components/outcome";
 import { useTerryUser, useUser } from "~/components/user";
-import { language } from "~/lib/language";
+import { fileLanguageName } from "~/lib/language";
 
 import { Skeleton } from "./skeleton";
 
@@ -48,7 +48,7 @@ export default function Page({ params: { name: taskName } }: Props) {
                 <div className="mr-1">
                   {sub.input.attempt}-{sub.id.split("-")[0]}
                 </div>
-                <div>{language(sub.source.path)}</div>
+                <div>{fileLanguageName(sub.source.path)}</div>
                 <div>
                   <DateTime date={sub.date} />
                 </div>

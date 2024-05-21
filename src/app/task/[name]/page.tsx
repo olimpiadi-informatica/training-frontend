@@ -31,7 +31,7 @@ export default function Page({ params }: Props) {
 
   return (
     <div className="grid grow gap-4 lg:grid-cols-[1fr_18rem]">
-      <div className="relative min-h-[min(32rem,75vh)] overflow-hidden rounded-lg">
+      <div className="relative min-h-[75vh] overflow-hidden rounded-lg">
         <div className="absolute inset-0">
           {statement ? (
             navigator.pdfViewerEnabled ? (

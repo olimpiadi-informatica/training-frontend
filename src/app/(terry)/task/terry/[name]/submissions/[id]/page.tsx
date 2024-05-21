@@ -13,7 +13,7 @@ import { H2, H3 } from "~/components/header";
 import { OutcomeScore } from "~/components/outcome";
 import { SourceCode } from "~/components/source-code";
 import { useTerryUser } from "~/components/user";
-import { language } from "~/lib/language";
+import { fileLanguageName } from "~/lib/language";
 
 import { Skeleton } from "./skeleton";
 
@@ -44,7 +44,7 @@ export default function Page({ params: { name: taskName, id } }: Props) {
           <OutcomeScore score={submission.score} maxScore={task?.max_score} />
         </li>
         <li>
-          <span className="font-bold">Linguaggio:</span> {language(submission.source.path)}
+          <span className="font-bold">Linguaggio:</span> {fileLanguageName(submission.source.path)}
         </li>
         <li>
           <span className="font-bold">Data e ora:</span> <DateTime date={submission.date} />

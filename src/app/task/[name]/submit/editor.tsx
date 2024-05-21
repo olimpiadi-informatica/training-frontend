@@ -3,9 +3,14 @@ import { useEffect, useId, useRef } from "react";
 import { shikiToMonaco } from "@shikijs/monaco";
 import * as monaco from "monaco-editor-core";
 import { getHighlighter } from "shiki";
-import useSWR from "swr";
 
+import { Language } from "~/lib/language";
 import { useTheme } from "~/lib/theme";
+
+const highlighter = await getHighlighter({
+  themes: ["github-light", "github-dark"],
+  langs: ["c", "cpp", "python", "pascal", "java"],
+});
 
 self.MonacoEnvironment = {
   getWorker: function (_moduleId: string, label: string) {
@@ -17,30 +22,33 @@ self.MonacoEnvironment = {
 };
 
 type Props = {
-  language: string;
-  languages: string[];
+  language: Language;
+  languages: Language[];
   onChange: (value: string) => void;
   file?: File;
 };
 
 export default function Editor({ language, languages, file, onChange }: Props) {
   useEffect(() => {
+    const loadedLangs = new Set(monaco.languages.getLanguages().map((lang) => lang.id));
     for (const lang of languages) {
-      monaco.languages.register({ id: lang.toLowerCase() });
+      const id = lang.toLowerCase();
+      if (loadedLangs.has(id)) continue;
+      monaco.languages.register({ id });
     }
-  }, [languages]);
+    shikiToMonaco(highlighter, monaco);
 
-  const { isLoading } = useSWR("shiki/monaco", fetchHighlighter, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-  });
+    const theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "github-dark"
+      : "github-light";
+    monaco.editor.setTheme(theme);
+  }, [languages]);
 
   const id = useId();
   const defaultLang = useRef(language);
 
   const model = useRef<monaco.editor.ITextModel | null>(null);
   useEffect(() => {
-    if (isLoading) return;
     const defaultTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "github-dark"
       : "github-light";
@@ -65,7 +73,7 @@ export default function Editor({ language, languages, file, onChange }: Props) {
     });
 
     return () => editor?.dispose();
-  }, [id, isLoading, onChange]);
+  }, [id, onChange]);
 
   useEffect(() => {
     if (model.current) {
@@ -75,7 +83,9 @@ export default function Editor({ language, languages, file, onChange }: Props) {
 
   const theme = useTheme();
   useEffect(() => {
-    monaco.editor.setTheme(theme === "dark" ? "github-dark" : "github-light");
+    if (theme) {
+      monaco.editor.setTheme(theme === "dark" ? "github-dark" : "github-light");
+    }
   }, [theme]);
 
   useEffect(() => {
@@ -86,14 +96,6 @@ export default function Editor({ language, languages, file, onChange }: Props) {
   }, [file]);
 
   return <div id={id} />;
-}
-
-async function fetchHighlighter() {
-  const highlighter = await getHighlighter({
-    themes: ["github-light", "github-dark"],
-    langs: ["c", "cpp", "python", "pascal", "java", "text"],
-  });
-  shikiToMonaco(highlighter, monaco);
 }
 
 const initialCode = `\

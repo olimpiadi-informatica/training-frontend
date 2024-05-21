@@ -39,6 +39,9 @@ const nextConfig = {
   },
   webpack: (config) => {
     config.resolve.alias.canvas = false;
+    if (config.target[0] === "web") {
+      config.target[1] = "es2022";
+    }
     return config;
   },
 };

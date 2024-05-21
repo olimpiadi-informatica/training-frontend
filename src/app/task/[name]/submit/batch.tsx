@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import { Form, SelectField, SingleFileField, SubmitButton } from "@olinfo/react-components";
 import { Task, submitBatch } from "@olinfo/training-api";
@@ -9,7 +9,7 @@ import clsx from "clsx";
 import { Send, TriangleAlert } from "lucide-react";
 
 import { H2 } from "~/components/header";
-import { language } from "~/lib/language";
+import { Language, fileLanguageName } from "~/lib/language";
 
 const Editor = dynamic(() => import("./editor"), {
   loading: () => <div className="skeleton size-full rounded-none" />,
@@ -19,18 +19,20 @@ const Editor = dynamic(() => import("./editor"), {
 export function SubmitBatch({ task }: { task: Task }) {
   const router = useRouter();
 
+  const languages = useMemo(() => task.supported_languages.map((l) => compilerLang(l)), [task]);
+
   const langMessage = (lang?: string) => {
     switch (compilerLang(lang)) {
-      case "Pascal":
+      case Language.Pascal:
         return "Probabilmente hai sbagliato a selezionare il linguaggio, in caso contrario ti suggeriamo di smettere di usare Pascal e imparare un linguaggio più moderno.";
-      case "Java":
+      case Language.Java:
         return `Assicurati di chiamare la tua classe "${task.submission_format[0].replace(".%l", "")}", altrimenti la compilazione non andrà a buon fine.`;
     }
   };
 
   const validateFile = (file: File) => {
     if (file.size > 100_000) return "File troppo grande";
-    if (!task.supported_languages.some((l) => language(file.name) === compilerLang(l))) {
+    if (!task.supported_languages.some((l) => fileLanguageName(file.name) === compilerLang(l))) {
       return "Tipo di file non valido";
     }
   };
@@ -70,7 +72,7 @@ export function SubmitBatch({ task }: { task: Task }) {
           validate={validateFile}
           optional={isSubmitPage}
         />
-        <div className="mt-5 flex-none">
+        <div className={clsx("flex-none", isSubmitPage && "md:mt-5")}>
           <SubmitButton icon={Send}>Invia</SubmitButton>
         </div>
       </div>
@@ -90,11 +92,11 @@ export function SubmitBatch({ task }: { task: Task }) {
       )}
       {isSubmitPage &&
         (({ lang, src }) => (
-          <div className="relative min-h-[min(32rem,75vh)] w-full grow overflow-hidden rounded border border-base-content/10 *:absolute *:inset-0">
+          <div className="relative min-h-[75vh] w-full grow overflow-hidden rounded border border-base-content/10 *:absolute *:inset-0">
             <div className="skeleton rounded-none" />
             <Editor
               language={compilerLang(lang)}
-              languages={task.supported_languages.map((l) => compilerLang(l))}
+              languages={languages}
               file={src}
               onChange={setEditorValue}
             />
@@ -105,5 +107,19 @@ export function SubmitBatch({ task }: { task: Task }) {
 }
 
 function compilerLang(compiler?: string) {
-  return compiler?.match(/^[+A-Za-z]+/)?.[0] ?? "Text";
+  const lang = compiler?.match(/^[+A-Za-z]+/)?.[0];
+  switch (lang) {
+    case "C":
+      return Language.C;
+    case "C++":
+      return Language.Cpp;
+    case "Java":
+      return Language.Java;
+    case "Python":
+      return Language.Python;
+    case "Pascal":
+      return Language.Pascal;
+    default:
+      return Language.Plain;
+  }
 }

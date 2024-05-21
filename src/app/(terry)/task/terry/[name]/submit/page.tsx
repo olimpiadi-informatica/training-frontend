@@ -18,7 +18,7 @@ import { useSWRConfig } from "swr";
 
 import { H2 } from "~/components/header";
 import { useTerryUser } from "~/components/user";
-import { language } from "~/lib/language";
+import { fileLanguageName } from "~/lib/language";
 
 import { Skeleton } from "./skeleton";
 
@@ -119,7 +119,7 @@ function Timer({ date }: { date: Date }) {
 }
 
 function validateSource(file: File) {
-  const lang = language(file.name);
+  const lang = fileLanguageName(file.name);
   if (lang === "N/A") {
     return "Seleziona il file sorgente";
   }
