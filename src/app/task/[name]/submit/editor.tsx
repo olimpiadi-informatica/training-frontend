@@ -2,12 +2,12 @@ import { useEffect, useId, useRef } from "react";
 
 import { shikiToMonaco } from "@shikijs/monaco";
 import * as monaco from "monaco-editor-core";
-import { getHighlighter } from "shiki";
+import { createHighlighter } from "shiki";
 
 import { Language } from "~/lib/language";
 import { useTheme } from "~/lib/theme";
 
-const highlighter = await getHighlighter({
+const highlighter = await createHighlighter({
   themes: ["github-light", "github-dark"],
   langs: ["c", "cpp", "python", "pascal", "java"],
 });

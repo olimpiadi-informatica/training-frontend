@@ -4,7 +4,7 @@ import olinfoPresets from "@olinfo/tailwind";
 export default {
   presets: [olinfoPresets],
   content: [
-    "./src/**/*.{ts,tsx}",
+    "./src/**/*.{js,mjs,ts,tsx}",
     "./node_modules/@olinfo/react-components/dist/**/*.js",
   ],
 };
