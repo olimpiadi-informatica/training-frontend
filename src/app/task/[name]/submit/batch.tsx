@@ -9,7 +9,7 @@ import clsx from "clsx";
 import { Send, TriangleAlert } from "lucide-react";
 
 import { H2 } from "~/components/header";
-import { Language, fileLanguageName } from "~/lib/language";
+import { Language, fileLanguage } from "~/lib/language";
 
 const Editor = dynamic(() => import("./editor"), {
   loading: () => <div className="skeleton size-full rounded-none" />,
@@ -32,7 +32,7 @@ export function SubmitBatch({ task }: { task: Task }) {
 
   const validateFile = (file: File) => {
     if (file.size > 100_000) return "File troppo grande";
-    if (!task.supported_languages.some((l) => fileLanguageName(file.name) === compilerLang(l))) {
+    if (!task.supported_languages.some((l) => fileLanguage(file.name) === compilerLang(l))) {
       return "Tipo di file non valido";
     }
   };
