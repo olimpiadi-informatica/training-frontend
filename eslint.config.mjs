@@ -11,4 +11,10 @@ export default [
       "@next/next/no-img-element": "off",
     },
   },
+  {
+    files: ["src/locales/**/*.mjs"],
+    rules: {
+      "unicorn/no-abusive-eslint-disable": "off",
+    },
+  },
 ];

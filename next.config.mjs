@@ -44,6 +44,9 @@ const nextConfig = {
     }
     return config;
   },
+  experimental: {
+    swcPlugins: [["@lingui/swc-plugin", {}]],
+  },
 
   // https://github.com/wojtekmaj/react-pdf/wiki/Upgrade-guide-from-version-8.x-to-9.x#applications-using-older-versions-of-nextjs-may-require-a-workaround
   swcMinify: false,

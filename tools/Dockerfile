@@ -9,6 +9,7 @@ RUN yarn install --frozen-lockfile
 
 COPY next.config.mjs tailwind.config.mjs tsconfig.json .env ./
 COPY ./src ./src
+RUN yarn lingui:compile
 RUN yarn build
 
 FROM node:20-alpine

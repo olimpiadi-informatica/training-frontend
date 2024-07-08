@@ -1,8 +1,10 @@
 "use client";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { ReactNode } from "react";
+import { ReactNode, useMemo } from "react";
 
+import { Messages, setupI18n } from "@lingui/core";
+import { I18nProvider } from "@lingui/react";
 import { useNotifications } from "@olinfo/react-components";
 import { Contest, SyncUser, User, getContest, getMe } from "@olinfo/training-api";
 import useSWR, { SWRConfig } from "swr";
@@ -13,16 +15,27 @@ import { Navbar } from "./navbar";
 
 type LayoutProps = {
   syncUser: SyncUser | undefined;
+  locale: string;
+  messages: Messages;
   children: ReactNode;
 };
 
-export function LayoutClient({ syncUser, children }: LayoutProps) {
+export function LayoutClient({ syncUser, locale, messages, children }: LayoutProps) {
   const { notifyError } = useNotifications();
 
+  const i18n = useMemo(() => {
+    return setupI18n({
+      locale,
+      messages: { [locale]: messages },
+    });
+  }, [locale, messages]);
+
   return (
-    <SWRConfig value={{ onError: notifyError }}>
-      <LayoutClientInner syncUser={syncUser}>{children}</LayoutClientInner>
-    </SWRConfig>
+    <I18nProvider i18n={i18n}>
+      <SWRConfig value={{ onError: notifyError }}>
+        <LayoutClientInner syncUser={syncUser}>{children}</LayoutClientInner>
+      </SWRConfig>
+    </I18nProvider>
   );
 }
 
