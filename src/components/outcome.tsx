@@ -37,7 +37,8 @@ export function OutcomeScore({ score, maxScore }: { score: number; maxScore?: nu
     "bg-green-400 text-success-content",
   ];
 
-  const color = colors[Math.floor((score / (maxScore ?? 100)) * 4)];
+  const scoreFraction = Math.min(Math.max(score / (maxScore ?? 100), 0), 1);
+  const color = colors[Math.floor(scoreFraction * 4)];
 
   return (
     <span className={clsx("inline-block rounded-lg px-2 text-sm", color)}>

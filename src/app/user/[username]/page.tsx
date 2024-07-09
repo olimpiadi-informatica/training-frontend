@@ -136,7 +136,8 @@ function TaskBadge({ name, title, score }: { name: string; title: string; score:
     "bg-green-400 text-success-content",
   ];
 
-  const color = colors[Math.floor(score / 25)];
+  const scoreFraction = Math.min(Math.max(score / 100, 0), 1);
+  const color = colors[Math.floor(scoreFraction * 4)];
 
   return (
     <div className="my-1 inline-block w-full">
