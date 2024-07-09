@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useParams, useRouter, useSelectedLayoutSegment } from "next/navigation";
 import { ReactNode } from "react";
 
+import { Trans } from "@lingui/macro";
 import { Tabs } from "@olinfo/react-components";
 import clsx from "clsx";
 
@@ -21,20 +22,28 @@ export default function Layout({ params: { username }, children }: Props) {
 
   if (!me) {
     router.push(`/login?redirect=${encodeURIComponent(`/user/${username}/edit`)}`);
-    return "Reindirizzamento...";
+    return <Trans>Reindirizzamento...</Trans>;
   }
   if (me.username !== username) {
     router.replace(`/user/${me.username}/edit`);
-    return "Reindirizzamento...";
+    return <Trans>Reindirizzamento...</Trans>;
   }
 
   return (
     <div className="flex flex-col gap-4">
-      <H1>Modifica profilo</H1>
+      <H1>
+        <Trans>Modifica profilo</Trans>
+      </H1>
       <Tabs>
-        <Tab page="password">Password</Tab>
-        <Tab page="email">Email</Tab>
-        <Tab page="avatar">Foto</Tab>
+        <Tab page="password">
+          <Trans>Password</Trans>
+        </Tab>
+        <Tab page="email">
+          <Trans>Email</Trans>
+        </Tab>
+        <Tab page="avatar">
+          <Trans>Foto</Trans>
+        </Tab>
         {/*
           TODO: replace user.institute_id with user.social_user.institute_id here
                 https://github.com/algorithm-ninja/cmsocial/blob/master/cmsocial/server/pws.py#L829

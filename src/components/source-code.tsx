@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { Code } from "@olinfo/react-components";
 import { truncate } from "lodash-es";
 import { Download } from "lucide-react";
@@ -8,6 +10,8 @@ import useSWR from "swr";
 import { Language, fileLanguage } from "~/lib/language";
 
 export function SourceCode({ url }: { url: string }) {
+  const { _ } = useLingui();
+
   const { data: source } = useSWR(["fetch", url], sourceFetcher, {
     revalidateIfStale: false,
     revalidateOnFocus: false,
@@ -32,7 +36,7 @@ export function SourceCode({ url }: { url: string }) {
         <Link
           href={url}
           className="btn btn-square btn-ghost forced-colors:border-none"
-          aria-label="Scarica soluzione"
+          aria-label={_(msg`Scarica soluzione`)}
           download>
           <Download />
         </Link>

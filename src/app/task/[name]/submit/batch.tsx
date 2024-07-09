@@ -3,6 +3,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { Form, SelectField, SingleFileField, SubmitButton } from "@olinfo/react-components";
 import { Task, submitBatch } from "@olinfo/training-api";
 import clsx from "clsx";
@@ -18,22 +20,27 @@ const Editor = dynamic(() => import("./editor"), {
 
 export function SubmitBatch({ task }: { task: Task }) {
   const router = useRouter();
+  const { _ } = useLingui();
 
   const languages = useMemo(() => task.supported_languages.map((l) => compilerLang(l)), [task]);
 
   const langMessage = (lang?: string) => {
     switch (compilerLang(lang)) {
       case Language.Pascal:
-        return "Probabilmente hai sbagliato a selezionare il linguaggio, in caso contrario ti suggeriamo di smettere di usare Pascal e imparare un linguaggio più moderno.";
+        return _(
+          msg`Probabilmente hai sbagliato a selezionare il linguaggio, in caso contrario ti suggeriamo di smettere di usare Pascal e imparare un linguaggio più moderno.`,
+        );
       case Language.Java:
-        return `Assicurati di chiamare la tua classe "${task.submission_format[0].replace(".%l", "")}", altrimenti la compilazione non andrà a buon fine.`;
+        return _(
+          msg`Assicurati di chiamare la tua classe "${task.submission_format[0].replace(".%l", "")}", altrimenti la compilazione non andrà a buon fine.`,
+        );
     }
   };
 
   const validateFile = (file: File) => {
-    if (file.size > 100_000) return "File troppo grande";
+    if (file.size > 100_000) return _(msg`File troppo grande`);
     if (!task.supported_languages.some((l) => fileLanguage(file.name) === compilerLang(l))) {
-      return "Tipo di file non valido";
+      return _(msg`Tipo di file non valido`);
     }
   };
 
@@ -55,7 +62,9 @@ export function SubmitBatch({ task }: { task: Task }) {
       defaultValue={{ lang: task.supported_languages[0] }}
       onSubmit={submit}
       className="!max-w-full grow">
-      <H2>Invia soluzione</H2>
+      <H2>
+        <Trans>Invia soluzione</Trans>
+      </H2>
       <div
         className={clsx(
           "mb-4 flex w-full max-w-sm flex-col items-center",
@@ -63,17 +72,19 @@ export function SubmitBatch({ task }: { task: Task }) {
         )}>
         <SelectField
           field="lang"
-          label="Linguaggio"
+          label={_(msg`Linguaggio`)}
           options={Object.fromEntries(task.supported_languages.map((l) => [l, l]))}
         />
         <SingleFileField
           field="src"
-          label="Codice sorgente"
+          label={_(msg`Codice sorgente`)}
           validate={validateFile}
           optional={isSubmitPage}
         />
         <div className={clsx("flex-none", isSubmitPage && "md:mt-5")}>
-          <SubmitButton icon={Send}>Invia</SubmitButton>
+          <SubmitButton icon={Send}>
+            <Trans>Invia</Trans>
+          </SubmitButton>
         </div>
       </div>
       {({ lang }) => {
@@ -87,7 +98,7 @@ export function SubmitBatch({ task }: { task: Task }) {
       }}
       {task.attachments.some((a) => a.name.startsWith("grader")) && (
         <Link href="https://wiki.olinfo.it/Guide/grader" className="link link-info mb-4">
-          Come si usano i grader?
+          <Trans>Come si usano i grader?</Trans>
         </Link>
       )}
       {isSubmitPage &&

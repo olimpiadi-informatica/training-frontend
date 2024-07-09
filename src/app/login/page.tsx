@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import {
   CheckboxField,
   CurrentPasswordField,
@@ -19,6 +21,7 @@ export default function Page() {
   const router = useRouter();
   const params = useSearchParams();
   const { mutate } = useSWRConfig();
+  const { _ } = useLingui();
 
   const submit = async (credential: {
     username: string;
@@ -43,19 +46,23 @@ export default function Page() {
 
   return (
     <Form defaultValue={{ keepSigned: true }} onSubmit={submit}>
-      <H1>Accedi</H1>
+      <H1>
+        <Trans>Accedi</Trans>
+      </H1>
       <UsernameField field="username" />
       <CurrentPasswordField field="password" />
-      <CheckboxField field="keepSigned" label="Ricordami" optional />
-      <SubmitButton>Entra</SubmitButton>
+      <CheckboxField field="keepSigned" label={_(msg`Ricordami`)} optional />
+      <SubmitButton>
+        <Trans>Entra</Trans>
+      </SubmitButton>
       <div className="mt-6 w-full">
         <Link href="/recover" className="link link-info">
-          Password dimenticata
+          <Trans>Password dimenticata</Trans>
         </Link>
       </div>
       <div className="mt-1 w-full">
         <Link href="/signup" className="link link-info">
-          Crea un nuovo account
+          <Trans>Crea un nuovo account</Trans>
         </Link>
       </div>
     </Form>

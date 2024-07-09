@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 
+import { Trans } from "@lingui/macro";
 import { Task, getTask } from "@olinfo/training-api";
 import useSWR from "swr";
 
@@ -28,12 +29,16 @@ export default function Page({ params }: Props) {
   if (!user) {
     return (
       <div className="text-center">
-        <H2>Invia soluzione</H2>
-        <div className="my-2">Accedi per inviare soluzioni</div>
+        <H2>
+          <Trans>Invia soluzione</Trans>
+        </H2>
+        <div className="my-2">
+          <Trans>Accedi per inviare soluzioni</Trans>
+        </div>
         <Link
           href={`/login?redirect=${encodeURIComponent(`/task/${params.name}/submit`)}`}
           className="btn btn-primary">
-          Accedi
+          <Trans>Accedi</Trans>
         </Link>
       </div>
     );

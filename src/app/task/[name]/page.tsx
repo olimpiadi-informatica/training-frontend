@@ -2,6 +2,7 @@
 
 import { Suspense, lazy } from "react";
 
+import { useLingui } from "@lingui/react";
 import { Task, fileUrl, getTask } from "@olinfo/training-api";
 import useSWR from "swr";
 
@@ -16,6 +17,8 @@ type Props = {
 };
 
 export default function Page({ params }: Props) {
+  const { i18n } = useLingui();
+
   const { data: task } = useSWR<Task, Error, [string, string]>(
     ["api/task", params.name],
     ([, ...params]) => getTask(...params),
@@ -26,7 +29,7 @@ export default function Page({ params }: Props) {
     task &&
     fileUrl({
       name: "testo.pdf",
-      digest: task.statements["it"] ?? Object.values(task.statements)[0],
+      digest: task.statements[i18n.locale] ?? Object.values(task.statements)[0],
     });
 
   return (

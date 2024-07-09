@@ -1,5 +1,7 @@
 import { useRouter } from "next/navigation";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { Form, MultipleFileField, SubmitButton } from "@olinfo/react-components";
 import { Task, submitOutputOnly } from "@olinfo/training-api";
 import { sortBy } from "lodash-es";
@@ -9,10 +11,11 @@ import { H2 } from "~/components/header";
 
 export function SubmitOutputOnly({ task }: { task: Task }) {
   const router = useRouter();
+  const { _ } = useLingui();
 
   const validate = (files: Record<string, File>) => {
     for (const output of task.submission_format) {
-      if (!files[output]) return `File "${output}" mancante`;
+      if (!files[output]) return _(msg`File "${output}" mancante`);
     }
   };
 
@@ -24,15 +27,26 @@ export function SubmitOutputOnly({ task }: { task: Task }) {
 
   return (
     <Form onSubmit={submit}>
-      <H2>Invia output</H2>
-      <div>Devi inviare i seguenti file:</div>
+      <H2>
+        <Trans>Invia output</Trans>
+      </H2>
+      <div>
+        <Trans>Devi inviare i seguenti file:</Trans>
+      </div>
       <div className="columns-2 text-sm">
         {sortBy(task.submission_format).map((file) => (
           <div key={file}>{file}</div>
         ))}
       </div>
-      <MultipleFileField field="outputs" label="File di output" accept=".txt" validate={validate} />
-      <SubmitButton icon={Send}>Invia</SubmitButton>
+      <MultipleFileField
+        field="outputs"
+        label={_(msg`File di output`)}
+        accept=".txt"
+        validate={validate}
+      />
+      <SubmitButton icon={Send}>
+        <Trans>Invia</Trans>
+      </SubmitButton>
     </Form>
   );
 }

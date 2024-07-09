@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import {
   EmailField,
   FirstNameField,
@@ -45,6 +47,7 @@ export default function Page() {
   const theme = useTheme();
   const router = useRouter();
   const { mutate } = useSWRConfig();
+  const { _ } = useLingui();
 
   const { data: contest } = useSWR<Contest, Error>("api/contest", getContest, {
     revalidateIfStale: false,
@@ -66,13 +69,13 @@ export default function Page() {
     } catch (err) {
       switch ((err as Error).message) {
         case "Username is invalid":
-          throw new FormFieldError("username", "Username non valido");
+          throw new FormFieldError("username", _(msg`Username non valido`));
         case "This username is not available":
-          throw new FormFieldError("username", "Username non disponibile");
+          throw new FormFieldError("username", _(msg`Username non disponibile`));
         case "Invalid e-mail":
-          throw new FormFieldError("email", "E-mail non valida");
+          throw new FormFieldError("email", _(msg`Email non valida`));
         case "E-mail already used":
-          throw new FormFieldError("email", "E-mail già in uso");
+          throw new FormFieldError("email", _(msg`Email già in uso`));
         default:
           throw err;
       }
@@ -85,27 +88,33 @@ export default function Page() {
 
   return (
     <Form onSubmit={submit}>
-      <H1>Crea un account</H1>
+      <H1>
+        <Trans>Crea un nuovo account</Trans>
+      </H1>
       <EmailField field="email" />
       <UsernameField field="username" minLength={4} />
       <NewPasswordField field="password" minLength={8} />
-      <H2 className="mt-8">Anagrafica</H2>
+      <H2 className="mt-8">
+        <Trans>Anagrafica</Trans>
+      </H2>
       <FirstNameField field="name" />
       <LastNameField field="surname" />
-      <H2 className="mt-8">Scuola di provenienza (opzionale)</H2>
+      <H2 className="mt-8">
+        <Trans>Scuola di provenienza (opzionale)</Trans>
+      </H2>
       <LocationField
-        label="Regione"
+        label={_(msg`Regione`)}
         field="region"
-        placeholder="Scegli la regione"
+        placeholder={_(msg`Scegli la regione`)}
         id="🇮🇹"
         fetcher={getRegions}
         optional
       />
       {({ region }) => (
         <LocationField
-          label="Provincia"
+          label={_(msg`Provincia`)}
           field="province"
-          placeholder="Scegli la provincia"
+          placeholder={_(msg`Scegli la provincia`)}
           id={region}
           fetcher={getProvinces}
           optional
@@ -113,9 +122,9 @@ export default function Page() {
       )}
       {({ province }) => (
         <LocationField
-          label="Comune"
+          label={_(msg`Comune`)}
           field="city"
-          placeholder="Scegli il comune"
+          placeholder={_(msg`Scegli il comune`)}
           id={province}
           fetcher={getCities}
           optional
@@ -123,9 +132,9 @@ export default function Page() {
       )}
       {({ city }) => (
         <LocationField
-          label="Istituto"
+          label={_(msg`Istituto`)}
           field="institute"
-          placeholder="Scegli la scuola"
+          placeholder={_(msg`Scegli la scuola`)}
           id={city}
           fetcher={getInstitutes}
           optional
@@ -147,7 +156,9 @@ export default function Page() {
           )}
         </div>
       )}
-      <SubmitButton>Crea</SubmitButton>
+      <SubmitButton>
+        <Trans>Crea</Trans>
+      </SubmitButton>
     </Form>
   );
 }

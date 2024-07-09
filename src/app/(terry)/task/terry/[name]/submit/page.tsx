@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound, useRouter } from "next/navigation";
 import { useEffect, useReducer } from "react";
 
+import { Trans, msg, t } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import {
   Button,
   DateDistance,
@@ -30,6 +32,7 @@ export default function Page({ params: { name: taskName } }: Props) {
   const router = useRouter();
   const user = useTerryUser();
   const { mutate } = useSWRConfig();
+  const { _ } = useLingui();
 
   const task = user?.contest.tasks.find((t) => t.name === taskName);
   const input = user?.tasks[task?.name ?? ""].current_input;
@@ -59,22 +62,24 @@ export default function Page({ params: { name: taskName } }: Props) {
 
   return (
     <div>
-      <H2 className="mb-2">Ottieni input</H2>
+      <H2 className="mb-2">
+        <Trans>Ottieni input</Trans>
+      </H2>
       {input ? (
         <>
           <div className="flex flex-wrap justify-center gap-4">
             <a href={`/api-terry/files/${input.path}`} download className="btn btn-primary">
-              <Download /> Scarica input
+              <Download /> <Trans>Scarica input</Trans>
             </a>
             <Button className="btn-primary" onClick={changeInput} icon={ArrowLeftRight}>
-              Cambia input
+              <Trans>Cambia input</Trans>
             </Button>
           </div>
           <div className="mt-2 grid justify-center">
             {expired ? (
               <span className="text-sm text-error/70">
-                <TriangleAlert className="inline-block align-text-bottom" size={16} /> Questo input
-                è scaduto.
+                <TriangleAlert className="inline-block align-text-bottom" size={16} />{" "}
+                <Trans>Questo input è scaduto.</Trans>
               </span>
             ) : (
               input.expiry_date && <Timer date={input.expiry_date} />
@@ -84,18 +89,18 @@ export default function Page({ params: { name: taskName } }: Props) {
       ) : (
         <div className="flex justify-center">
           <Button className="btn-primary" onClick={requestInput} icon={ServerCog}>
-            Richiedi input
+            <Trans>Richiedi input</Trans>
           </Button>
         </div>
       )}
       <div className="divider mx-auto w-full max-w-sm" />
       <Form onSubmit={onSubmit} disabled={!input || expired}>
         <H2>Invia soluzione</H2>
-        <SingleFileField field="source" label="File sorgente" validate={validateSource} />
-        <SingleFileField field="output" label="File di output" />
+        <SingleFileField field="source" label={_(msg`File sorgente`)} validate={validateSource} />
+        <SingleFileField field="output" label={_(msg`File di output`)} />
         <SubmitButton icon={Send}>Invia</SubmitButton>
         <Link href={`/task/terry/${taskName}/help`} className="link link-info mt-4">
-          Cosa devo inviare?
+          <Trans>Cosa devo inviare?</Trans>
         </Link>
       </Form>
     </div>
@@ -112,8 +117,10 @@ function Timer({ date }: { date: Date }) {
 
   return (
     <span className="text-sm text-base-content/80">
-      <TimerIcon className="inline-block align-text-top" size={14} /> Questo input scade{" "}
-      <DateDistance date={date} />.
+      <TimerIcon className="inline-block align-text-top" size={14} />{" "}
+      <Trans>
+        Questo input scade <DateDistance date={date} />.
+      </Trans>
     </span>
   );
 }
@@ -121,6 +128,6 @@ function Timer({ date }: { date: Date }) {
 function validateSource(file: File) {
   const lang = fileLanguageName(file.name);
   if (lang === "N/A") {
-    return "Seleziona il file sorgente";
+    return t`Seleziona il file sorgente`;
   }
 }

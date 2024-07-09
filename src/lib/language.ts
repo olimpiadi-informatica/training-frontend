@@ -1,3 +1,5 @@
+import { t } from "@lingui/macro";
+
 export enum Language {
   C = "c",
   Cpp = "cpp",
@@ -98,9 +100,9 @@ export function languageName(language: Language): string {
     case Language.Scratch:
       return "Scratch";
     case Language.Plain:
-      return "Testo semplice";
+      return t`Testo semplice`;
     case Language.Pseudocode:
-      return "Pseudocodice";
+      return t`Pseudocodice`;
     case Language.Ruby:
       return "Ruby";
     case Language.Rust:

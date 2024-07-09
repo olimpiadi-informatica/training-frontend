@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { Form, SubmitButton, useNotifications } from "@olinfo/react-components";
 import {
   changeSchool,
@@ -30,6 +32,7 @@ export default function Page({ params: { username } }: Props) {
   const router = useRouter();
   const { mutate } = useSWRConfig();
   const { notifySuccess } = useNotifications();
+  const { _ } = useLingui();
 
   const submit = async (data: Institute) => {
     await changeSchool(data.institute);
@@ -37,48 +40,52 @@ export default function Page({ params: { username } }: Props) {
     await mutate(["api/user", username]);
     router.push(`/user/${username}`);
     router.refresh();
-    notifySuccess("Scuola cambiata con successo");
+    notifySuccess(_(msg`Scuola cambiata con successo`));
     await new Promise(() => {});
   };
 
   return (
     <Form onSubmit={submit}>
-      <H2 className="mt-8">Scuola di provenienza</H2>
+      <H2 className="mt-8">
+        <Trans>Scuola di provenienza</Trans>
+      </H2>
       <LocationField
-        label="Regione"
+        label={_(msg`Regione`)}
         field="region"
-        placeholder="Scegli la regione"
+        placeholder={_(msg`Scegli la regione`)}
         id="🇮🇹"
         fetcher={getRegions}
       />
       {({ region }) => (
         <LocationField
-          label="Provincia"
+          label={_(msg`Provincia`)}
           field="province"
-          placeholder="Scegli la provincia"
+          placeholder={_(msg`Scegli la provincia`)}
           id={region}
           fetcher={getProvinces}
         />
       )}
       {({ province }) => (
         <LocationField
-          label="Comune"
+          label={_(msg`Comune`)}
           field="city"
-          placeholder="Scegli il comune"
+          placeholder={_(msg`Scegli il comune`)}
           id={province}
           fetcher={getCities}
         />
       )}
       {({ city }) => (
         <LocationField
-          label="Istituto"
+          label={_(msg`Istituto`)}
           field="institute"
-          placeholder="Scegli la scuola"
+          placeholder={_(msg`Scegli la scuola`)}
           id={city}
           fetcher={getInstitutes}
         />
       )}
-      <SubmitButton>Cambia scuola</SubmitButton>
+      <SubmitButton>
+        <Trans>Cambia scuola</Trans>
+      </SubmitButton>
     </Form>
   );
 }

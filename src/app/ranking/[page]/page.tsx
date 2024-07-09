@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { Avatar, Menu } from "@olinfo/react-components";
 import { Ranking, User, getRanking } from "@olinfo/training-api";
 import useSWR from "swr";
@@ -22,6 +24,8 @@ export default function Page({ params: { page: pageStr } }: Props) {
 
   if (!Number.isInteger(page) || page < 1) notFound();
 
+  const { _ } = useLingui();
+
   const { data: ranking } = useSWR<Ranking, Error, [string, number, number]>(
     ["api/ranking", page, pageSize],
     ([, ...params]) => getRanking(...params),
@@ -35,8 +39,10 @@ export default function Page({ params: { page: pageStr } }: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <H1 className="px-2">Pagina {page}</H1>
-      <Menu fallback="Nessun utente trovato">
+      <H1 className="px-2">
+        <Trans>Pagina {page}</Trans>
+      </H1>
+      <Menu fallback={_(msg`Nessun utente trovato`)}>
         {users.map((user: User, i) => (
           <li key={user.username}>
             <Link href={`/user/${user.username}`} className="flex justify-between">

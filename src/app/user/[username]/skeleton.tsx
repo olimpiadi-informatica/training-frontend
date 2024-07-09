@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { Card, CardBody } from "@olinfo/react-components";
 import clsx from "clsx";
 import { range } from "lodash-es";
@@ -9,7 +10,9 @@ export function Skeleton({ username }: { username: string }) {
 
   return (
     <div className="flex flex-col gap-4">
-      <H1 className="sr-only">Profilo di {username}</H1>
+      <H1 className="sr-only">
+        <Trans>Profilo di {username}</Trans>
+      </H1>
       <Card>
         <div className="flex max-w-full justify-center pb-0 max-sm:p-4">
           <div className="skeleton size-64 rounded" />

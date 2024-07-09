@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { MouseEvent, Ref, forwardRef, useRef, useState } from "react";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import {
   Form,
   FormFieldError,
@@ -27,6 +29,8 @@ type Props = {
 };
 
 export default function Page({ params }: Props) {
+  const { _ } = useLingui();
+
   const modalRef = useRef<HTMLDialogElement>(null);
 
   const { data: task } = useSWR<Task, Error, [string, string]>(
@@ -48,8 +52,10 @@ export default function Page({ params }: Props) {
 
   return (
     <div>
-      <H2 className="mb-2">Tag</H2>
-      <Menu fallback="Nessun tag">
+      <H2 className="mb-2">
+        <Trans>Tags</Trans>
+      </H2>
+      <Menu fallback={_(msg`Nessun tag`)}>
         {tags.map((tag) => (
           <li key={tag.name}>
             {tag.can_delete || eventTags.includes(tag.name) ? (
@@ -63,7 +69,7 @@ export default function Page({ params }: Props) {
       {isTagsPage && (
         <div className="mt-4 flex justify-center">
           <button className="btn btn-primary" onClick={() => modalRef.current?.showModal()}>
-            <SquarePlus size={22} /> Aggiungi tag
+            <SquarePlus size={22} /> <Trans>Aggiungi tag</Trans>
           </button>
           <AddTagModal ref={modalRef} taskName={params.name} />
         </div>
@@ -76,12 +82,13 @@ function BaseTag({ tag }: { tag: Tag }) {
   const { name: taskName } = useParams();
   const { notifySuccess } = useNotifications();
   const { mutate } = useSWRConfig();
+  const { _ } = useLingui();
 
   const remove = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     await removeTag(taskName as string, tag.name);
     await mutate(["api/task", taskName]);
-    notifySuccess("Tag rimosso con successo");
+    notifySuccess(_(msg`Tag rimosso con successo`));
   };
 
   return (
@@ -118,6 +125,7 @@ const AddTagModal = forwardRef(function AddTagModal(
 ) {
   const { notifySuccess } = useNotifications();
   const { mutate } = useSWRConfig();
+  const { _ } = useLingui();
 
   const { data: tags } = useSWR("api/tags", getTags, {
     revalidateIfStale: false,
@@ -132,20 +140,27 @@ const AddTagModal = forwardRef(function AddTagModal(
     } catch (err) {
       switch ((err as Error).message) {
         case "The task already has this tag":
-          throw new FormFieldError("tag", "Il task ha già questo tag");
+          throw new FormFieldError("tag", _(msg`Il task ha già questo tag`));
         default:
           throw err;
       }
     }
     await mutate(["api/task", taskName]);
-    notifySuccess("Tag aggiunto con successo");
+    notifySuccess(_(msg`Tag aggiunto con successo`));
   };
 
   return (
-    <Modal ref={ref} title="Aggiungi tag">
+    <Modal ref={ref} title={_(msg`Aggiungi tag`)}>
       <Form onSubmit={submit}>
-        <SelectField field="tag" label="Tag" placeholder="Seleziona un tag" options={options} />
-        <SubmitButton>Aggiungi</SubmitButton>
+        <SelectField
+          field="tag"
+          label={_(msg`Tag`)}
+          placeholder={_(msg`Seleziona un tag`)}
+          options={options}
+        />
+        <SubmitButton>
+          <Trans>Aggiungi</Trans>
+        </SubmitButton>
       </Form>
     </Modal>
   );

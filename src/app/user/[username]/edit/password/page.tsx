@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import {
   CurrentPasswordField,
   Form,
@@ -23,6 +25,7 @@ export default function Page({ params: { username } }: Props) {
   const router = useRouter();
   const { mutate } = useSWRConfig();
   const { notifySuccess } = useNotifications();
+  const { _ } = useLingui();
 
   const submit = async (data: { oldPassword: string; newPassword: string }) => {
     try {
@@ -30,7 +33,7 @@ export default function Page({ params: { username } }: Props) {
     } catch (err) {
       switch ((err as Error).message) {
         case "Wrong password":
-          throw new FormFieldError("oldPassword", "Password non corretta");
+          throw new FormFieldError("oldPassword", _(msg`Password non corretta`));
         default:
           throw err;
       }
@@ -38,16 +41,20 @@ export default function Page({ params: { username } }: Props) {
     await mutate("api/me");
     router.push(`/user/${username}`);
     router.refresh();
-    notifySuccess("Password modificata con successo");
+    notifySuccess(_(msg`Password modificata con successo`));
     await new Promise(() => {});
   };
 
   return (
     <Form onSubmit={submit}>
-      <H2>Modifica password</H2>
-      <CurrentPasswordField field="oldPassword" label="Vecchia password" />
-      <NewPasswordField field="newPassword" label="Nuova password" minLength={8} />
-      <SubmitButton>Modifica password</SubmitButton>
+      <H2>
+        <Trans>Modifica password</Trans>
+      </H2>
+      <CurrentPasswordField field="oldPassword" label={_(msg`Vecchia password`)} />
+      <NewPasswordField field="newPassword" label={_(msg`Nuova password`)} minLength={8} />
+      <SubmitButton>
+        <Trans>Modifica password</Trans>
+      </SubmitButton>
     </Form>
   );
 }

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Fragment, ReactNode, useEffect, useState } from "react";
 
+import { Trans } from "@lingui/macro";
 import { DateTime, Menu } from "@olinfo/react-components";
 import {
   SubmissionDetails,
@@ -57,17 +58,30 @@ export default function Page({ params: { id, name: taskName } }: Props) {
 
   return (
     <div>
-      <H2>Sottoposizione {submission.id}</H2>
-      <H3 className="mb-2 mt-6">Dettagli</H3>
+      <H2>
+        <Trans>Sottoposizione {submission.id}</Trans>
+      </H2>
+      <H3 className="mb-2 mt-6">
+        <Trans>Dettagli</Trans>
+      </H3>
       <ul className="w-full rounded-box bg-base-200 p-2 *:p-2">
         <li>
-          <span className="font-bold">Esito:</span> <Outcome submission={submission} />
+          <span className="font-bold">
+            <Trans>Esito:</Trans>
+          </span>{" "}
+          <Outcome submission={submission} />
         </li>
         <li>
-          <span className="font-bold">Linguaggio:</span> {submission.language}
+          <span className="font-bold">
+            <Trans>Linguaggio:</Trans>
+          </span>{" "}
+          {submission.language}
         </li>
         <li>
-          <span className="font-bold">Data e ora:</span> <DateTime date={submission.timestamp} />
+          <span className="font-bold">
+            <Trans>Data e ora:</Trans>
+          </span>{" "}
+          <DateTime date={submission.timestamp} />
         </li>
       </ul>
       <div className="grid w-full auto-cols-auto overflow-x-auto max-md:w-screen max-md:-translate-x-4 max-md:px-4">
@@ -75,10 +89,12 @@ export default function Page({ params: { id, name: taskName } }: Props) {
           <Fragment key={i}>
             <H3 className="col-span-5 m-2 mt-6 flex justify-between">
               {subtask.idx === undefined ? (
-                <div>Testcase</div>
+                <div>
+                  <Trans>Testcases</Trans>
+                </div>
               ) : (
                 <div>
-                  Subtask {subtask.idx}{" "}
+                  <Trans>Subtask {subtask.idx}</Trans>{" "}
                   {subtask.testcases.every((tc) => tc.outcome === "Correct") ? (
                     <Check
                       size={28}
@@ -101,22 +117,31 @@ export default function Page({ params: { id, name: taskName } }: Props) {
           </Fragment>
         ))}
       </div>
-      <H3 className="mb-2 mt-6">Compilazione</H3>
+      <H3 className="mb-2 mt-6">
+        <Trans>Compilazione</Trans>
+      </H3>
       <ul className="w-full rounded-box bg-base-200 p-2 *:p-2">
         <li>
-          <span className="font-bold">Esito della compilazione:</span>{" "}
+          <span className="font-bold">
+            <Trans>Esito della compilazione:</Trans>
+          </span>{" "}
           {submission.compilation_outcome || (
             <span className="inline-flex gap-2 align-text-top">
-              <span className="loading loading-spinner loading-xs" /> Compilazione in corso
+              <span className="loading loading-spinner loading-xs" />{" "}
+              <Trans>Compilazione in corso</Trans>
             </span>
           )}
         </li>
         <li>
-          <span className="font-bold">Tempo di compilazione:</span>{" "}
+          <span className="font-bold">
+            <Trans>Tempo di compilazione:</Trans>
+          </span>{" "}
           <Resource value={submission.compilation_time} unit="sec" precision={3} />
         </li>
         <li>
-          <span className="font-bold">Memoria utilizzata:</span>{" "}
+          <span className="font-bold">
+            <Trans>Memoria utilizzata:</Trans>
+          </span>{" "}
           <Resource
             value={submission.compilation_memory}
             unit="MB"
@@ -139,7 +164,9 @@ export default function Page({ params: { id, name: taskName } }: Props) {
       </ul>
       {submission.files.length === 1 ? (
         <>
-          <H3 className="mb-2 mt-6">Codice sorgente</H3>
+          <H3 className="mb-2 mt-6">
+            <Trans>Codice sorgente</Trans>
+          </H3>
           <SourceCode url={fileUrl(submission.files[0])} />
         </>
       ) : (
@@ -177,25 +204,35 @@ type SubtaskProps = {
 function SubtaskTable({ subtask, timeLimit, memoryLimit }: SubtaskProps) {
   return (
     <div className="col-span-5 grid grid-cols-subgrid text-nowrap rounded-box bg-base-200 px-4 py-2 text-sm *:px-2 *:py-1">
-      <Header>Testcase</Header>
-      <Header>Risultato</Header>
-      <Header>Dettagli</Header>
-      <Header>Tempo</Header>
-      <Header>Memoria</Header>
+      <Header>
+        <Trans>Testcase</Trans>
+      </Header>
+      <Header>
+        <Trans>Risultato</Trans>
+      </Header>
+      <Header>
+        <Trans>Dettagli</Trans>
+      </Header>
+      <Header>
+        <Trans>Tempo</Trans>
+      </Header>
+      <Header>
+        <Trans>Memoria</Trans>
+      </Header>
       {subtask.testcases.map((tc) => (
         <Fragment key={tc.idx}>
           <div className="font-mono">{tc.idx}</div>
           {tc.outcome === "Correct" ? (
             <div className="text-success">
-              <Check className="inline" /> Corretto
+              <Check className="inline" /> <Trans>Corretto</Trans>
             </div>
           ) : tc.outcome === "Partially correct" ? (
             <div className="text-warning">
-              <Check className="inline" /> Parzialmente corretto
+              <Check className="inline" /> <Trans>Parzialmente corretto</Trans>
             </div>
           ) : (
             <div className="text-error">
-              <X className="inline" /> Errato
+              <X className="inline" /> <Trans>Errato</Trans>
             </div>
           )}
           <div className="min-w-40 text-wrap">{description(tc.text)}</div>

@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { Avatar, Card, CardBody } from "@olinfo/react-components";
 import { AccessLevel, User, getUser } from "@olinfo/training-api";
 import clsx from "clsx";
@@ -18,6 +20,8 @@ type Props = {
 };
 
 export default function Page({ params: { username } }: Props) {
+  const { _ } = useLingui();
+
   const { data: user } = useSWR<User, Error, [string, string]>(
     ["api/user", username],
     ([, ...params]) => getUser(...params),
@@ -29,7 +33,9 @@ export default function Page({ params: { username } }: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <H1 className="sr-only">Profilo di {username}</H1>
+      <H1 className="sr-only">
+        <Trans>Profilo di {username}</Trans>
+      </H1>
       <Card>
         <Avatar user={user} size={256} className="max-sm:mx-auto max-sm:p-4" />
         <CardBody
@@ -46,23 +52,25 @@ export default function Page({ params: { username } }: Props) {
               {user.institute.name}, {user.institute.city}, {user.institute.region}
             </div>
           )}
-          <div className="text-xl font-bold">{user.score} punti</div>
+          <div className="text-xl font-bold">
+            <Trans>{user.score} punti</Trans>
+          </div>
           {me?.username === user.username && (
             <div className="mt-auto">
               <Link href={`/user/${user.username}/edit/password`} className="link link-info">
-                Modifica profilo
+                <Trans>Modifica profilo</Trans>
               </Link>
             </div>
           )}
         </CardBody>
       </Card>
       <Card>
-        <CardBody title="Problemi risolti">
+        <CardBody title={_(msg`Problemi risolti`)}>
           <div className="sm:columns-2 md:columns-3 lg:columns-4">
             {orderBy(user.scores, ["score", "title"], ["desc", "asc"]).map((task) => (
               <TaskBadge key={task.name} {...task} />
             ))}
-            {user.scores?.length === 0 && "Nessun problema risolto"}
+            {user.scores?.length === 0 && _(msg`Nessun problema risolto`)}
           </div>
         </CardBody>
       </Card>
@@ -73,21 +81,49 @@ export default function Page({ params: { username } }: Props) {
 function UserBadge({ level }: { level: AccessLevel }) {
   switch (level) {
     case AccessLevel.Admin:
-      return <span className="badge badge-error">Admin</span>;
+      return (
+        <span className="badge badge-error">
+          <Trans>Admin</Trans>
+        </span>
+      );
     case AccessLevel.Monica:
       return <span className="badge badge-secondary">Monica</span>;
     case AccessLevel.Tutor:
-      return <span className="badge badge-accent">Tutor</span>;
+      return (
+        <span className="badge badge-accent">
+          <Trans>Tutor</Trans>
+        </span>
+      );
     case AccessLevel.Teacher:
-      return <span className="badge badge-primary">Insegnante</span>;
+      return (
+        <span className="badge badge-primary">
+          <Trans>Insegnante</Trans>
+        </span>
+      );
     case AccessLevel.Superuser:
-      return <span className="badge badge-success">Aristocratico</span>;
+      return (
+        <span className="badge badge-success">
+          <Trans>Aristocratico</Trans>
+        </span>
+      );
     case AccessLevel.User:
-      return <span className="badge badge-info">Anziano</span>;
+      return (
+        <span className="badge badge-info">
+          <Trans>Anziano</Trans>
+        </span>
+      );
     case AccessLevel.Newbie:
-      return <span className="badge badge-info">Novizio</span>;
+      return (
+        <span className="badge badge-info">
+          <Trans>Novizio</Trans>
+        </span>
+      );
     case AccessLevel.Guest:
-      return <span className="badge badge-info">Ospite</span>;
+      return (
+        <span className="badge badge-info">
+          <Trans>Ospite</Trans>
+        </span>
+      );
   }
 }
 

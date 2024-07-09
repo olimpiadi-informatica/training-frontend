@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { Menu } from "@olinfo/react-components";
 import clsx from "clsx";
 import { range } from "lodash-es";
@@ -9,7 +10,9 @@ export function Skeleton() {
 
   return (
     <div>
-      <H2 className="mb-2">Allegati</H2>
+      <H2 className="mb-2">
+        <Trans>Allegati</Trans>
+      </H2>
       <Menu>
         {range(9).map((i) => (
           <li key={i}>

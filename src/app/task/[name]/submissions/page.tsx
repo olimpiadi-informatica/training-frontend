@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { Trans } from "@lingui/macro";
 import { DateTime, Menu } from "@olinfo/react-components";
 import { Submission, getTaskSubmissions, isEvaluating } from "@olinfo/training-api";
 import useSWR from "swr";
@@ -40,13 +41,17 @@ export default function Page({ params: { name: taskName } }: Props) {
   if (!user) {
     return (
       <div>
-        <H2 className="mb-2">Sottoposizioni</H2>
+        <H2 className="mb-2">
+          <Trans>Sottoposizioni</Trans>
+        </H2>
         <div className="text-center">
-          <div className="my-2">Accedi per vedere le tue sottoposizioni</div>
+          <div className="my-2">
+            <Trans>Accedi per vedere le tue sottoposizioni</Trans>
+          </div>
           <Link
             href={`/login?redirect=${encodeURIComponent(`/task/${taskName}/submissions`)}`}
             className="btn btn-primary">
-            Accedi
+            <Trans>Accedi</Trans>
           </Link>
         </div>
       </div>
@@ -57,14 +62,24 @@ export default function Page({ params: { name: taskName } }: Props) {
 
   return (
     <div>
-      <H2 className="mb-2">Sottoposizioni</H2>
+      <H2 className="mb-2">
+        <Trans>Sottoposizioni</Trans>
+      </H2>
       <div className="w-full overflow-x-auto max-md:w-screen max-md:-translate-x-4 max-md:px-4">
         <Menu className="grid min-w-fit grid-cols-[auto_auto_1fr_auto]">
           <h3 className="menu-title col-span-4 grid grid-cols-subgrid gap-2">
-            <div>ID</div>
-            <div>Linguaggio</div>
-            <div>Data e ora</div>
-            <div className="text-end">Esito</div>
+            <div>
+              <Trans>ID</Trans>
+            </div>
+            <div>
+              <Trans>Linguaggio</Trans>
+            </div>
+            <div>
+              <Trans>Data e ora</Trans>
+            </div>
+            <div className="text-end">
+              <Trans>Esito</Trans>
+            </div>
           </h3>
           {submissions.map((sub) => (
             <li key={sub.id} className="col-span-4 grid grid-cols-subgrid">
@@ -83,7 +98,9 @@ export default function Page({ params: { name: taskName } }: Props) {
             </li>
           ))}
           {submissions.length === 0 && (
-            <li className="col-span-full p-2 text-center">Nessuna sottoposizione inviata</li>
+            <li className="col-span-full p-2 text-center">
+              <Trans>Nessuna sottoposizione inviata</Trans>
+            </li>
           )}
         </Menu>
       </div>

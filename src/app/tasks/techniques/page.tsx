@@ -1,49 +1,79 @@
 import Link from "next/link";
 
+import { Trans } from "@lingui/macro";
 import { Menu } from "@olinfo/react-components";
 
 import { H1 } from "~/components/header";
+import { loadLocale } from "~/lib/locale";
 
-export default function Page() {
+export default async function Page() {
+  await loadLocale();
+
   return (
     <>
-      <H1 className="mb-2">Problemi per tecnica</H1>
+      <H1 className="mb-2">
+        <Trans>Problemi per tecnica</Trans>
+      </H1>
       <Menu>
         <li>
-          <Link href="/tasks/1?tag=ad_hoc">Ad hoc</Link>
+          <Link href="/tasks/1?tag=ad_hoc">
+            <Trans>Ad hoc</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=divide_and_conquer">Divide & Conquer</Link>
+          <Link href="/tasks/1?tag=divide_and_conquer">
+            <Trans>Divide & Conquer</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=geometry">Geometria</Link>
+          <Link href="/tasks/1?tag=geometry">
+            <Trans>Geometria</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=graphs">Grafi</Link>
+          <Link href="/tasks/1?tag=graphs">
+            <Trans>Grafi</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=greedy">Greedy</Link>
+          <Link href="/tasks/1?tag=greedy">
+            <Trans>Greedy</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=implementation">Implementazione</Link>
+          <Link href="/tasks/1?tag=implementation">
+            <Trans>Implementazione</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=math">Matematica</Link>
+          <Link href="/tasks/1?tag=math">
+            <Trans>Matematica</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=extreme_optimization">Ottimizzazioni estreme</Link>
+          <Link href="/tasks/1?tag=extreme_optimization">
+            <Trans>Ottimizzazioni estreme</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=dp">Programmazione dinamica</Link>
+          <Link href="/tasks/1?tag=dp">
+            <Trans>Programmazione dinamica</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=binary_search">Ricerca binaria</Link>
+          <Link href="/tasks/1?tag=binary_search">
+            <Trans>Ricerca binaria</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=strings">Stringhe</Link>
+          <Link href="/tasks/1?tag=strings">
+            <Trans>Stringhe</Trans>
+          </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=data_structures">Strutture dati</Link>
+          <Link href="/tasks/1?tag=data_structures">
+            <Trans>Strutture dati</Trans>
+          </Link>
         </li>
       </Menu>
     </>

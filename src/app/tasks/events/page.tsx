@@ -1,26 +1,38 @@
 import Link from "next/link";
 
+import { Trans } from "@lingui/macro";
 import { Menu } from "@olinfo/react-components";
 
 import { H1, H2 } from "~/components/header";
+import { loadLocale } from "~/lib/locale";
 
-export default function Page() {
+export default async function Page() {
+  await loadLocale();
+
   return (
     <>
-      <H1>Problemi per gara</H1>
-      <H2 className="mb-2 mt-6">Gare ufficiali</H2>
+      <H1>
+        <Trans>Problemi per gara</Trans>
+      </H1>
+      <H2 className="mb-2 mt-6">
+        <Trans>Gare ufficiali</Trans>
+      </H2>
       <Menu>
         <li>
           <Link href="https://scolastiche.olinfo.it">Scolastiche</Link>
         </li>
         <li>
           <Link href="/tasks/1?tag=territoriali">
-            Territoriali <span className="text-base-content/60">(vecchio formato)</span>
+            <Trans>
+              Territoriali <span className="text-base-content/60">(vecchio formato)</span>
+            </Trans>
           </Link>
         </li>
         <li>
           <Link href="/tasks/terry/1">
-            Territoriali <span className="text-base-content/60">(nuovo formato)</span>
+            <Trans>
+              Territoriali <span className="text-base-content/60">(nuovo formato)</span>
+            </Trans>
           </Link>
         </li>
         <li>
@@ -31,7 +43,9 @@ export default function Page() {
         </li>
         <li>
           <Link href="/tasks/1?tag=ois">
-            Gare a squadre <span className="text-base-content/60">(OIS)</span>
+            <Trans>
+              Gare a squadre <span className="text-base-content/60">(OIS)</span>
+            </Trans>
           </Link>
         </li>
         <li>
@@ -47,7 +61,9 @@ export default function Page() {
           </Link>
         </li>
       </Menu>
-      <H2 className="mb-2 mt-6">Altre gare</H2>
+      <H2 className="mb-2 mt-6">
+        <Trans>Altre gare</Trans>
+      </H2>
       <Menu>
         <li>
           <Link href="/tasks/1?tag=abc">
@@ -61,16 +77,20 @@ export default function Page() {
           </Link>
         </li>
         <li>
-          <Link href="/tasks/1?tag=roiti">Gara di allenamento Istituto Roiti Ferrara</Link>
+          <Link href="/tasks/1?tag=roiti">
+            <Trans>Gara di allenamento Istituto Roiti Ferrara</Trans>
+          </Link>
         </li>
         <li>
           <Link href="/tasks/1?tag=gator">
-            Gara di Allenamento Tor Vergata <span className="text-base-content/60">(GATOR)</span>
+            <Trans>
+              Gara di Allenamento Tor Vergata <span className="text-base-content/60">(GATOR)</span>
+            </Trans>
           </Link>
         </li>
         <li>
           <Link href="/tasks/1?tag=unimiopc">
-            Selezione SWERC dell&apos;Università degli Studi di Milano
+            <Trans>Selezione SWERC dell&apos;Università degli Studi di Milano</Trans>
           </Link>
         </li>
       </Menu>

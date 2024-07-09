@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound, useParams, useSelectedLayoutSegment } from "next/navigation";
 import { ReactNode } from "react";
 
+import { Trans } from "@lingui/macro";
 import { Tabs } from "@olinfo/react-components";
 import clsx from "clsx";
 
@@ -28,9 +29,15 @@ export default function Layout({ params: { name: taskName }, children }: Props) 
         <div className="skeleton mx-auto my-1 h-7 w-full max-w-xs" />
       )}
       <Tabs>
-        <Tab page="">Testo</Tab>
-        <Tab page="submit">Invia</Tab>
-        <Tab page="submissions">Sottoposizioni</Tab>
+        <Tab page="">
+          <Trans>Testo</Trans>
+        </Tab>
+        <Tab page="submit">
+          <Trans>Invia</Trans>
+        </Tab>
+        <Tab page="submissions">
+          <Trans>Sottoposizioni</Trans>
+        </Tab>
       </Tabs>
       {children}
     </div>

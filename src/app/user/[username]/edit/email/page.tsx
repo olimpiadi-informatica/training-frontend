@@ -2,6 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import {
   EmailField,
   Form,
@@ -22,6 +24,7 @@ export default function Page({ params: { username } }: Props) {
   const router = useRouter();
   const { mutate } = useSWRConfig();
   const { notifySuccess } = useNotifications();
+  const { _ } = useLingui();
 
   const submit = async (data: { email: string }) => {
     try {
@@ -29,9 +32,9 @@ export default function Page({ params: { username } }: Props) {
     } catch (err) {
       switch ((err as Error).message) {
         case "Invalid e-mail":
-          throw new FormFieldError("email", "Email non valida");
+          throw new FormFieldError("email", _(msg`Email non valida`));
         case "E-mail already used":
-          throw new FormFieldError("email", "Email già in uso");
+          throw new FormFieldError("email", _(msg`Email già in uso`));
         default:
           throw err;
       }
@@ -40,15 +43,19 @@ export default function Page({ params: { username } }: Props) {
     await mutate(["api/user", username]);
     router.push(`/user/${username}`);
     router.refresh();
-    notifySuccess("Email modificata con successo");
+    notifySuccess(_(msg`Email modificata con successo`));
     await new Promise(() => {});
   };
 
   return (
     <Form onSubmit={submit}>
-      <H2>Modifica email</H2>
+      <H2>
+        <Trans>Modifica email</Trans>
+      </H2>
       <EmailField field="email" />
-      <SubmitButton>Modifica email</SubmitButton>
+      <SubmitButton>
+        <Trans>Modifica email</Trans>
+      </SubmitButton>
     </Form>
   );
 }

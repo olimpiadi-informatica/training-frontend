@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { Menu } from "@olinfo/react-components";
 import clsx from "clsx";
 import { range } from "lodash-es";
@@ -10,7 +11,9 @@ export function Skeleton({ isTagsPage }: { isTagsPage: boolean }) {
 
   return (
     <div>
-      <H2 className="mb-2">Tag</H2>
+      <H2 className="mb-2">
+        <Trans>Tags</Trans>
+      </H2>
       <Menu>
         {range(3).map((i) => (
           <li key={i}>
@@ -23,7 +26,7 @@ export function Skeleton({ isTagsPage }: { isTagsPage: boolean }) {
       {isTagsPage && (
         <div className="mt-4 flex justify-center">
           <button className="btn btn-primary" disabled>
-            <SquarePlus size={22} /> Aggiungi tag
+            <SquarePlus size={22} /> <Trans>Aggiungi tag</Trans>
           </button>
         </div>
       )}

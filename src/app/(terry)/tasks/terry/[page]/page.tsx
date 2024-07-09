@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound, usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { Menu } from "@olinfo/react-components";
 
 import { H1 } from "~/components/header";
@@ -18,9 +20,10 @@ export default function Page() {
   const page = Number(usePathname().match(/^\/tasks\/terry\/(\d+)/)?.[1]);
   const pageSize = 20;
 
-  const searchParams = useSearchParams();
-
   if (!Number.isInteger(page) || page < 1) notFound();
+
+  const searchParams = useSearchParams();
+  const { _ } = useLingui();
 
   const user = useTerryUser();
   if (!user) return <Skeleton page={page} pageSize={pageSize} />;
@@ -34,10 +37,12 @@ export default function Page() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <H1 className="px-2">Pagina {page}</H1>
+        <H1 className="px-2">
+          <Trans>Pagina {page}</Trans>
+        </H1>
         <Filter />
       </div>
-      <Menu fallback="Nessun problema trovato">
+      <Menu fallback={_(msg`Nessun problema trovato`)}>
         {filteredTasks.map((task) => (
           <li key={task.name}>
             <Link href={`/task/terry/${task.name}`} className="grid-cols-[1fr_auto]">
@@ -54,6 +59,8 @@ export default function Page() {
 
 function Filter() {
   const searchParams = useSearchParams();
+  const { _ } = useLingui();
+
   const [push, setPush] = useState(true);
 
   const setFilter = (key: string, value: string) => {
@@ -77,8 +84,8 @@ function Filter() {
         className="input input-bordered"
         name="task"
         type="search"
-        placeholder="Nome del problema"
-        aria-label="Nome del problema"
+        placeholder={_(msg`Nome del problema`)}
+        aria-label={_(msg`Nome del problema`)}
         defaultValue={searchParams.get("search") ?? ""}
         onChange={(e) => setFilter("search", e.target.value)}
         onBlur={() => setPush(true)}

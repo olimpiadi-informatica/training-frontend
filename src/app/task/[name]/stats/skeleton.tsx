@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Trans } from "@lingui/macro";
 import { Menu } from "@olinfo/react-components";
 import clsx from "clsx";
 import { range } from "lodash-es";
@@ -11,26 +12,38 @@ export function Skeleton() {
 
   return (
     <div>
-      <H2 className="mb-2">Statistiche generali</H2>
+      <H2 className="mb-2">
+        <Trans>Statistiche generali</Trans>
+      </H2>
       <ul className="w-full rounded-box bg-base-200 p-2 *:p-2">
         <li>
-          <span className="font-bold">Utenti che l&apos;hanno provato:</span>
+          <span className="font-bold">
+            <Trans>Utenti che l&apos;hanno provato:</Trans>
+          </span>
           <span className="skeleton ml-2 inline-block h-4 w-12 align-text-bottom" />
         </li>
         <li>
-          <span className="font-bold">Utenti che l&apos;hanno risolto:</span>
+          <span className="font-bold">
+            <Trans>Utenti che l&apos;hanno risolto:</Trans>
+          </span>
           <span className="skeleton ml-2 inline-block h-4 w-12 align-text-bottom" />
         </li>
         <li>
-          <span className="font-bold">Soluzioni inviate:</span>
+          <span className="font-bold">
+            <Trans>Soluzioni inviate:</Trans>
+          </span>
           <span className="skeleton ml-2 inline-block h-4 w-12 align-text-bottom" />
         </li>
         <li>
-          <span className="font-bold">Soluzioni corrette:</span>
+          <span className="font-bold">
+            <Trans>Soluzioni corrette:</Trans>
+          </span>
           <span className="skeleton ml-2 inline-block h-4 w-12 align-text-bottom" />
         </li>
       </ul>
-      <H2 className="mb-2 mt-8">Soluzione più veloci</H2>
+      <H2 className="mb-2 mt-8">
+        <Trans>Soluzione più veloci</Trans>
+      </H2>
       <Menu>
         {range(10).map((i) => (
           <li key={i}>

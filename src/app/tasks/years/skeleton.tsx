@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { Menu } from "@olinfo/react-components";
 import { range } from "lodash-es";
 
@@ -8,7 +9,9 @@ export function Skeleton() {
 
   return (
     <>
-      <H1 className="mb-2">Problemi per anno</H1>
+      <H1 className="mb-2">
+        <Trans>Problemi per anno</Trans>
+      </H1>
       <Menu>
         {range(years).map((i) => (
           <li key={i}>

@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
+import { Trans } from "@lingui/macro";
 import { User, getUser } from "@olinfo/terry-api";
 import useSWR from "swr";
 
@@ -20,7 +21,7 @@ export default function Layout({ children }: { children: ReactNode }) {
 
   if (!trainingUser) {
     router.push(`/login?redirect=${encodeURIComponent(path)}`);
-    return "Reindirizzamento...";
+    return <Trans>Reindirizzamento...</Trans>;
   }
 
   return <TerryUserProvider user={user}>{children}</TerryUserProvider>;

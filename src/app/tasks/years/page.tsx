@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo } from "react";
 
+import { Trans } from "@lingui/macro";
 import { Menu } from "@olinfo/react-components";
 import { getEventTags } from "@olinfo/training-api";
 import useSWR from "swr";
@@ -31,12 +32,16 @@ export default function Page() {
 
   return (
     <>
-      <H1 className="mb-2">Problemi per anno</H1>
+      <H1 className="mb-2">
+        <Trans>Problemi per anno</Trans>
+      </H1>
       <Menu>
         {years.map((year) => (
           <li key={year}>
             <Link href={`/tasks/1?tag=ioi${year}`}>
-              Olimpiadi di Informatica {year - 2}/{((year - 1) % 100).toString().padStart(2, "0")}
+              <Trans>
+                Olimpiadi di Informatica {year - 2}/{((year - 1) % 100).toString().padStart(2, "0")}
+              </Trans>
             </Link>
           </li>
         ))}

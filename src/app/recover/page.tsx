@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import {
   EmailField,
   Form,
@@ -18,6 +20,7 @@ import { H1 } from "~/components/header";
 
 export default function Page() {
   const router = useRouter();
+  const { _ } = useLingui();
   const { notifySuccess } = useNotifications();
   const [sent, setSent] = useState(false);
 
@@ -27,38 +30,40 @@ export default function Page() {
     } catch (err) {
       switch ((err as Error).message) {
         case "No such user":
-          throw new FormFieldError("email", "Email non registrata");
+          throw new FormFieldError("email", _(msg`Email non registrata`));
         case "Wrong code":
-          throw new FormFieldError("code", "Codice non valido");
+          throw new FormFieldError("code", _(msg`Codice non valido`));
         default:
           throw err;
       }
     }
 
     if (recover.code) {
-      notifySuccess("Una password temporanea è stata inviata alla tua email");
+      notifySuccess(_(msg`Una password temporanea è stata inviata alla tua email`));
       router.push("/login");
       await new Promise(() => {});
     } else {
-      notifySuccess("Un codice di recupero è stato inviato alla tua email");
+      notifySuccess(_(msg`Un codice di recupero è stato inviato alla tua email`));
       setSent(true);
     }
   };
 
   return (
     <Form defaultValue={{ code: "" }} onSubmit={submit}>
-      <H1>Recupera password</H1>
+      <H1>
+        <Trans>Recupera password</Trans>
+      </H1>
       <EmailField field="email" disabled={sent} />
       {sent && (
         <TextField
           field="code"
-          label="Codice di recupero"
-          placeholder="Inserisci il codice di recupero"
+          label={_(msg`Codice di recupero`)}
+          placeholder={_(msg`Inserisci il codice di recupero`)}
           autoComplete="off"
           icon={MailOpen}
         />
       )}
-      <SubmitButton>{sent ? "Cambia password" : "Invia email"}</SubmitButton>
+      <SubmitButton>{sent ? _(msg`Cambia password`) : _(msg`Invia email`)}</SubmitButton>
     </Form>
   );
 }

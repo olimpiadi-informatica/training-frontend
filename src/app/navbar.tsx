@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import {
   Avatar,
   Navbar as BaseNavbar,
@@ -13,7 +15,7 @@ import {
   DropdownMenu,
 } from "@olinfo/react-components";
 import { SyncUser, User, logout } from "@olinfo/training-api";
-import { LogIn, LogOut, MenuIcon, UserRound } from "lucide-react";
+import { Languages, LogIn, LogOut, MenuIcon, UserRound } from "lucide-react";
 import { useSWRConfig } from "swr";
 
 import { useUser } from "~/components/user";
@@ -23,13 +25,14 @@ import logo from "./icon0.svg";
 export function Navbar() {
   const path = usePathname();
   const user = useUser();
+  const { _ } = useLingui();
 
   return (
     <BaseNavbar color="bg-base-300 text-base-content">
       <div>
         <Dropdown className="md:hidden">
           <DropdownButton>
-            <MenuIcon aria-label="Menu" />
+            <MenuIcon aria-label={_(msg`Menu`)} />
           </DropdownButton>
           <DropdownMenu>
             <NavbarMenu />
@@ -39,7 +42,7 @@ export function Navbar() {
           src={logo.src}
           width={logo.width}
           height={logo.height}
-          alt="Logo OII"
+          alt={_(msg`Logo OII`)}
           className="mx-2 h-8 w-auto flex-none"
         />
         <div className="max-md:hidden">
@@ -48,15 +51,18 @@ export function Navbar() {
           </BaseNavbarMenu>
         </div>
       </div>
-      {user ? (
-        <UserDropdown user={user} />
-      ) : (
-        <Link
-          href={`/login?redirect=${encodeURIComponent(path)}`}
-          className="btn btn-ghost no-animation flex-nowrap">
-          Accedi <LogIn />
-        </Link>
-      )}
+      <div>
+        <LocaleDropdown />
+        {user ? (
+          <UserDropdown user={user} />
+        ) : (
+          <Link
+            href={`/login?redirect=${encodeURIComponent(path)}`}
+            className="btn btn-ghost no-animation flex-nowrap">
+            <Trans>Accedi</Trans> <LogIn />
+          </Link>
+        )}
+      </div>
     </BaseNavbar>
   );
 }
@@ -75,39 +81,87 @@ function NavbarMenu() {
       </li>
       <li>
         <details ref={ref}>
-          <summary className="after:forced-color-adjust-none">Problemi</summary>
+          <summary className="after:forced-color-adjust-none">
+            <Trans>Problemi</Trans>
+          </summary>
           <ul>
             <li>
-              <Link href="https://scolastiche.olinfo.it">Scolastiche</Link>
+              <Link href="https://scolastiche.olinfo.it">
+                <Trans>Scolastiche</Trans>
+              </Link>
             </li>
             <li>
-              <Link href="/tasks/terry/1">Territoriali</Link>
+              <Link href="/tasks/terry/1">
+                <Trans>Territoriali</Trans>
+              </Link>
             </li>
             <li>
-              <Link href="/tasks/1">Nazionali e OIS</Link>
+              <Link href="/tasks/1">
+                <Trans>Nazionali e OIS</Trans>
+              </Link>
             </li>
             <li>
-              <Link href="/tasks/techniques">Problemi per tecnica</Link>
+              <Link href="/tasks/techniques">
+                <Trans>Problemi per tecnica</Trans>
+              </Link>
             </li>
             <li>
-              <Link href="/tasks/events">Problemi per gara</Link>
+              <Link href="/tasks/events">
+                <Trans>Problemi per gara</Trans>
+              </Link>
             </li>
             <li>
-              <Link href="/tasks/years">Problemi per anno</Link>
+              <Link href="/tasks/years">
+                <Trans>Problemi per anno</Trans>
+              </Link>
             </li>
           </ul>
         </details>
       </li>
       <li>
-        <Link href="/ranking/1">Classifica</Link>
+        <Link href="/ranking/1">
+          <Trans>Classifica</Trans>
+        </Link>
       </li>
       <li>
-        <Link href="https://algobadge.olinfo.it">Algobadge</Link>
+        <Link href="https://algobadge.olinfo.it">
+          <Trans>Algobadge</Trans>
+        </Link>
       </li>
       <li>
-        <Link href="https://forum.olinfo.it">Forum</Link>
+        <Link href="https://forum.olinfo.it">
+          <Trans>Forum</Trans>
+        </Link>
       </li>
     </>
+  );
+}
+
+function LocaleDropdown() {
+  const router = useRouter();
+
+  const changeLanguage = (lang: string) => {
+    /* eslint-disable-next-line unicorn/no-document-cookie --
+     * Until cookie store (https://developer.mozilla.org/en-US/docs/Web/API/CookieStore) is widely supported
+     **/
+    document.cookie = `lang=${lang}; path=/; max-age=31536000`;
+    router.refresh();
+  };
+
+  return (
+    <Dropdown>
+      <DropdownButton>
+        <Languages size={22} />
+      </DropdownButton>
+      <DropdownMenu>
+        <li>
+          <button onClick={() => changeLanguage("it")}>🇮🇹 Italiano</button>
+        </li>
+        <li>
+          <button onClick={() => changeLanguage("en")}>🇬🇧 English</button>
+        </li>
+      </DropdownMenu>
+    </Dropdown>
   );
 }
 
@@ -130,12 +184,12 @@ function UserDropdown({ user }: { user: User | SyncUser }) {
       <DropdownMenu>
         <li>
           <Link href={`/user/${user.username}`} className="flex justify-between gap-4">
-            Profilo <UserRound size={20} />
+            <Trans>Profilo</Trans> <UserRound size={20} />
           </Link>
         </li>
         <li>
           <button className="flex justify-between gap-4" onClick={onLogout}>
-            Esci <LogOut size={20} />
+            <Trans>Esci</Trans> <LogOut size={20} />
           </button>
         </li>
       </DropdownMenu>

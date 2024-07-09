@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useParams, useSelectedLayoutSegment } from "next/navigation";
 import { ReactNode } from "react";
 
+import { Trans } from "@lingui/macro";
 import { Tabs } from "@olinfo/react-components";
 import { Task, getTask } from "@olinfo/training-api";
 import clsx from "clsx";
@@ -26,15 +27,17 @@ export default function Layout({ params, children }: Props) {
         <div>
           <h1 className="text-center text-3xl font-bold">{task?.title}</h1>
           <div className="flex flex-col items-center justify-center gap-x-2 sm:flex-row">
-            <div>Limite di tempo: {task?.time_limit ? `${task.time_limit} sec` : "N/A"}</div>
+            <div>
+              <Trans>Limite di tempo:</Trans> {task?.time_limit ? `${task.time_limit} sec` : "N/A"}
+            </div>
             <div className="max-sm:hidden">/</div>
             <div>
-              Limite di memoria:{" "}
+              <Trans>Limite di memoria:</Trans>{" "}
               {task?.memory_limit ? `${task.memory_limit / (1 << 20)} MB` : "N/A"}
             </div>
           </div>
           <div className="text-center">
-            Punteggio massimo: {Math.round(task.score_multiplier * 100)}
+            <Trans>Punteggio massimo:</Trans> {Math.round(task.score_multiplier * 100)}
           </div>
         </div>
       ) : (
@@ -45,12 +48,24 @@ export default function Layout({ params, children }: Props) {
         </div>
       )}
       <Tabs>
-        <Tab page="">Testo</Tab>
-        <Tab page="attachments">Allegati</Tab>
-        <Tab page="tags">Tag</Tab>
-        <Tab page="stats">Statistiche</Tab>
-        <Tab page="submit">Invia</Tab>
-        <Tab page="submissions">Sottoposizioni</Tab>
+        <Tab page="">
+          <Trans>Testo</Trans>
+        </Tab>
+        <Tab page="attachments">
+          <Trans>Allegati</Trans>
+        </Tab>
+        <Tab page="tags">
+          <Trans>Tags</Trans>
+        </Tab>
+        <Tab page="stats">
+          <Trans>Statistiche</Trans>
+        </Tab>
+        <Tab page="submit">
+          <Trans>Invia</Trans>
+        </Tab>
+        <Tab page="submissions">
+          <Trans>Sottoposizioni</Trans>
+        </Tab>
       </Tabs>
       {children}
     </div>

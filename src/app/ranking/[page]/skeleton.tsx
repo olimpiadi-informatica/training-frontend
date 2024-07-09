@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { Menu } from "@olinfo/react-components";
 import clsx from "clsx";
 import { range } from "lodash-es";
@@ -14,7 +15,9 @@ export function Skeleton({ page, pageSize }: Props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <H1 className="px-2">Pagina {page}</H1>
+      <H1 className="px-2">
+        <Trans>Pagina {page}</Trans>
+      </H1>
       <Menu>
         {range(pageSize).map((i) => (
           <li key={i}>
