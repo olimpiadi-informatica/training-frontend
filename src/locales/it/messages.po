@@ -50,7 +50,7 @@ msgstr "Aggiungi"
 msgid "Aggiungi tag"
 msgstr "Aggiungi tag"
 
-#: src/app/(home)/page.tsx:58
+#: src/app/(home)/page.tsx:90
 #: src/app/navbar.tsx:90
 msgid "Algobadge"
 msgstr "Algobadge"
@@ -81,7 +81,7 @@ msgstr "Aristocratico"
 msgid "Assicurati di chiamare la tua classe \"{0}\", altrimenti la compilazione non andrà a buon fine."
 msgstr "Assicurati di chiamare la tua classe \"{0}\", altrimenti la compilazione non andrà a buon fine."
 
-#: src/app/(home)/page.tsx:25
+#: src/app/(home)/page.tsx:30
 msgid "Benvenuto nella piattaforma ufficiale di allenamento per le OII! Qui avrai accesso a numerosi problemi ai quali potrai inviare delle soluzioni scritte in un linguaggio di programmazione a tua scelta."
 msgstr "Benvenuto nella piattaforma ufficiale di allenamento per le OII! Qui avrai accesso a numerosi problemi ai quali potrai inviare delle soluzioni scritte in un linguaggio di programmazione a tua scelta."
 
@@ -150,7 +150,7 @@ msgstr "Compilazione in corso"
 msgid "Comune"
 msgstr "Comune"
 
-#: src/app/(home)/page.tsx:51
+#: src/app/(home)/page.tsx:83
 msgid "Con Algobadge ti guideremo attraverso una selezione accurata di task da risolvere, ordinati per difficoltà crescente, che ti permetteranno di esplorare nuove tecniche algoritmiche in modo graduale ed efficace."
 msgstr "Con Algobadge ti guideremo attraverso una selezione accurata di task da risolvere, ordinati per difficoltà crescente, che ti permetteranno di esplorare nuove tecniche algoritmiche in modo graduale ed efficace."
 
@@ -336,7 +336,7 @@ msgstr "ID"
 msgid "Il task ha già questo tag"
 msgstr "Il task ha già questo tag"
 
-#: src/app/(home)/page.tsx:49
+#: src/app/(home)/page.tsx:81
 msgid "Impara gradualmente"
 msgstr "Impara gradualmente"
 
@@ -344,7 +344,7 @@ msgstr "Impara gradualmente"
 msgid "Implementazione"
 msgstr "Implementazione"
 
-#: src/app/(home)/page.tsx:32
+#: src/app/(home)/page.tsx:40
 msgid "Inizia ad allenarti"
 msgstr "Inizia ad allenarti"
 
@@ -384,7 +384,11 @@ msgstr "Invia soluzione"
 msgid "Istituto"
 msgstr "Istituto"
 
-#: src/app/(home)/page.tsx:80
+#: src/app/(home)/page.tsx:42
+msgid "La vasta scelta di problemi presenti nel sito ti permetterà di prepararti al meglio per ogni fase delle Olimpiadi, partendo dalla fase scolastica fino ad arrivare alla finale nazionale."
+msgstr "La vasta scelta di problemi presenti nel sito ti permetterà di prepararti al meglio per ogni fase delle Olimpiadi, partendo dalla fase scolastica fino ad arrivare alla finale nazionale."
+
+#: src/app/(home)/page.tsx:97
 msgid "Leggi la wiki"
 msgstr "Leggi la wiki"
 
@@ -455,11 +459,11 @@ msgstr "Modifica su Gravatar"
 msgid "Nazionali e OIS"
 msgstr "Nazionali e OIS"
 
-#: src/app/(home)/page.tsx:42
+#: src/app/(home)/page.tsx:56
 msgid "Nazionali, OIS e altre gare"
 msgstr "Nazionali, OIS e altre gare"
 
-#: src/app/(home)/page.tsx:82
+#: src/app/(home)/page.tsx:99
 msgid "Nella wiki ufficiale troverai spiegazioni dettagliate e soluzioni di problemi passati, oltre che a tutorial approfonditi su tecniche algoritmiche avanzate."
 msgstr "Nella wiki ufficiale troverai spiegazioni dettagliate e soluzioni di problemi passati, oltre che a tutorial approfonditi su tecniche algoritmiche avanzate."
 
@@ -583,7 +587,7 @@ msgstr "Più facili"
 msgid "Più recenti"
 msgstr "Più recenti"
 
-#: src/app/(home)/page.tsx:22
+#: src/app/(home)/page.tsx:27
 msgid "Portale di allenamento delle Olimpiadi Italiane di Informatica"
 msgstr "Portale di allenamento delle Olimpiadi Italiane di Informatica"
 
@@ -728,7 +732,7 @@ msgstr "Scegli la regione"
 msgid "Scegli la scuola"
 msgstr "Scegli la scuola"
 
-#: src/app/(home)/page.tsx:36
+#: src/app/(home)/page.tsx:50
 #: src/app/navbar.tsx:54
 msgid "Scolastiche"
 msgstr "Scolastiche"
@@ -846,7 +850,7 @@ msgstr "Tempo"
 msgid "Tempo di compilazione:"
 msgstr "Tempo di compilazione:"
 
-#: src/app/(home)/page.tsx:39
+#: src/app/(home)/page.tsx:53
 #: src/app/navbar.tsx:59
 msgid "Territoriali"
 msgstr "Territoriali"
@@ -921,6 +925,6 @@ msgid "Vecchia password"
 msgstr "Vecchia password"
 
 #: src/app/(home)/footer.tsx:61
-#: src/app/(home)/page.tsx:88
+#: src/app/(home)/page.tsx:105
 msgid "Wiki"
 msgstr "Wiki"

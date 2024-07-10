@@ -50,7 +50,7 @@ msgstr "Add"
 msgid "Aggiungi tag"
 msgstr "Add tag"
 
-#: src/app/(home)/page.tsx:58
+#: src/app/(home)/page.tsx:90
 #: src/app/navbar.tsx:90
 msgid "Algobadge"
 msgstr "Algobadge"
@@ -81,9 +81,9 @@ msgstr "Superuser"
 msgid "Assicurati di chiamare la tua classe \"{0}\", altrimenti la compilazione non andrà a buon fine."
 msgstr "Make sure to call your class \"{0}\", otherwise the compilation will fail."
 
-#: src/app/(home)/page.tsx:25
+#: src/app/(home)/page.tsx:30
 msgid "Benvenuto nella piattaforma ufficiale di allenamento per le OII! Qui avrai accesso a numerosi problemi ai quali potrai inviare delle soluzioni scritte in un linguaggio di programmazione a tua scelta."
-msgstr ""
+msgstr "Welcome to the official training website of the Italian Olympiads in Informatics! Here you will be able to try and solve programming tasks by coding a solution in a programming language of your choice."
 
 #: src/app/user/[username]/edit/avatar/page.tsx:14
 msgid "Cambia foto profilo"
@@ -150,9 +150,9 @@ msgstr "Compiling"
 msgid "Comune"
 msgstr "City"
 
-#: src/app/(home)/page.tsx:51
+#: src/app/(home)/page.tsx:83
 msgid "Con Algobadge ti guideremo attraverso una selezione accurata di task da risolvere, ordinati per difficoltà crescente, che ti permetteranno di esplorare nuove tecniche algoritmiche in modo graduale ed efficace."
-msgstr ""
+msgstr "With algobadge you will be guided through a curated selection of tasks to solve, ordered by increasing difficulty, while being able to explore new algorithmic techniques in a gradual and effective way."
 
 #: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:111
 #: src/app/task/[name]/submissions/[id]/page.tsx:227
@@ -323,7 +323,7 @@ msgstr "Greedy"
 
 #: src/app/navbar.tsx:48
 msgid "Home"
-msgstr ""
+msgstr "Home"
 
 #: src/app/(terry)/task/terry/[name]/submissions/page.tsx:42
 #: src/app/(terry)/task/terry/[name]/submissions/skeleton.tsx:17
@@ -336,7 +336,7 @@ msgstr "ID"
 msgid "Il task ha già questo tag"
 msgstr "The task already has this tag"
 
-#: src/app/(home)/page.tsx:49
+#: src/app/(home)/page.tsx:81
 msgid "Impara gradualmente"
 msgstr "Learn step by step"
 
@@ -344,7 +344,7 @@ msgstr "Learn step by step"
 msgid "Implementazione"
 msgstr "Implementation"
 
-#: src/app/(home)/page.tsx:32
+#: src/app/(home)/page.tsx:40
 msgid "Inizia ad allenarti"
 msgstr "Start training"
 
@@ -384,7 +384,11 @@ msgstr "Submit solution"
 msgid "Istituto"
 msgstr "School"
 
-#: src/app/(home)/page.tsx:80
+#: src/app/(home)/page.tsx:42
+msgid "La vasta scelta di problemi presenti nel sito ti permetterà di prepararti al meglio per ogni fase delle Olimpiadi, partendo dalla fase scolastica fino ad arrivare alla finale nazionale."
+msgstr "The wide range of problems on the website will help you prepare for each stage of the Olympiad, starting from the school selection all the way to the national final."
+
+#: src/app/(home)/page.tsx:97
 msgid "Leggi la wiki"
 msgstr "Read the wiki"
 
@@ -455,13 +459,13 @@ msgstr "Update on Gravatar"
 msgid "Nazionali e OIS"
 msgstr "Nationals & OIS"
 
-#: src/app/(home)/page.tsx:42
+#: src/app/(home)/page.tsx:56
 msgid "Nazionali, OIS e altre gare"
 msgstr "Nationals, OIS & more"
 
-#: src/app/(home)/page.tsx:82
+#: src/app/(home)/page.tsx:99
 msgid "Nella wiki ufficiale troverai spiegazioni dettagliate e soluzioni di problemi passati, oltre che a tutorial approfonditi su tecniche algoritmiche avanzate."
-msgstr ""
+msgstr "In the official wiki you will find detailed explanations and solutions of past problems, as well as thorough writeups of algorithmic techniques."
 
 #: src/app/task/[name]/attachments/page.tsx:38
 msgid "Nessun allegato"
@@ -583,13 +587,13 @@ msgstr "Easiest"
 msgid "Più recenti"
 msgstr "Newest"
 
-#: src/app/(home)/page.tsx:22
+#: src/app/(home)/page.tsx:27
 msgid "Portale di allenamento delle Olimpiadi Italiane di Informatica"
 msgstr "Italian Olympiads in Informatics training website"
 
 #: src/app/(home)/page.tsx:66
 msgid "Presentati agli altri aspiranti olimpici nel forum della piattaforma, discuti dei problemi, risolvi tutti i tuoi dubbi su: costrutti di base del tuo linguaggio di programmazione, algoritmi e strutture dati di libreria, tecniche algoritmiche, e tanto altro!"
-msgstr ""
+msgstr "Introduce yourself to other students, discuss the tasks, clear up your doubts on: basic constructs of you programming language, algorithms and data structures, libraries, algorithm techniques, and much more!"
 
 #: src/app/task/[name]/submit/batch.tsx:31
 msgid "Probabilmente hai sbagliato a selezionare il linguaggio, in caso contrario ti suggeriamo di smettere di usare Pascal e imparare un linguaggio più moderno."
@@ -728,7 +732,7 @@ msgstr "Select your region"
 msgid "Scegli la scuola"
 msgstr "Select your school"
 
-#: src/app/(home)/page.tsx:36
+#: src/app/(home)/page.tsx:50
 #: src/app/navbar.tsx:54
 msgid "Scolastiche"
 msgstr "School selection"
@@ -846,7 +850,7 @@ msgstr "Time"
 msgid "Tempo di compilazione:"
 msgstr "Compilation time:"
 
-#: src/app/(home)/page.tsx:39
+#: src/app/(home)/page.tsx:53
 #: src/app/navbar.tsx:59
 msgid "Territoriali"
 msgstr "Regionals"
@@ -921,6 +925,6 @@ msgid "Vecchia password"
 msgstr "Old password"
 
 #: src/app/(home)/footer.tsx:61
-#: src/app/(home)/page.tsx:88
+#: src/app/(home)/page.tsx:105
 msgid "Wiki"
 msgstr "Wiki"

@@ -1,14 +1,19 @@
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ComponentType, ReactNode } from "react";
 
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Card, CardActions, CardBody } from "@olinfo/react-components";
+import clsx from "clsx";
 import { BookText, LucideIcon, Route, UsersRound } from "lucide-react";
 
 import { loadLocale } from "~/lib/locale";
 
+import { Algobadge } from "./algobadge";
+import { Community } from "./community";
 import { Footer } from "./footer";
+import { Training } from "./training";
+import { Wiki } from "./wiki";
 
 export default async function Home() {
   await loadLocale();
@@ -28,36 +33,31 @@ export default async function Home() {
               programmazione a tua scelta.
             </Trans>
           </p>
-          <h2 className="text-2xl font-bold">
-            <Trans>Inizia ad allenarti</Trans>
-          </h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="https://scolastiche.olinfo.it" className="btn btn-accent">
-              <Trans>Scolastiche</Trans>
-            </Link>
-            <Link href="/tasks/terry/1" className="btn btn-accent">
-              <Trans>Territoriali</Trans>
-            </Link>
-            <Link href="/tasks/1" className="btn btn-accent">
-              <Trans>Nazionali, OIS e altre gare</Trans>
-            </Link>
-          </div>
         </div>
       </div>
-      <div className="grid gap-4 *:mb-auto md:grid-cols-3">
+      <div className="*:mb-4 lg:columns-2">
         <Card>
-          <CardBody title={_(msg`Impara gradualmente`)}>
+          <CardBody title={_(msg`Inizia ad allenarti`)}>
             <p>
               <Trans>
-                Con Algobadge ti guideremo attraverso una selezione accurata di task da risolvere,
-                ordinati per difficoltà crescente, che ti permetteranno di esplorare nuove tecniche
-                algoritmiche in modo graduale ed efficace.
+                La vasta scelta di problemi presenti nel sito ti permetterà di prepararti al meglio
+                per ogni fase delle Olimpiadi, partendo dalla fase scolastica fino ad arrivare alla
+                finale nazionale.
               </Trans>
             </p>
-            <CardButton href="https://algobadge.olinfo.it" icon={Route}>
-              <Trans>Algobadge</Trans>
-            </CardButton>
+            <CardActions>
+              <Link href="https://scolastiche.olinfo.it" className="btn btn-accent">
+                <Trans>Scolastiche</Trans>
+              </Link>
+              <Link href="/tasks/terry/1" className="btn btn-accent">
+                <Trans>Territoriali</Trans>
+              </Link>
+              <Link href="/tasks/1" className="btn btn-accent">
+                <Trans>Nazionali, OIS e altre gare</Trans>
+              </Link>
+            </CardActions>
           </CardBody>
+          <CardImage image={Training} className="min-h-40 min-w-40" />
         </Card>
 
         <Card>
@@ -74,6 +74,23 @@ export default async function Home() {
               <Trans>Forum</Trans>
             </CardButton>
           </CardBody>
+          <CardImage image={Community} className="min-h-40 min-w-40" />
+        </Card>
+
+        <Card>
+          <CardBody title={_(msg`Impara gradualmente`)}>
+            <p>
+              <Trans>
+                Con Algobadge ti guideremo attraverso una selezione accurata di task da risolvere,
+                ordinati per difficoltà crescente, che ti permetteranno di esplorare nuove tecniche
+                algoritmiche in modo graduale ed efficace.
+              </Trans>
+            </p>
+            <CardButton href="https://algobadge.olinfo.it" icon={Route}>
+              <Trans>Algobadge</Trans>
+            </CardButton>
+          </CardBody>
+          <CardImage image={Algobadge} className="min-h-80 min-w-40" />
         </Card>
 
         <Card>
@@ -88,6 +105,7 @@ export default async function Home() {
               <Trans>Wiki</Trans>
             </CardButton>
           </CardBody>
+          <CardImage image={Wiki} className="min-h-40 min-w-40" />
         </Card>
       </div>
       <div className="relative flex grow flex-col justify-end">
@@ -113,5 +131,21 @@ function CardButton({ href, icon: Icon, children }: ButtonProps) {
         {children}
       </Link>
     </CardActions>
+  );
+}
+
+function CardImage({
+  image: Image,
+  className,
+}: {
+  image: ComponentType<{ className?: string }>;
+  className?: string;
+}) {
+  return (
+    <div className={clsx("relative max-sm:order-first", className)}>
+      <div className="absolute inset-0">
+        <Image className="m-auto size-full p-8 max-sm:pb-0 sm:pl-0" />
+      </div>
+    </div>
   );
 }
