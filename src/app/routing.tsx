@@ -15,10 +15,6 @@ export function Routing() {
   }, [router]);
 
   useEffect(() => {
-    // Close dropdowns on navigation
-    const activeEl = document.activeElement as HTMLElement | undefined;
-    if (activeEl?.tagName === "A") activeEl.blur();
-
     // Scroll to top on navigation, Next.js should already do this, but for some reason it doesn't
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [path]);

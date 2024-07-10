@@ -2,20 +2,24 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useRef } from "react";
 
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import {
   Avatar,
   Navbar as BaseNavbar,
-  NavbarMenu as BaseNavbarMenu,
   Dropdown,
   DropdownButton,
   DropdownMenu,
+  NavbarBrand,
+  NavbarContent,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarSubmenu,
 } from "@olinfo/react-components";
 import { SyncUser, User, logout } from "@olinfo/training-api";
-import { Languages, LogIn, LogOut, MenuIcon, UserRound } from "lucide-react";
+import clsx from "clsx";
+import { ChevronDown, Languages, LogIn, LogOut, UserRound } from "lucide-react";
 import { useSWRConfig } from "swr";
 
 import { useUser } from "~/components/user";
@@ -29,29 +33,70 @@ export function Navbar() {
 
   return (
     <BaseNavbar color="bg-base-300 text-base-content">
-      <div>
-        <Dropdown className="md:hidden">
-          <DropdownButton>
-            <MenuIcon aria-label={_(msg`Menu`)} />
-          </DropdownButton>
-          <DropdownMenu>
-            <NavbarMenu />
-          </DropdownMenu>
-        </Dropdown>
+      <NavbarBrand>
         <img
           src={logo.src}
           width={logo.width}
           height={logo.height}
           alt={_(msg`Logo OII`)}
-          className="mx-2 h-8 w-auto flex-none"
+          className="h-full w-auto"
         />
-        <div className="max-md:hidden">
-          <BaseNavbarMenu>
-            <NavbarMenu />
-          </BaseNavbarMenu>
-        </div>
-      </div>
-      <div>
+      </NavbarBrand>
+      <NavbarMenu>
+        <NavbarMenuItem>
+          <Link href="/">
+            <Trans>Home</Trans>
+          </Link>
+        </NavbarMenuItem>
+        <NavbarSubmenu title={_(msg`Problemi`)}>
+          <NavbarMenuItem>
+            <Link href="https://scolastiche.olinfo.it">
+              <Trans>Scolastiche</Trans>
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link href="/tasks/terry/1">
+              <Trans>Territoriali</Trans>
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link href="/tasks/1">
+              <Trans>Nazionali e OIS</Trans>
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link href="/tasks/techniques">
+              <Trans>Problemi per tecnica</Trans>
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link href="/tasks/events">
+              <Trans>Problemi per gara</Trans>
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link href="/tasks/years">
+              <Trans>Problemi per anno</Trans>
+            </Link>
+          </NavbarMenuItem>
+        </NavbarSubmenu>
+        <NavbarMenuItem>
+          <Link href="/ranking/1">
+            <Trans>Classifica</Trans>
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link href="https://algobadge.olinfo.it">
+            <Trans>Algobadge</Trans>
+          </Link>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
+          <Link href="https://forum.olinfo.it">
+            <Trans>Forum</Trans>
+          </Link>
+        </NavbarMenuItem>
+      </NavbarMenu>
+      <NavbarContent>
         <LocaleDropdown />
         {user ? (
           <UserDropdown user={user} />
@@ -62,83 +107,14 @@ export function Navbar() {
             <Trans>Accedi</Trans> <LogIn />
           </Link>
         )}
-      </div>
+      </NavbarContent>
     </BaseNavbar>
-  );
-}
-
-function NavbarMenu() {
-  const ref = useRef<HTMLDetailsElement>(null);
-  const path = usePathname();
-  useEffect(() => {
-    ref.current?.removeAttribute("open");
-  }, [path]);
-
-  return (
-    <>
-      <li>
-        <Link href="/">Home</Link>
-      </li>
-      <li>
-        <details ref={ref}>
-          <summary className="after:forced-color-adjust-none">
-            <Trans>Problemi</Trans>
-          </summary>
-          <ul>
-            <li>
-              <Link href="https://scolastiche.olinfo.it">
-                <Trans>Scolastiche</Trans>
-              </Link>
-            </li>
-            <li>
-              <Link href="/tasks/terry/1">
-                <Trans>Territoriali</Trans>
-              </Link>
-            </li>
-            <li>
-              <Link href="/tasks/1">
-                <Trans>Nazionali e OIS</Trans>
-              </Link>
-            </li>
-            <li>
-              <Link href="/tasks/techniques">
-                <Trans>Problemi per tecnica</Trans>
-              </Link>
-            </li>
-            <li>
-              <Link href="/tasks/events">
-                <Trans>Problemi per gara</Trans>
-              </Link>
-            </li>
-            <li>
-              <Link href="/tasks/years">
-                <Trans>Problemi per anno</Trans>
-              </Link>
-            </li>
-          </ul>
-        </details>
-      </li>
-      <li>
-        <Link href="/ranking/1">
-          <Trans>Classifica</Trans>
-        </Link>
-      </li>
-      <li>
-        <Link href="https://algobadge.olinfo.it">
-          <Trans>Algobadge</Trans>
-        </Link>
-      </li>
-      <li>
-        <Link href="https://forum.olinfo.it">
-          <Trans>Forum</Trans>
-        </Link>
-      </li>
-    </>
   );
 }
 
 function LocaleDropdown() {
   const router = useRouter();
+  const { i18n } = useLingui();
 
   const changeLanguage = (lang: string) => {
     /* eslint-disable-next-line unicorn/no-document-cookie --
@@ -149,16 +125,25 @@ function LocaleDropdown() {
   };
 
   return (
-    <Dropdown>
-      <DropdownButton>
-        <Languages size={22} />
+    <Dropdown className="dropdown-end">
+      <DropdownButton className="gap-1">
+        <Languages size={20} />
+        <ChevronDown size={18} strokeWidth={2.5} />
       </DropdownButton>
       <DropdownMenu>
         <li>
-          <button onClick={() => changeLanguage("it")}>🇮🇹 Italiano</button>
+          <button
+            className={clsx(i18n.locale === "it" && "active")}
+            onClick={() => changeLanguage("it")}>
+            🇮🇹 Italiano
+          </button>
         </li>
         <li>
-          <button onClick={() => changeLanguage("en")}>🇬🇧 English</button>
+          <button
+            className={clsx(i18n.locale === "en" && "active")}
+            onClick={() => changeLanguage("en")}>
+            🇬🇧 English
+          </button>
         </li>
       </DropdownMenu>
     </Dropdown>

@@ -18,7 +18,7 @@ msgid "{0} punti"
 msgstr "{0} punti"
 
 #: src/app/login/page.tsx:50
-#: src/app/navbar.tsx:62
+#: src/app/navbar.tsx:107
 #: src/app/task/[name]/submissions/page.tsx:54
 #: src/app/task/[name]/submit/page.tsx:41
 msgid "Accedi"
@@ -51,7 +51,7 @@ msgid "Aggiungi tag"
 msgstr "Aggiungi tag"
 
 #: src/app/(home)/page.tsx:58
-#: src/app/navbar.tsx:128
+#: src/app/navbar.tsx:90
 msgid "Algobadge"
 msgstr "Algobadge"
 
@@ -101,7 +101,7 @@ msgstr "Cambia password"
 msgid "Cambia scuola"
 msgstr "Cambia scuola"
 
-#: src/app/navbar.tsx:123
+#: src/app/navbar.tsx:85
 msgid "Classifica"
 msgstr "Classifica"
 
@@ -239,7 +239,7 @@ msgstr "Entra nella community"
 msgid "Errato"
 msgstr "Errato"
 
-#: src/app/navbar.tsx:192
+#: src/app/navbar.tsx:177
 msgid "Esci"
 msgstr "Esci"
 
@@ -285,7 +285,7 @@ msgid "File troppo grande"
 msgstr "File troppo grande"
 
 #: src/app/(home)/page.tsx:74
-#: src/app/navbar.tsx:133
+#: src/app/navbar.tsx:95
 msgid "Forum"
 msgstr "Forum"
 
@@ -320,6 +320,10 @@ msgstr "Grafi"
 #: src/app/tasks/techniques/page.tsx:40
 msgid "Greedy"
 msgstr "Greedy"
+
+#: src/app/navbar.tsx:48
+msgid "Home"
+msgstr "Home"
 
 #: src/app/(terry)/task/terry/[name]/submissions/page.tsx:42
 #: src/app/(terry)/task/terry/[name]/submissions/skeleton.tsx:17
@@ -408,7 +412,7 @@ msgstr "Linguaggio"
 msgid "Linguaggio:"
 msgstr "Linguaggio:"
 
-#: src/app/navbar.tsx:45
+#: src/app/navbar.tsx:41
 msgid "Logo OII"
 msgstr "Logo OII"
 
@@ -427,10 +431,6 @@ msgstr "Memoria"
 #: src/app/task/[name]/submissions/[id]/page.tsx:143
 msgid "Memoria utilizzata:"
 msgstr "Memoria utilizzata:"
-
-#: src/app/navbar.tsx:35
-msgid "Menu"
-msgstr "Menu"
 
 #: src/app/user/[username]/edit/email/page.tsx:53
 #: src/app/user/[username]/edit/email/page.tsx:57
@@ -451,7 +451,7 @@ msgstr "Modifica profilo"
 msgid "Modifica su Gravatar"
 msgstr "Modifica su Gravatar"
 
-#: src/app/navbar.tsx:100
+#: src/app/navbar.tsx:64
 msgid "Nazionali e OIS"
 msgstr "Nazionali e OIS"
 
@@ -595,22 +595,22 @@ msgstr "Presentati agli altri aspiranti olimpici nel forum della piattaforma, di
 msgid "Probabilmente hai sbagliato a selezionare il linguaggio, in caso contrario ti suggeriamo di smettere di usare Pascal e imparare un linguaggio più moderno."
 msgstr "Probabilmente hai sbagliato a selezionare il linguaggio, in caso contrario ti suggeriamo di smettere di usare Pascal e imparare un linguaggio più moderno."
 
-#: src/app/navbar.tsx:85
+#: src/app/navbar.tsx:51
 msgid "Problemi"
 msgstr "Problemi"
 
-#: src/app/navbar.tsx:115
+#: src/app/navbar.tsx:79
 #: src/app/tasks/years/page.tsx:36
 #: src/app/tasks/years/skeleton.tsx:13
 msgid "Problemi per anno"
 msgstr "Problemi per anno"
 
-#: src/app/navbar.tsx:110
+#: src/app/navbar.tsx:74
 #: src/app/tasks/events/page.tsx:15
 msgid "Problemi per gara"
 msgstr "Problemi per gara"
 
-#: src/app/navbar.tsx:105
+#: src/app/navbar.tsx:69
 #: src/app/tasks/techniques/page.tsx:15
 msgid "Problemi per tecnica"
 msgstr "Problemi per tecnica"
@@ -619,7 +619,7 @@ msgstr "Problemi per tecnica"
 msgid "Problemi risolti"
 msgstr "Problemi risolti"
 
-#: src/app/navbar.tsx:187
+#: src/app/navbar.tsx:172
 msgid "Profilo"
 msgstr "Profilo"
 
@@ -729,7 +729,7 @@ msgid "Scegli la scuola"
 msgstr "Scegli la scuola"
 
 #: src/app/(home)/page.tsx:36
-#: src/app/navbar.tsx:90
+#: src/app/navbar.tsx:54
 msgid "Scolastiche"
 msgstr "Scolastiche"
 
@@ -847,7 +847,7 @@ msgid "Tempo di compilazione:"
 msgstr "Tempo di compilazione:"
 
 #: src/app/(home)/page.tsx:39
-#: src/app/navbar.tsx:95
+#: src/app/navbar.tsx:59
 msgid "Territoriali"
 msgstr "Territoriali"
 
