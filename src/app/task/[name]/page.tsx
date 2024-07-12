@@ -6,6 +6,7 @@ import { useLingui } from "@lingui/react";
 import { type Task, fileUrl, getTask } from "@olinfo/training-api";
 import useSWR from "swr";
 
+import { msg } from "@lingui/macro";
 import Attachments from "./attachments/page";
 import Submit from "./submit/page";
 import Tags from "./tags/page";
@@ -17,7 +18,7 @@ type Props = {
 };
 
 export default function Page({ params }: Props) {
-  const { i18n } = useLingui();
+  const { i18n, _ } = useLingui();
 
   const { data: task } = useSWR<Task, Error, [string, string]>(
     ["api/task", params.name],
@@ -38,7 +39,11 @@ export default function Page({ params }: Props) {
         <div className="absolute inset-0">
           {statement ? (
             navigator.pdfViewerEnabled ? (
-              <object data={statement} className="size-full" />
+              <object
+                title={_(msg`Testo di ${task.title}`)}
+                data={statement}
+                className="size-full"
+              />
             ) : (
               <Suspense fallback={<LoadingStatement />}>
                 <MobileStatement url={statement} fallback={<LoadingStatement />} />

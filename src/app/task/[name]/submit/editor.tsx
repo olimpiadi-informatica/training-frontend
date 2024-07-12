@@ -13,7 +13,7 @@ const highlighter = await createHighlighter({
 });
 
 self.MonacoEnvironment = {
-  getWorker: function (_moduleId: string, label: string) {
+  getWorker: (_moduleId: string, label: string) => {
     if (label !== "editorWorkerService") throw new Error(`Unknown module: ${label}`);
     return new Worker(
       new URL("monaco-editor-core/esm/vs/editor/editor.worker.js", import.meta.url),
@@ -53,7 +53,6 @@ export default function Editor({ language, languages, file, onChange }: Props) {
       ? "github-dark"
       : "github-light";
 
-    // eslint-disable-next-line unicorn/prefer-query-selector
     const container = document.getElementById(id)!;
 
     const defaultValue = localStorage.getItem("editor-source-code") ?? initialCode;

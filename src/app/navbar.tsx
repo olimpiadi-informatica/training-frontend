@@ -117,9 +117,6 @@ function LocaleDropdown() {
   const { i18n } = useLingui();
 
   const changeLanguage = (lang: string) => {
-    /* eslint-disable-next-line unicorn/no-document-cookie --
-     * Until cookie store (https://developer.mozilla.org/en-US/docs/Web/API/CookieStore) is widely supported
-     **/
     document.cookie = `lang=${lang}; path=/; max-age=31536000`;
     router.refresh();
   };
@@ -134,15 +131,17 @@ function LocaleDropdown() {
         <li>
           <button
             className={clsx(i18n.locale === "it" && "active")}
-            onClick={() => changeLanguage("it")}>
-            🇮🇹 Italiano
+            onClick={() => changeLanguage("it")}
+            type="button">
+            &#127470;&#127481; Italiano
           </button>
         </li>
         <li>
           <button
             className={clsx(i18n.locale === "en" && "active")}
-            onClick={() => changeLanguage("en")}>
-            🇬🇧 English
+            onClick={() => changeLanguage("en")}
+            type="button">
+            &#127468;&#127463; English
           </button>
         </li>
       </DropdownMenu>
@@ -173,7 +172,7 @@ function UserDropdown({ user }: { user: User | SyncUser }) {
           </Link>
         </li>
         <li>
-          <button className="flex justify-between gap-4" onClick={onLogout}>
+          <button className="flex justify-between gap-4" onClick={onLogout} type="button">
             <Trans>Esci</Trans> <LogOut size={20} />
           </button>
         </li>

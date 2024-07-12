@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Trans } from "@lingui/macro";
 
 import { H2, H3 } from "~/components/header";

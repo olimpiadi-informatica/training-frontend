@@ -76,7 +76,10 @@ export default function Page({ params }: Props) {
       </Menu>
       {isTagsPage && (
         <div className="mt-4 flex justify-center">
-          <button className="btn btn-primary" onClick={() => modalRef.current?.showModal()}>
+          <button
+            className="btn btn-primary"
+            onClick={() => modalRef.current?.showModal()}
+            type="button">
             <SquarePlus size={22} /> <Trans>Aggiungi tag</Trans>
           </button>
           <AddTagModal ref={modalRef} taskName={params.name} />
@@ -103,7 +106,7 @@ function BaseTag({ tag }: { tag: Tag }) {
     <Link href={`/tasks/1?tag=${tag.name}`} className="font-mono">
       {tag.name}
       {tag.can_delete && (
-        <button className="btn btn-ghost btn-xs justify-self-end" onClick={remove}>
+        <button className="btn btn-ghost btn-xs justify-self-end" onClick={remove} type="button">
           <Trash2 size={18} />
         </button>
       )}
@@ -112,18 +115,26 @@ function BaseTag({ tag }: { tag: Tag }) {
 }
 
 function HiddenTag({ tag }: { tag: Tag }) {
+  const { _ } = useLingui();
+
   const [shown, setShown] = useState(false);
-  const rand = useRef(Math.round(Math.pow(1e6, Math.random() + 1)));
+  const rand = useRef(Math.round(1e6 ** (Math.random() + 1)));
 
   if (shown) return <BaseTag tag={tag} />;
 
   return (
-    <div className="font-mono" onClick={() => setShown(true)}>
-      <div className="blur-sm">{rand.current}</div>
+    <button
+      className="font-mono"
+      onClick={() => setShown(true)}
+      aria-label={_(msg`Mostra tag`)}
+      type="button">
+      <div className="blur-sm" aria-hidden={true}>
+        {rand.current}
+      </div>
       <div className="mr-px justify-self-end px-2">
         <Eye size={18} />
       </div>
-    </div>
+    </button>
   );
 }
 

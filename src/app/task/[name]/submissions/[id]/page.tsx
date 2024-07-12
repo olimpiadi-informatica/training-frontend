@@ -43,7 +43,9 @@ export default function Page({ params: { id, name: taskName } }: Props) {
   const { data: submission } = useSWR<SubmissionDetails, Error, [string, number]>(
     ["api/submission", +id],
     ([, id]) => getSubmission(id),
-    { refreshInterval },
+    {
+      refreshInterval,
+    },
   );
 
   useEffect(() => {

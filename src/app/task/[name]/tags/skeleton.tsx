@@ -25,7 +25,7 @@ export function Skeleton({ isTagsPage }: { isTagsPage: boolean }) {
       </Menu>
       {isTagsPage && (
         <div className="mt-4 flex justify-center">
-          <button className="btn btn-primary" disabled>
+          <button className="btn btn-primary" type="button" disabled>
             <SquarePlus size={22} /> <Trans>Aggiungi tag</Trans>
           </button>
         </div>

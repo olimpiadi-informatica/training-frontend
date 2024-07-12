@@ -24,7 +24,11 @@ export function Algobadge({ className }: { className?: string }) {
   ] as const;
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -0.5 3 7" className={className}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 -0.5 3 7"
+      className={className}
+      aria-hidden="true">
       <path d={path.join("")} strokeWidth={0.05} className="stroke-base-content" fillOpacity={0} />
       {nodes.map(([cx, cy, icon], i) => (
         <Fragment key={i}>

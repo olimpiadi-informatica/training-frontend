@@ -6,7 +6,7 @@ import { Github, Youtube } from "lucide-react";
 
 import oii from "~/app/icon0.svg";
 
-export async function Footer() {
+export function Footer() {
   const { _ } = useLingui();
 
   return (

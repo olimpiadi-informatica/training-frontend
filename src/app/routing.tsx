@@ -14,6 +14,7 @@ export function Routing() {
     }
   }, [router]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: we want to run this effect every time path changes
   useEffect(() => {
     // Scroll to top on navigation, Next.js should already do this, but for some reason it doesn't
     window.scrollTo({ top: 0, behavior: "instant" });
