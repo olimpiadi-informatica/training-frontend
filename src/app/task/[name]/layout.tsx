@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { useParams, useSelectedLayoutSegment } from "next/navigation";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { Trans } from "@lingui/macro";
 import { Tabs } from "@olinfo/react-components";
-import { Task, getTask } from "@olinfo/training-api";
+import { type Task, getTask } from "@olinfo/training-api";
 import clsx from "clsx";
 import useSWR from "swr";
 

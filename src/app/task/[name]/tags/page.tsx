@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { MouseEvent, Ref, forwardRef, useRef, useState } from "react";
+import { type MouseEvent, type Ref, forwardRef, useRef, useState } from "react";
 
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
@@ -15,7 +15,15 @@ import {
   SubmitButton,
   useNotifications,
 } from "@olinfo/react-components";
-import { Tag, Task, addTag, getEventTags, getTags, getTask, removeTag } from "@olinfo/training-api";
+import {
+  type Tag,
+  type Task,
+  addTag,
+  getEventTags,
+  getTags,
+  getTask,
+  removeTag,
+} from "@olinfo/training-api";
 import { sortBy } from "lodash-es";
 import { Eye, SquarePlus, Trash2 } from "lucide-react";
 import useSWR, { useSWRConfig } from "swr";

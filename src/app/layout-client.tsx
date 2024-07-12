@@ -1,12 +1,12 @@
 "use client";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { ReactNode, useMemo } from "react";
+import { type ReactNode, useMemo } from "react";
 
-import { Messages, setupI18n } from "@lingui/core";
+import { type Messages, setupI18n } from "@lingui/core";
 import { I18nProvider } from "@lingui/react";
 import { useNotifications } from "@olinfo/react-components";
-import { Contest, SyncUser, User, getContest, getMe } from "@olinfo/training-api";
+import { type Contest, type SyncUser, type User, getContest, getMe } from "@olinfo/training-api";
 import useSWR, { SWRConfig } from "swr";
 
 import { UserProvider } from "~/components/user";

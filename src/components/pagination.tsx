@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
-import clsx, { ClassValue } from "clsx";
+import clsx, { type ClassValue } from "clsx";
 import { clamp, range } from "lodash-es";
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
 

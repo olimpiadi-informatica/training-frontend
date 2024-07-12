@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 import { Trans } from "@lingui/macro";
-import { Task, getTask } from "@olinfo/training-api";
+import { type Task, getTask } from "@olinfo/training-api";
 import useSWR from "swr";
 
 import { H2 } from "~/components/header";

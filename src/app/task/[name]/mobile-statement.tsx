@@ -1,4 +1,4 @@
-import { ReactNode, useLayoutEffect, useRef, useState } from "react";
+import { type ReactNode, useLayoutEffect, useRef, useState } from "react";
 
 import { range } from "lodash-es";
 import { Document, Page, pdfjs, useDocumentContext } from "react-pdf";

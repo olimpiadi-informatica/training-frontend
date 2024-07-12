@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Menu } from "@olinfo/react-components";
-import { TaskStats, getTaskStats } from "@olinfo/training-api";
+import { type TaskStats, getTaskStats } from "@olinfo/training-api";
 import useSWR from "swr";
 
 import { H2 } from "~/components/header";

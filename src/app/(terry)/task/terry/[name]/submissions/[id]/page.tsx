@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Fragment, ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 
 import { Trans } from "@lingui/macro";
 import { DateTime } from "@olinfo/react-components";
-import { Submission, getSubmission } from "@olinfo/terry-api";
+import { type Submission, getSubmission } from "@olinfo/terry-api";
 import clsx from "clsx";
 import { Check, FileInput, FileOutput, X } from "lucide-react";
 import useSWR from "swr";

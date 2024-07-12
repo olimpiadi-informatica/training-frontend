@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { Fragment, ReactNode, useEffect, useState } from "react";
+import { Fragment, type ReactNode, useEffect, useState } from "react";
 
 import { Trans } from "@lingui/macro";
 import { DateTime, Menu } from "@olinfo/react-components";
 import {
-  SubmissionDetails,
-  Subtask,
-  Task,
+  type SubmissionDetails,
+  type Subtask,
+  type Task,
   fileUrl,
   getSubmission,
   getTask,

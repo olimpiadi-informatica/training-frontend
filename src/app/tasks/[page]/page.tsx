@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Menu } from "@olinfo/react-components";
-import { TaskList, TaskListOptions, getTaskList } from "@olinfo/training-api";
+import { type TaskList, type TaskListOptions, getTaskList } from "@olinfo/training-api";
 import clsx from "clsx";
 import { range, sortBy } from "lodash-es";
 import { X } from "lucide-react";

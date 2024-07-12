@@ -1,5 +1,5 @@
 import { Trans } from "@lingui/macro";
-import { Submission as TrainingSubmission } from "@olinfo/training-api";
+import type { Submission as TrainingSubmission } from "@olinfo/training-api";
 import clsx from "clsx";
 
 export function Outcome({ submission }: { submission: TrainingSubmission }) {

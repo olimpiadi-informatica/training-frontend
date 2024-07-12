@@ -3,7 +3,7 @@
 import { Suspense, lazy } from "react";
 
 import { useLingui } from "@lingui/react";
-import { Task, fileUrl, getTask } from "@olinfo/training-api";
+import { type Task, fileUrl, getTask } from "@olinfo/training-api";
 import useSWR from "swr";
 
 import Attachments from "./attachments/page";

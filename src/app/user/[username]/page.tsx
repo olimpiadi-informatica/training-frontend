@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Avatar, Card, CardBody } from "@olinfo/react-components";
-import { AccessLevel, User, getUser } from "@olinfo/training-api";
+import { AccessLevel, type User, getUser } from "@olinfo/training-api";
 import clsx from "clsx";
 import { orderBy } from "lodash-es";
 import useSWR from "swr";

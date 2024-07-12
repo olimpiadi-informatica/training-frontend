@@ -6,7 +6,7 @@ import { useMemo, useState } from "react";
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Form, SelectField, SingleFileField, SubmitButton } from "@olinfo/react-components";
-import { Task, submitBatch } from "@olinfo/training-api";
+import { type Task, submitBatch } from "@olinfo/training-api";
 import clsx from "clsx";
 import { Send, TriangleAlert } from "lucide-react";
 

@@ -4,7 +4,7 @@ import { shikiToMonaco } from "@shikijs/monaco";
 import * as monaco from "monaco-editor-core";
 import { createHighlighter } from "shiki";
 
-import { Language } from "~/lib/language";
+import type { Language } from "~/lib/language";
 import { useTheme } from "~/lib/theme";
 
 const highlighter = await createHighlighter({

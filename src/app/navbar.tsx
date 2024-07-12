@@ -17,7 +17,7 @@ import {
   NavbarMenuItem,
   NavbarSubmenu,
 } from "@olinfo/react-components";
-import { SyncUser, User, logout } from "@olinfo/training-api";
+import { type SyncUser, type User, logout } from "@olinfo/training-api";
 import clsx from "clsx";
 import { ChevronDown, Languages, LogIn, LogOut, UserRound } from "lucide-react";
 import { useSWRConfig } from "swr";

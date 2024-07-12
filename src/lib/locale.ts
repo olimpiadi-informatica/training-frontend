@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 
-import { I18n, setupI18n } from "@lingui/core";
+import { type I18n, setupI18n } from "@lingui/core";
 import { setI18n } from "@lingui/react/server";
 
 const locales = {

@@ -1,7 +1,7 @@
-import { ReactNode, createContext, useContext } from "react";
+import { type ReactNode, createContext, useContext } from "react";
 
-import { User as TerryUser } from "@olinfo/terry-api";
-import { SyncUser, User } from "@olinfo/training-api";
+import type { User as TerryUser } from "@olinfo/terry-api";
+import type { SyncUser, User } from "@olinfo/training-api";
 
 const UserContext = createContext<User | SyncUser | undefined>(undefined);
 

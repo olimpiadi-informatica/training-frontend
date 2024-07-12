@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Form, MultipleFileField, SubmitButton } from "@olinfo/react-components";
-import { Task, submitOutputOnly } from "@olinfo/training-api";
+import { type Task, submitOutputOnly } from "@olinfo/training-api";
 import { sortBy } from "lodash-es";
 import { Send } from "lucide-react";
 

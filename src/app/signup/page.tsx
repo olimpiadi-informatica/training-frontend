@@ -16,7 +16,7 @@ import {
   UsernameField,
 } from "@olinfo/react-components";
 import {
-  Contest,
+  type Contest,
   getCities,
   getContest,
   getInstitutes,
@@ -24,7 +24,7 @@ import {
   getRegions,
   signup,
 } from "@olinfo/training-api";
-import ReCaptchaWidget, { ReCAPTCHA } from "react-google-recaptcha";
+import ReCaptchaWidget, { type ReCAPTCHA } from "react-google-recaptcha";
 import useSWR, { useSWRConfig } from "swr";
 
 import { H1, H2 } from "~/components/header";

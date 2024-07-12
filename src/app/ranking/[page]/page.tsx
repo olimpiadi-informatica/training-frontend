@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Avatar, Menu } from "@olinfo/react-components";
-import { Ranking, User, getRanking } from "@olinfo/training-api";
+import { type Ranking, type User, getRanking } from "@olinfo/training-api";
 import useSWR from "swr";
 
 import { H1 } from "~/components/header";

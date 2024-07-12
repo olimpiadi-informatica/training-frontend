@@ -1,5 +1,5 @@
 import { SelectField } from "@olinfo/react-components";
-import { Location } from "@olinfo/training-api";
+import type { Location } from "@olinfo/training-api";
 import { sortBy } from "lodash-es";
 import useSWR from "swr";
 

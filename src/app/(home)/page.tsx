@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ComponentType, ReactNode } from "react";
+import type { ComponentType, ReactNode } from "react";
 
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Card, CardActions, CardBody } from "@olinfo/react-components";
 import clsx from "clsx";
-import { BookText, LucideIcon, Route, UsersRound } from "lucide-react";
+import { BookText, type LucideIcon, Route, UsersRound } from "lucide-react";
 
 import { loadLocale } from "~/lib/locale";
 

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { Trans } from "@lingui/macro";
 import { DateTime, Menu } from "@olinfo/react-components";
-import { Submission, getTaskSubmissions, isEvaluating } from "@olinfo/training-api";
+import { type Submission, getTaskSubmissions, isEvaluating } from "@olinfo/training-api";
 import useSWR from "swr";
 
 import { H2 } from "~/components/header";

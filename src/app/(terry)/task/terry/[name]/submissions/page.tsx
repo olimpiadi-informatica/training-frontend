@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { Trans } from "@lingui/macro";
 import { DateTime, Menu } from "@olinfo/react-components";
-import { Submission, getSubmissions } from "@olinfo/terry-api";
+import { type Submission, getSubmissions } from "@olinfo/terry-api";
 import useSWR from "swr";
 
 import { H2 } from "~/components/header";

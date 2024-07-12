@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Menu } from "@olinfo/react-components";
-import { Task, fileUrl, getTask } from "@olinfo/training-api";
+import { type Task, fileUrl, getTask } from "@olinfo/training-api";
 import { sortBy } from "lodash-es";
 import useSWR from "swr";
 

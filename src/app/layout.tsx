@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { Layout } from "@olinfo/react-components";
 import { getMeSync } from "@olinfo/training-api";

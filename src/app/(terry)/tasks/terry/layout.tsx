@@ -1,10 +1,10 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { Trans } from "@lingui/macro";
-import { User, getUser } from "@olinfo/terry-api";
+import { type User, getUser } from "@olinfo/terry-api";
 import useSWR from "swr";
 
 import { TerryUserProvider, useUser } from "~/components/user";
