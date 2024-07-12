@@ -5,10 +5,8 @@ import { useLingui } from "@lingui/react";
 import { Github, Youtube } from "lucide-react";
 
 import oii from "~/app/icon0.svg";
-import { loadLocale } from "~/lib/locale";
 
 export async function Footer() {
-  await loadLocale();
   const { _ } = useLingui();
 
   return (

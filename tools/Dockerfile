@@ -1,4 +1,4 @@
-FROM node:20-alpine AS builder
+FROM node:20 AS builder
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
@@ -8,7 +8,7 @@ COPY ./ ./
 RUN yarn install --frozen-lockfile
 RUN yarn build
 
-FROM node:20-alpine
+FROM node:20
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
