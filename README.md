@@ -7,9 +7,7 @@ and [DaisyUI](https://daisyui.com/).
 
 ## Installation
 
-1. Clone the repository.
-2. Run `yarn install` to install the dependencies.
-3. Run `yarn lingui:compile` to compile the translations.
+Clone the repository and run `yarn install` to install the dependencies.
 
 ## Development
 

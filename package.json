@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lingui:extract": "lingui extract",
-    "lingui:compile": "lingui compile"
+    "lingui:compile": "lingui compile",
+    "postinstall": "lingui compile"
   },
   "dependencies": {
     "@lingui/macro": "^4.11",
