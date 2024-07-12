@@ -13,7 +13,9 @@ Clone the repository and run `yarn install` to install the dependencies.
 
 Run `yarn dev` to start the development server.
 
-If you've added or changed text, you need to update the translations:
+Before committing, make sure to run `yarn lint` to check for linting errors.
+
+If you've added or changed text, you also need to update the translations:
 
 1. Run `yarn lingui:extract` to extract the new messages.
 2. Update `src/locales/en/messages.po` with the new translation.

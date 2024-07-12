@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "yarn biome check --write",
     "lingui:extract": "lingui extract",
     "lingui:compile": "lingui compile",
     "postinstall": "lingui compile"
@@ -50,12 +50,9 @@
     "typescript": "^5.4"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.0",
+    "@biomejs/biome": "^1.8.3",
     "@lingui/cli": "^4.11",
-    "@lingui/swc-plugin": "^4.0",
-    "@next/eslint-plugin-next": "^14.2",
-    "@olinfo/eslint": "^0.2",
-    "@olinfo/prettier": "^0.1"
+    "@lingui/swc-plugin": "^4.0"
   },
   "postcss": {
     "plugins": {
