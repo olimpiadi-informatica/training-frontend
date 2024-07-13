@@ -45,7 +45,7 @@ export function SourceCode({ url }: { url: string }) {
         <Link
           href={url}
           className="btn btn-square btn-ghost forced-colors:border-none"
-          aria-label={_(msg`Scarica soluzione`)}
+          aria-label={_(msg`Scarica codice`)}
           download>
           <Download />
         </Link>

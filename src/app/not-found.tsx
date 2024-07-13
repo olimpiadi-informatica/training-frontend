@@ -2,8 +2,11 @@ import Link from "next/link";
 
 import { Trans } from "@lingui/macro";
 import { Home } from "lucide-react";
+import { loadLocale } from "~/lib/locale";
 
-export default function Page() {
+export default async function Page() {
+  await loadLocale();
+
   return (
     <div className="flex grow flex-col items-center justify-center gap-4">
       <div className="text-xl font-bold">

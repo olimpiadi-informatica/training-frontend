@@ -40,12 +40,12 @@ msgstr "Ad hoc"
 msgid "Admin"
 msgstr "Admin"
 
-#: src/app/task/[name]/tags/page.tsx:162
+#: src/app/task/[name]/tags/page.tsx:181
 msgid "Aggiungi"
 msgstr "Aggiungi"
 
-#: src/app/task/[name]/tags/page.tsx:72
-#: src/app/task/[name]/tags/page.tsx:153
+#: src/app/task/[name]/tags/page.tsx:83
+#: src/app/task/[name]/tags/page.tsx:172
 #: src/app/task/[name]/tags/skeleton.tsx:29
 msgid "Aggiungi tag"
 msgstr "Aggiungi tag"
@@ -81,6 +81,10 @@ msgstr "Aristocratico"
 msgid "Assicurati di chiamare la tua classe \"{0}\", altrimenti la compilazione non andrà a buon fine."
 msgstr "Assicurati di chiamare la tua classe \"{0}\", altrimenti la compilazione non andrà a buon fine."
 
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:78
+msgid "Attenzione:"
+msgstr "Attenzione:"
+
 #: src/app/(home)/page.tsx:30
 msgid "Benvenuto nella piattaforma ufficiale di allenamento per le OII! Qui avrai accesso a numerosi problemi ai quali potrai inviare delle soluzioni scritte in un linguaggio di programmazione a tua scelta."
 msgstr "Benvenuto nella piattaforma ufficiale di allenamento per le OII! Qui avrai accesso a numerosi problemi ai quali potrai inviare delle soluzioni scritte in un linguaggio di programmazione a tua scelta."
@@ -89,7 +93,7 @@ msgstr "Benvenuto nella piattaforma ufficiale di allenamento per le OII! Qui avr
 msgid "Cambia foto profilo"
 msgstr "Cambia foto profilo"
 
-#: src/app/(terry)/task/terry/[name]/submit/page.tsx:75
+#: src/app/(terry)/task/terry/[name]/submit/page.tsx:81
 msgid "Cambia input"
 msgstr "Cambia input"
 
@@ -105,11 +109,11 @@ msgstr "Cambia scuola"
 msgid "Classifica"
 msgstr "Classifica"
 
-#: src/app/(home)/footer.tsx:52
+#: src/app/(home)/footer.tsx:50
 msgid "Classifiche OII"
 msgstr "Classifiche OII"
 
-#: src/app/(home)/footer.tsx:55
+#: src/app/(home)/footer.tsx:53
 msgid "Classifiche OIS"
 msgstr "Classifiche OIS"
 
@@ -121,8 +125,8 @@ msgstr "Codice di recupero"
 msgid "Codice non valido"
 msgstr "Codice non valido"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:71
-#: src/app/task/[name]/submissions/[id]/page.tsx:168
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:100
+#: src/app/task/[name]/submissions/[id]/page.tsx:170
 #: src/app/task/[name]/submit/batch.tsx:80
 #: src/app/task/[name]/submit/skeleton.tsx:26
 msgid "Codice sorgente"
@@ -132,7 +136,7 @@ msgstr "Codice sorgente"
 msgid "Come si usano i grader?"
 msgstr "Come si usano i grader?"
 
-#: src/app/task/[name]/submissions/[id]/page.tsx:121
+#: src/app/task/[name]/submissions/[id]/page.tsx:123
 msgid "Compilazione"
 msgstr "Compilazione"
 
@@ -140,7 +144,7 @@ msgstr "Compilazione"
 msgid "Compilazione fallita"
 msgstr "Compilazione fallita"
 
-#: src/app/task/[name]/submissions/[id]/page.tsx:131
+#: src/app/task/[name]/submissions/[id]/page.tsx:133
 #: src/components/outcome.tsx:9
 msgid "Compilazione in corso"
 msgstr "Compilazione in corso"
@@ -154,12 +158,12 @@ msgstr "Comune"
 msgid "Con Algobadge ti guideremo attraverso una selezione accurata di task da risolvere, ordinati per difficoltà crescente, che ti permetteranno di esplorare nuove tecniche algoritmiche in modo graduale ed efficace."
 msgstr "Con Algobadge ti guideremo attraverso una selezione accurata di task da risolvere, ordinati per difficoltà crescente, che ti permetteranno di esplorare nuove tecniche algoritmiche in modo graduale ed efficace."
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:111
-#: src/app/task/[name]/submissions/[id]/page.tsx:227
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:140
+#: src/app/task/[name]/submissions/[id]/page.tsx:229
 msgid "Corretto"
 msgstr "Corretto"
 
-#: src/app/(terry)/task/terry/[name]/submit/page.tsx:103
+#: src/app/(terry)/task/terry/[name]/submit/page.tsx:109
 #: src/app/(terry)/task/terry/[name]/submit/skeleton.tsx:32
 msgid "Cosa devo inviare?"
 msgstr "Cosa devo inviare?"
@@ -180,19 +184,19 @@ msgstr "Crea un nuovo account"
 msgid "Data e ora"
 msgstr "Data e ora"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:59
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/skeleton.tsx:29
-#: src/app/task/[name]/submissions/[id]/page.tsx:82
-#: src/app/task/[name]/submissions/[id]/skeleton.tsx:31
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:61
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/skeleton.tsx:27
+#: src/app/task/[name]/submissions/[id]/page.tsx:84
+#: src/app/task/[name]/submissions/[id]/skeleton.tsx:29
 msgid "Data e ora:"
 msgstr "Data e ora:"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:42
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:102
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/skeleton.tsx:12
-#: src/app/task/[name]/submissions/[id]/page.tsx:65
-#: src/app/task/[name]/submissions/[id]/page.tsx:214
-#: src/app/task/[name]/submissions/[id]/skeleton.tsx:14
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:44
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:131
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/skeleton.tsx:10
+#: src/app/task/[name]/submissions/[id]/page.tsx:67
+#: src/app/task/[name]/submissions/[id]/page.tsx:216
+#: src/app/task/[name]/submissions/[id]/skeleton.tsx:12
 msgid "Dettagli"
 msgstr "Dettagli"
 
@@ -234,12 +238,16 @@ msgstr "Entra"
 msgid "Entra nella community"
 msgstr "Entra nella community"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:119
-#: src/app/task/[name]/submissions/[id]/page.tsx:235
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:148
+#: src/app/task/[name]/submissions/[id]/page.tsx:237
 msgid "Errato"
 msgstr "Errato"
 
-#: src/app/navbar.tsx:177
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:83
+msgid "Errore:"
+msgstr "Errore:"
+
+#: src/app/navbar.tsx:176
 msgid "Esci"
 msgstr "Esci"
 
@@ -254,14 +262,14 @@ msgstr "Esecuzione in corso"
 msgid "Esito"
 msgstr "Esito"
 
-#: src/app/task/[name]/submissions/[id]/page.tsx:126
+#: src/app/task/[name]/submissions/[id]/page.tsx:128
 msgid "Esito della compilazione:"
 msgstr "Esito della compilazione:"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:47
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/skeleton.tsx:17
-#: src/app/task/[name]/submissions/[id]/page.tsx:70
-#: src/app/task/[name]/submissions/[id]/skeleton.tsx:19
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:49
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/skeleton.tsx:15
+#: src/app/task/[name]/submissions/[id]/page.tsx:72
+#: src/app/task/[name]/submissions/[id]/skeleton.tsx:17
 msgid "Esito:"
 msgstr "Esito:"
 
@@ -269,13 +277,13 @@ msgstr "Esito:"
 msgid "File \"{output}\" mancante"
 msgstr "File \"{output}\" mancante"
 
-#: src/app/(terry)/task/terry/[name]/submit/page.tsx:100
+#: src/app/(terry)/task/terry/[name]/submit/page.tsx:106
 #: src/app/(terry)/task/terry/[name]/submit/skeleton.tsx:29
 #: src/app/task/[name]/submit/output-only.tsx:43
 msgid "File di output"
 msgstr "File di output"
 
-#: src/app/(terry)/task/terry/[name]/submit/page.tsx:99
+#: src/app/(terry)/task/terry/[name]/submit/page.tsx:105
 #: src/app/(terry)/task/terry/[name]/submit/skeleton.tsx:28
 msgid "File sorgente"
 msgstr "File sorgente"
@@ -332,7 +340,7 @@ msgstr "Home"
 msgid "ID"
 msgstr "ID"
 
-#: src/app/task/[name]/tags/page.tsx:143
+#: src/app/task/[name]/tags/page.tsx:162
 msgid "Il task ha già questo tag"
 msgstr "Il task ha già questo tag"
 
@@ -409,10 +417,10 @@ msgstr "Limite di tempo:"
 msgid "Linguaggio"
 msgstr "Linguaggio"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:53
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/skeleton.tsx:23
-#: src/app/task/[name]/submissions/[id]/page.tsx:76
-#: src/app/task/[name]/submissions/[id]/skeleton.tsx:25
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:55
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/skeleton.tsx:21
+#: src/app/task/[name]/submissions/[id]/page.tsx:78
+#: src/app/task/[name]/submissions/[id]/skeleton.tsx:23
 msgid "Linguaggio:"
 msgstr "Linguaggio:"
 
@@ -420,7 +428,7 @@ msgstr "Linguaggio:"
 msgid "Logo OII"
 msgstr "Logo OII"
 
-#: src/app/(home)/footer.tsx:22
+#: src/app/(home)/footer.tsx:20
 msgid "Logo Olimpiadi Italiane di Informatica"
 msgstr "Logo Olimpiadi Italiane di Informatica"
 
@@ -428,11 +436,11 @@ msgstr "Logo Olimpiadi Italiane di Informatica"
 msgid "Matematica"
 msgstr "Matematica"
 
-#: src/app/task/[name]/submissions/[id]/page.tsx:220
+#: src/app/task/[name]/submissions/[id]/page.tsx:222
 msgid "Memoria"
 msgstr "Memoria"
 
-#: src/app/task/[name]/submissions/[id]/page.tsx:143
+#: src/app/task/[name]/submissions/[id]/page.tsx:145
 msgid "Memoria utilizzata:"
 msgstr "Memoria utilizzata:"
 
@@ -454,6 +462,10 @@ msgstr "Modifica profilo"
 #: src/app/user/[username]/edit/avatar/page.tsx:18
 msgid "Modifica su Gravatar"
 msgstr "Modifica su Gravatar"
+
+#: src/app/task/[name]/tags/page.tsx:129
+msgid "Mostra tag"
+msgstr "Mostra tag"
 
 #: src/app/navbar.tsx:64
 msgid "Nazionali e OIS"
@@ -480,7 +492,7 @@ msgstr "Nessun problema risolto"
 msgid "Nessun problema trovato"
 msgstr "Nessun problema trovato"
 
-#: src/app/task/[name]/tags/page.tsx:58
+#: src/app/task/[name]/tags/page.tsx:66
 msgid "Nessun tag"
 msgstr "Nessun tag"
 
@@ -508,9 +520,13 @@ msgstr "Nessuna sottoposizione inviata"
 msgid "Nome del problema"
 msgstr "Nome del problema"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:115
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:144
 msgid "Non inviato"
 msgstr "Non inviato"
+
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:73
+msgid "Nota:"
+msgstr "Nota:"
 
 #: src/app/user/[username]/page.tsx:118
 msgid "Novizio"
@@ -533,7 +549,7 @@ msgstr "Ordinamento"
 msgid "Ospite"
 msgstr "Ospite"
 
-#: src/app/(terry)/task/terry/[name]/submit/page.tsx:66
+#: src/app/(terry)/task/terry/[name]/submit/page.tsx:72
 #: src/app/(terry)/task/terry/[name]/submit/skeleton.tsx:16
 msgid "Ottieni input"
 msgstr "Ottieni input"
@@ -552,7 +568,7 @@ msgstr "Ottimizzazioni estreme"
 msgid "Pagina {page}"
 msgstr "Pagina {page}"
 
-#: src/app/task/[name]/submissions/[id]/page.tsx:231
+#: src/app/task/[name]/submissions/[id]/page.tsx:233
 msgid "Parzialmente corretto"
 msgstr "Parzialmente corretto"
 
@@ -623,7 +639,7 @@ msgstr "Problemi per tecnica"
 msgid "Problemi risolti"
 msgstr "Problemi risolti"
 
-#: src/app/navbar.tsx:172
+#: src/app/navbar.tsx:171
 msgid "Profilo"
 msgstr "Profilo"
 
@@ -653,11 +669,11 @@ msgstr "Punteggio massimo:"
 msgid "Questa pagina non è stata trovata 😢"
 msgstr "Questa pagina non è stata trovata 😢"
 
-#: src/app/(terry)/task/terry/[name]/submit/page.tsx:82
+#: src/app/(terry)/task/terry/[name]/submit/page.tsx:88
 msgid "Questo input è scaduto."
 msgstr "Questo input è scaduto."
 
-#: src/app/(terry)/task/terry/[name]/submit/page.tsx:121
+#: src/app/(terry)/task/terry/[name]/submit/page.tsx:127
 msgid "Questo input scade <0/>."
 msgstr "Questo input scade <0/>."
 
@@ -681,7 +697,7 @@ msgstr "Reindirizzamento..."
 msgid "Ricerca binaria"
 msgstr "Ricerca binaria"
 
-#: src/app/(terry)/task/terry/[name]/submit/page.tsx:92
+#: src/app/(terry)/task/terry/[name]/submit/page.tsx:98
 #: src/app/(terry)/task/terry/[name]/submit/skeleton.tsx:20
 msgid "Richiedi input"
 msgstr "Richiedi input"
@@ -694,23 +710,24 @@ msgstr "Ricordami"
 msgid "Rimuovi filtro {tag}"
 msgstr "Rimuovi filtro {tag}"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:99
-#: src/app/task/[name]/submissions/[id]/page.tsx:211
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:128
+#: src/app/task/[name]/submissions/[id]/page.tsx:213
 msgid "Risultato"
 msgstr "Risultato"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:79
-#: src/app/(terry)/task/terry/[name]/submit/page.tsx:72
+#: src/components/source-code.tsx:27
+#: src/components/source-code.tsx:48
+msgid "Scarica codice"
+msgstr "Scarica codice"
+
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:108
+#: src/app/(terry)/task/terry/[name]/submit/page.tsx:78
 msgid "Scarica input"
 msgstr "Scarica input"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:85
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:114
 msgid "Scarica output"
 msgstr "Scarica output"
-
-#: src/components/source-code.tsx:39
-msgid "Scarica soluzione"
-msgstr "Scarica soluzione"
 
 #: src/app/signup/page.tsx:127
 #: src/app/user/[username]/edit/school/page.tsx:72
@@ -749,11 +766,11 @@ msgstr "Scuola di provenienza"
 msgid "Scuola di provenienza (opzionale)"
 msgstr "Scuola di provenienza (opzionale)"
 
-#: src/app/(terry)/task/terry/[name]/submit/page.tsx:131
+#: src/app/(terry)/task/terry/[name]/submit/page.tsx:137
 msgid "Seleziona il file sorgente"
 msgstr "Seleziona il file sorgente"
 
-#: src/app/task/[name]/tags/page.tsx:158
+#: src/app/task/[name]/tags/page.tsx:177
 msgid "Seleziona un tag"
 msgstr "Seleziona un tag"
 
@@ -761,31 +778,31 @@ msgstr "Seleziona un tag"
 msgid "Selezione SWERC dell'Università degli Studi di Milano"
 msgstr "Selezione SWERC dell'Università degli Studi di Milano"
 
-#: src/app/(home)/footer.tsx:29
+#: src/app/(home)/footer.tsx:27
 msgid "Siti ufficiali"
 msgstr "Siti ufficiali"
 
 #: src/app/task/[name]/stats/page.tsx:71
-#: src/app/task/[name]/stats/skeleton.tsx:45
+#: src/app/task/[name]/stats/skeleton.tsx:43
 msgid "Soluzione più veloci"
 msgstr "Soluzione più veloci"
 
 #: src/app/task/[name]/stats/page.tsx:60
-#: src/app/task/[name]/stats/skeleton.tsx:39
+#: src/app/task/[name]/stats/skeleton.tsx:37
 msgid "Soluzioni corrette:"
 msgstr "Soluzioni corrette:"
 
 #: src/app/task/[name]/stats/page.tsx:54
-#: src/app/task/[name]/stats/skeleton.tsx:33
+#: src/app/task/[name]/stats/skeleton.tsx:31
 msgid "Soluzioni inviate:"
 msgstr "Soluzioni inviate:"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:39
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:41
 msgid "Sottoposizione"
 msgstr "Sottoposizione"
 
-#: src/app/task/[name]/submissions/[id]/page.tsx:62
-#: src/app/task/[name]/submissions/[id]/skeleton.tsx:11
+#: src/app/task/[name]/submissions/[id]/page.tsx:64
+#: src/app/task/[name]/submissions/[id]/skeleton.tsx:9
 msgid "Sottoposizione {0}"
 msgstr "Sottoposizione {0}"
 
@@ -804,11 +821,11 @@ msgid "Statistiche"
 msgstr "Statistiche"
 
 #: src/app/task/[name]/stats/page.tsx:32
-#: src/app/task/[name]/stats/skeleton.tsx:16
+#: src/app/task/[name]/stats/skeleton.tsx:14
 msgid "Statistiche generali"
 msgstr "Statistiche generali"
 
-#: src/app/(home)/footer.tsx:58
+#: src/app/(home)/footer.tsx:56
 msgid "Stato server"
 msgstr "Stato server"
 
@@ -820,33 +837,33 @@ msgstr "Stringhe"
 msgid "Strutture dati"
 msgstr "Strutture dati"
 
-#: src/app/task/[name]/submissions/[id]/page.tsx:97
+#: src/app/task/[name]/submissions/[id]/page.tsx:99
 msgid "Subtask {0}"
 msgstr "Subtask {0}"
 
-#: src/app/task/[name]/tags/page.tsx:157
+#: src/app/task/[name]/tags/page.tsx:176
 msgid "Tag"
 msgstr "Tag"
 
-#: src/app/task/[name]/tags/page.tsx:149
+#: src/app/task/[name]/tags/page.tsx:168
 msgid "Tag aggiunto con successo"
 msgstr "Tag aggiunto con successo"
 
-#: src/app/task/[name]/tags/page.tsx:91
+#: src/app/task/[name]/tags/page.tsx:102
 msgid "Tag rimosso con successo"
 msgstr "Tag rimosso con successo"
 
 #: src/app/task/[name]/layout.tsx:58
-#: src/app/task/[name]/tags/page.tsx:56
+#: src/app/task/[name]/tags/page.tsx:64
 #: src/app/task/[name]/tags/skeleton.tsx:15
 msgid "Tags"
 msgstr "Tag"
 
-#: src/app/task/[name]/submissions/[id]/page.tsx:217
+#: src/app/task/[name]/submissions/[id]/page.tsx:219
 msgid "Tempo"
 msgstr "Tempo"
 
-#: src/app/task/[name]/submissions/[id]/page.tsx:137
+#: src/app/task/[name]/submissions/[id]/page.tsx:139
 msgid "Tempo di compilazione:"
 msgstr "Tempo di compilazione:"
 
@@ -863,13 +880,13 @@ msgstr "Territoriali <0>(nuovo formato)</0>"
 msgid "Territoriali <0>(vecchio formato)</0>"
 msgstr "Territoriali <0>(vecchio formato)</0>"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:96
-#: src/app/task/[name]/submissions/[id]/page.tsx:208
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:125
+#: src/app/task/[name]/submissions/[id]/page.tsx:210
 msgid "Testcase"
 msgstr "Testcase"
 
-#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:65
-#: src/app/task/[name]/submissions/[id]/page.tsx:93
+#: src/app/(terry)/task/terry/[name]/submissions/[id]/page.tsx:94
+#: src/app/task/[name]/submissions/[id]/page.tsx:95
 msgid "Testcases"
 msgstr "Testcases"
 
@@ -877,6 +894,10 @@ msgstr "Testcases"
 #: src/app/task/[name]/layout.tsx:52
 msgid "Testo"
 msgstr "Testo"
+
+#: src/app/task/[name]/page.tsx:43
+msgid "Testo di {0}"
+msgstr "Testo di {0}"
 
 #: src/lib/language.ts:103
 msgid "Testo semplice"
@@ -911,12 +932,12 @@ msgid "Username non valido"
 msgstr "Username non valido"
 
 #: src/app/task/[name]/stats/page.tsx:37
-#: src/app/task/[name]/stats/skeleton.tsx:21
+#: src/app/task/[name]/stats/skeleton.tsx:19
 msgid "Utenti che l'hanno provato:"
 msgstr "Utenti che l'hanno provato:"
 
 #: src/app/task/[name]/stats/page.tsx:43
-#: src/app/task/[name]/stats/skeleton.tsx:27
+#: src/app/task/[name]/stats/skeleton.tsx:25
 msgid "Utenti che l'hanno risolto:"
 msgstr "Utenti che l'hanno risolto:"
 
@@ -924,7 +945,7 @@ msgstr "Utenti che l'hanno risolto:"
 msgid "Vecchia password"
 msgstr "Vecchia password"
 
-#: src/app/(home)/footer.tsx:61
+#: src/app/(home)/footer.tsx:59
 #: src/app/(home)/page.tsx:105
 msgid "Wiki"
 msgstr "Wiki"
