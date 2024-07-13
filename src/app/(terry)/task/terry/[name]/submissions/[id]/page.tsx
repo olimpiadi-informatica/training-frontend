@@ -33,6 +33,8 @@ export default function Page({ params: { name: taskName, id } }: Props) {
 
   if (!task || !submission) return <Skeleton />;
 
+  const alerts = [...submission.feedback.alerts, ...submission.output.validation.alerts];
+
   return (
     <div>
       <H2>
@@ -60,6 +62,33 @@ export default function Page({ params: { name: taskName, id } }: Props) {
           </span>{" "}
           <DateTime date={submission.date} />
         </li>
+        {alerts.length > 0 && (
+          <li>
+            <div className="mb-1 font-bold">Note:</div>
+            <div className="rounded-xl border border-base-content/10 bg-base-100 p-2 whitespace-pre-line text-xs">
+              {alerts.map((alert, i) => (
+                <div key={i}>
+                  {alert.severity === "success" && (
+                    <span className="text-info">
+                      <Trans>Nota:</Trans>{" "}
+                    </span>
+                  )}
+                  {alert.severity === "warning" && (
+                    <span className="text-warning">
+                      <Trans>Attenzione:</Trans>{" "}
+                    </span>
+                  )}
+                  {alert.severity === "danger" && (
+                    <span className="text-warning">
+                      <Trans>Errore:</Trans>{" "}
+                    </span>
+                  )}
+                  {alert.message}
+                </div>
+              ))}
+            </div>
+          </li>
+        )}
       </ul>
       <H3 className="mb-2 mt-6">
         <Trans>Testcases</Trans>

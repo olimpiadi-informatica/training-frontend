@@ -53,6 +53,12 @@ export default function Page({ params: { name: taskName } }: Props) {
 
   const onSubmit = async (data: { source: File; output: File }) => {
     const source = await uploadSource(input!.id, data.source);
+    for (const alert of source.validation.alerts) {
+      if (alert.severity === "warning") {
+        throw new Error(alert.message);
+      }
+    }
+
     const output = await uploadOutput(input!.id, data.output);
     const submission = await submit(input!.id, source.id, output.id);
     await mutate(["terry/user", user.token]);
