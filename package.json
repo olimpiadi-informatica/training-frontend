@@ -12,6 +12,7 @@
     "postinstall": "lingui compile"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^9.6",
     "@lingui/macro": "^4.11",
     "@lingui/react": "^4.11",
     "@mdx-js/loader": "^3.0",

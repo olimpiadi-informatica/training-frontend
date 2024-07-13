@@ -65,6 +65,10 @@ msgstr "Allegati"
 msgid "Altre gare"
 msgstr "Altre gare"
 
+#: src/app/(home)/footer.tsx:65
+msgid "Altre Risorse"
+msgstr "Altre Risorse"
+
 #: src/app/signup/page.tsx:98
 msgid "Anagrafica"
 msgstr "Anagrafica"
@@ -109,11 +113,11 @@ msgstr "Cambia scuola"
 msgid "Classifica"
 msgstr "Classifica"
 
-#: src/app/(home)/footer.tsx:50
+#: src/app/(home)/footer.tsx:72
 msgid "Classifiche OII"
 msgstr "Classifiche OII"
 
-#: src/app/(home)/footer.tsx:53
+#: src/app/(home)/footer.tsx:79
 msgid "Classifiche OIS"
 msgstr "Classifiche OIS"
 
@@ -321,6 +325,10 @@ msgstr "Gare ufficiali"
 msgid "Geometria"
 msgstr "Geometria"
 
+#: src/app/(home)/footer.tsx:46
+msgid "Giochi di Fibonacci"
+msgstr "Giochi di Fibonacci"
+
 #: src/app/tasks/techniques/page.tsx:35
 msgid "Grafi"
 msgstr "Grafi"
@@ -428,7 +436,7 @@ msgstr "Linguaggio:"
 msgid "Logo OII"
 msgstr "Logo OII"
 
-#: src/app/(home)/footer.tsx:20
+#: src/app/(home)/footer.tsx:18
 msgid "Logo Olimpiadi Italiane di Informatica"
 msgstr "Logo Olimpiadi Italiane di Informatica"
 
@@ -443,6 +451,10 @@ msgstr "Memoria"
 #: src/app/task/[name]/submissions/[id]/page.tsx:145
 msgid "Memoria utilizzata:"
 msgstr "Memoria utilizzata:"
+
+#: src/app/(home)/footer.tsx:53
+msgid "Ministero dell'Istruzione e del Merito"
+msgstr "Ministero dell'Istruzione e del Merito"
 
 #: src/app/user/[username]/edit/email/page.tsx:53
 #: src/app/user/[username]/edit/email/page.tsx:57
@@ -539,6 +551,14 @@ msgstr "Nuova password"
 #: src/app/tasks/years/page.tsx:42
 msgid "Olimpiadi di Informatica {0}/{1}"
 msgstr "Olimpiadi di Informatica {0}/{1}"
+
+#: src/app/(home)/footer.tsx:39
+msgid "Olimpiadi di Informatica a Squadre"
+msgstr "Olimpiadi di Informatica a Squadre"
+
+#: src/app/(home)/footer.tsx:32
+msgid "Olimpiadi Italiane di Informatica"
+msgstr "Olimpiadi Italiane di Informatica"
 
 #: src/app/tasks/[page]/page.tsx:135
 #: src/app/tasks/[page]/skeleton.tsx:39
@@ -665,7 +685,7 @@ msgstr "Pseudocodice"
 msgid "Punteggio massimo:"
 msgstr "Punteggio massimo:"
 
-#: src/app/not-found.tsx:10
+#: src/app/not-found.tsx:13
 msgid "Questa pagina non è stata trovata 😢"
 msgstr "Questa pagina non è stata trovata 😢"
 
@@ -778,7 +798,7 @@ msgstr "Seleziona un tag"
 msgid "Selezione SWERC dell'Università degli Studi di Milano"
 msgstr "Selezione SWERC dell'Università degli Studi di Milano"
 
-#: src/app/(home)/footer.tsx:27
+#: src/app/(home)/footer.tsx:25
 msgid "Siti ufficiali"
 msgstr "Siti ufficiali"
 
@@ -825,7 +845,7 @@ msgstr "Statistiche"
 msgid "Statistiche generali"
 msgstr "Statistiche generali"
 
-#: src/app/(home)/footer.tsx:56
+#: src/app/(home)/footer.tsx:86
 msgid "Stato server"
 msgstr "Stato server"
 
@@ -907,7 +927,7 @@ msgstr "Testo semplice"
 msgid "Tipo di file non valido"
 msgstr "Tipo di file non valido"
 
-#: src/app/not-found.tsx:13
+#: src/app/not-found.tsx:16
 msgid "Torna alla home"
 msgstr "Torna alla home"
 
@@ -945,7 +965,7 @@ msgstr "Utenti che l'hanno risolto:"
 msgid "Vecchia password"
 msgstr "Vecchia password"
 
-#: src/app/(home)/footer.tsx:59
+#: src/app/(home)/footer.tsx:93
 #: src/app/(home)/page.tsx:105
 msgid "Wiki"
 msgstr "Wiki"

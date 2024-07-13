@@ -1,9 +1,7 @@
-import Link from "next/link";
-
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
-import { Github, Youtube } from "lucide-react";
 
+import { SiDiscord, SiGithub, SiTelegram, SiYoutube } from "@icons-pack/react-simple-icons";
 import oii from "~/app/icon0.svg";
 
 export function Footer() {
@@ -26,45 +24,90 @@ export function Footer() {
           <h3 className="footer-title">
             <Trans>Siti ufficiali</Trans>
           </h3>
-          <Link href="https://olimpiadi-informatica.it" className="link-hover link">
-            Olimpiadi Italiane di Informatica
-          </Link>
-          <Link
+          <a
+            href="https://olimpiadi-informatica.it"
+            className="link-hover link"
+            target="_blank"
+            rel="noreferrer">
+            <Trans>Olimpiadi Italiane di Informatica</Trans>
+          </a>
+          <a
             href="https://sites.google.com/aldini.istruzioneer.it/olimpiadi-informatica-squadre/homepage"
-            className="link-hover link">
-            Olimpiadi di Informatica a Squadre
-          </Link>
-          <Link href="https://fibonacci.olinfo.it" className="link-hover link">
-            Giochi di Fibonacci
-          </Link>
-          <Link href="https://miur.gov.it/" className="link-hover link">
-            Ministero dell'Istruzione e del Merito
-          </Link>
-          <Link href="https://www.aicanet.it/" className="link-hover link">
+            className="link-hover link"
+            target="_blank"
+            rel="noreferrer">
+            <Trans>Olimpiadi di Informatica a Squadre</Trans>
+          </a>
+          <a
+            href="https://fibonacci.olinfo.it"
+            className="link-hover link"
+            target="_blank"
+            rel="noreferrer">
+            <Trans>Giochi di Fibonacci</Trans>
+          </a>
+          <a
+            href="https://miur.gov.it/"
+            className="link-hover link"
+            target="_blank"
+            rel="noreferrer">
+            <Trans>Ministero dell'Istruzione e del Merito</Trans>
+          </a>
+          <a
+            href="https://www.aicanet.it/"
+            className="link-hover link"
+            target="_blank"
+            rel="noreferrer">
             AICA
-          </Link>
+          </a>
         </nav>
         <nav>
-          <h3 className="footer-title">Altre Risorse</h3>
-          <Link href="https://stats.olinfo.it" className="link-hover link">
+          <h3 className="footer-title">
+            <Trans>Altre Risorse</Trans>
+          </h3>
+          <a
+            href="https://stats.olinfo.it"
+            className="link-hover link"
+            target="_blank"
+            rel="noreferrer">
             <Trans>Classifiche OII</Trans>
-          </Link>
-          <Link href="https://squadre.olinfo.it" className="link-hover link">
+          </a>
+          <a
+            href="https://squadre.olinfo.it"
+            className="link-hover link"
+            target="_blank"
+            rel="noreferrer">
             <Trans>Classifiche OIS</Trans>
-          </Link>
-          <Link href="https://status.olinfo.it" className="link-hover link">
+          </a>
+          <a
+            href="https://status.olinfo.it"
+            className="link-hover link"
+            target="_blank"
+            rel="noreferrer">
             <Trans>Stato server</Trans>
-          </Link>
-          <Link href="https://wiki.olinfo.it" className="link-hover link">
+          </a>
+          <a
+            href="https://wiki.olinfo.it"
+            className="link-hover link"
+            target="_blank"
+            rel="noreferrer">
             <Trans>Wiki</Trans>
-          </Link>
+          </a>
           <div className="mt-1 flex gap-2">
-            <Link href="https://github.com/olimpiadi-informatica">
-              <Github size={20} />
-            </Link>
-            <Link href="https://www.youtube.com/@olimpiadiitalianediinforma4928">
-              <Youtube size={20} />
-            </Link>
+            <a href="https://github.com/olimpiadi-informatica" target="_blank" rel="noreferrer">
+              <SiGithub size={20} />
+            </a>
+            <a href="https://t.me/+Zp70NXu5W04xMjQ0" target="_blank" rel="noreferrer">
+              <SiTelegram size={20} />
+            </a>
+            <a href="https://discord.com/invite/4b2gepw" target="_blank" rel="noreferrer">
+              <SiDiscord size={20} />
+            </a>
+            <a
+              href="https://www.youtube.com/@olimpiadiitalianediinforma4928"
+              target="_blank"
+              rel="noreferrer">
+              <SiYoutube size={20} />
+            </a>
           </div>
         </nav>
       </footer>
