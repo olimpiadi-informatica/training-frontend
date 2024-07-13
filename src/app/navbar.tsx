@@ -50,7 +50,7 @@ export function Navbar() {
         </NavbarMenuItem>
         <NavbarSubmenu title={_(msg`Problemi`)}>
           <NavbarMenuItem>
-            <Link href="https://scolastiche.olinfo.it">
+            <Link href="/scolastiche">
               <Trans>Scolastiche</Trans>
             </Link>
           </NavbarMenuItem>

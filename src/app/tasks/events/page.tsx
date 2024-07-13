@@ -19,7 +19,7 @@ export default async function Page() {
       </H2>
       <Menu>
         <li>
-          <Link href="https://scolastiche.olinfo.it">Scolastiche</Link>
+          <Link href="/scolastiche">Scolastiche</Link>
         </li>
         <li>
           <Link href="/tasks/1?tag=territoriali">

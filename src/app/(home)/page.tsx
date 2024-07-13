@@ -46,7 +46,7 @@ export default async function Home() {
               </Trans>
             </p>
             <CardActions>
-              <Link href="https://scolastiche.olinfo.it" className="btn btn-accent">
+              <Link href="/scolastiche" className="btn btn-accent">
                 <Trans>Scolastiche</Trans>
               </Link>
               <Link href="/tasks/terry/1" className="btn btn-accent">
