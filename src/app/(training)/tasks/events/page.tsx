@@ -66,6 +66,11 @@ export default async function Page() {
       </H2>
       <Menu>
         <li>
+          <Link href="/fibonacci">
+            <Trans>Giochi di Fibonacci</Trans>
+          </Link>
+        </li>
+        <li>
           <Link href="/tasks/1?tag=abc">
             Algoritmi Bergamo Contest <span className="text-base-content/60">(ABC)</span>
           </Link>
