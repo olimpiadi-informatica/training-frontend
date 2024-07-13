@@ -24,7 +24,7 @@ import { useSWRConfig } from "swr";
 
 import { useUser } from "~/components/user";
 
-import logo from "./icon0.svg";
+import logo from "~/app/icon0.svg";
 
 export function Navbar() {
   const path = usePathname();
