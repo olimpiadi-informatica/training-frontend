@@ -114,7 +114,7 @@ export function Navbar() {
 
 function LocaleDropdown() {
   const router = useRouter();
-  const { i18n } = useLingui();
+  const { i18n, _ } = useLingui();
 
   const changeLanguage = (lang: string) => {
     document.cookie = `lang=${lang}; path=/; max-age=31536000`;
@@ -123,7 +123,7 @@ function LocaleDropdown() {
 
   return (
     <Dropdown className="dropdown-end">
-      <DropdownButton className="gap-1">
+      <DropdownButton className="gap-1" ariaLabel={_(msg`Cambia lingua`)}>
         <Languages size={20} />
         <ChevronDown size={18} strokeWidth={2.5} />
       </DropdownButton>

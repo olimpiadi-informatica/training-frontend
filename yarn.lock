@@ -691,10 +691,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@olinfo/react-components@^0.4":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@olinfo/react-components/-/react-components-0.4.1.tgz#03790c310751bf3dde10b79c8cbc83d53f5f6c25"
-  integrity sha512-v6xPkuBiwnZ+DPRu3VGdVspbPy4TT0JuPT5XpnsHtBtV9rYaPBEEAVeNCIwNPbWLgk1/RSLxuH9CTydNhxS8ww==
+"@olinfo/react-components@^0.5":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@olinfo/react-components/-/react-components-0.5.0.tgz#c18a2b098f5e1cfb2143d69df1735e3897067bcc"
+  integrity sha512-qaLUUWpmoRPgm5u4xDTnopEENB6Za41+1aitGqqwbZFb/QjdPnSTU/JnFfYh4tvn+rusmhLCLBP5Q5oRi4vViA==
   dependencies:
     "@olinfo/training-api" "^0.1"
     clsx "^2.1"

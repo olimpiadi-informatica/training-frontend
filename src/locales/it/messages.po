@@ -101,6 +101,10 @@ msgstr "Cambia foto profilo"
 msgid "Cambia input"
 msgstr "Cambia input"
 
+#: src/app/navbar.tsx:126
+msgid "Cambia lingua"
+msgstr "Cambia lingua"
+
 #: src/app/recover/page.tsx:66
 msgid "Cambia password"
 msgstr "Cambia password"
