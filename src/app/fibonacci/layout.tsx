@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
-import { Navbar } from "~/app/fibonacci/navbar";
+
 import { loadLocale } from "~/lib/locale";
+
+import { Navbar } from "./navbar";
 
 export const metadata = {
   title: "Giochi di Fibonacci",

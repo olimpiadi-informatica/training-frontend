@@ -35,7 +35,7 @@ export default async function Home() {
           </p>
         </div>
       </div>
-      <div className="*:mb-4 lg:columns-2">
+      <div className="grid gap-4 lg:grid-cols-2">
         <Card>
           <CardBody title={_(msg`Inizia ad allenarti`)}>
             <p>

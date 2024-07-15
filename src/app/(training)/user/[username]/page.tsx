@@ -41,7 +41,7 @@ export default function Page({ params: { username } }: Props) {
         <CardBody
           title={
             <>
-              {user.username} <UserBadge level={user.global_access_level} />
+              {user.username} <UserBadge level={user.access_level} />
             </>
           }>
           <div>

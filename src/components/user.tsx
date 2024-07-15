@@ -70,7 +70,7 @@ function UserDropdownInner({ user }: { user: User | SyncUser }) {
     <Dropdown className="dropdown-end">
       <DropdownButton>
         <Avatar size={32} user={user} />
-        <div className="truncate uppercase">{user.username}</div>
+        <div className="truncate uppercase max-sm:hidden md:max-lg:hidden">{user.username}</div>
       </DropdownButton>
       <DropdownMenu>
         <li>

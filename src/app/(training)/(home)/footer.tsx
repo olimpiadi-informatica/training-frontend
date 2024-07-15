@@ -1,7 +1,7 @@
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 
-import { SiDiscord, SiGithub, SiTelegram, SiYoutube } from "@icons-pack/react-simple-icons";
+import { SiGithub, SiTelegram, SiYoutube } from "@icons-pack/react-simple-icons";
 import oii from "~/app/icon0.svg";
 
 export function Footer() {
@@ -98,9 +98,6 @@ export function Footer() {
             </a>
             <a href="https://t.me/+Zp70NXu5W04xMjQ0" target="_blank" rel="noreferrer">
               <SiTelegram size={20} />
-            </a>
-            <a href="https://discord.com/invite/4b2gepw" target="_blank" rel="noreferrer">
-              <SiDiscord size={20} />
             </a>
             <a
               href="https://www.youtube.com/@olimpiadiitalianediinforma4928"

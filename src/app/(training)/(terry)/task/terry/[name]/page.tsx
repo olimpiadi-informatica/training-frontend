@@ -40,7 +40,7 @@ export default function Page({ params: { name: taskName } }: Props) {
 function Loading() {
   return (
     <div className="flex grow items-center justify-center">
-      <span className="loading loading-dots w-12" />
+      <span className="loading loading-spinner w-12" />
     </div>
   );
 }
