@@ -12,6 +12,7 @@
     "postinstall": "lingui compile"
   },
   "dependencies": {
+    "@fireworks-js/react": "^2.10",
     "@icons-pack/react-simple-icons": "^9.6",
     "@lingui/macro": "^4.11",
     "@lingui/react": "^4.11",

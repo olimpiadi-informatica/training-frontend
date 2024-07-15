@@ -5,9 +5,12 @@ import { useLingui } from "@lingui/react";
 import {
   Navbar as BaseNavbar,
   NavbarBrand,
+  NavbarContent,
   NavbarMenu,
   NavbarMenuItem,
 } from "@olinfo/react-components";
+
+import { LocaleDropdown } from "~/components/locale";
 
 import logo from "./icon.jpg";
 
@@ -42,6 +45,9 @@ export function Navbar() {
           </Link>
         </NavbarMenuItem>
       </NavbarMenu>
+      <NavbarContent>
+        <LocaleDropdown />
+      </NavbarContent>
     </BaseNavbar>
   );
 }

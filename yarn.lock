@@ -369,6 +369,13 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.17.19.tgz#8cfaf2ff603e9aabb910e9c0558c26cf32744061"
   integrity sha512-lAhycmKnVOuRYNtRtatQR1LPQf2oYCkRGkSFnseDAKPl8lu5SOsK/e1sXe5a0Pc5kHIHe6P2I/ilntNv2xf3cA==
 
+"@fireworks-js/react@^2.10":
+  version "2.10.8"
+  resolved "https://registry.yarnpkg.com/@fireworks-js/react/-/react-2.10.8.tgz#3667d6715a1fd8c30bf526b0f42ed0d3f9006e68"
+  integrity sha512-Qy/HSiTnph2IT2LHVzo9Ov+zifGQboTICjVLyrp/sWMHZoaodZiW0xrFxN1RfYI3R7j5bNZmf6S9EzqOWPfFWA==
+  dependencies:
+    fireworks-js "2.10.8"
+
 "@icons-pack/react-simple-icons@^9.6":
   version "9.6.0"
   resolved "https://registry.yarnpkg.com/@icons-pack/react-simple-icons/-/react-simple-icons-9.6.0.tgz#5938d2f4bdea7402b403ad8de05f5c1ca011f15b"
@@ -1656,6 +1663,11 @@ find-up@^3.0.0:
   integrity sha512-1yD6RmLI1XBfxugvORwlck6f75tYL+iR0jqwsOrOxMZyGYqUuDhJ0l4AXdO1iX/FTs9cBAMEk1gWSEx1kSbylg==
   dependencies:
     locate-path "^3.0.0"
+
+fireworks-js@2.10.8:
+  version "2.10.8"
+  resolved "https://registry.yarnpkg.com/fireworks-js/-/fireworks-js-2.10.8.tgz#b161c9f905ac96f9cbb1635603eda9dbe1d99d22"
+  integrity sha512-UZNxeJvRmQzLisN4iriWXqKojG9TDJqc0dPmkUw0/+AEQQ3w8z1Jx2YdFSiBGSVb/u4dPTQXU109GMVblzhfpg==
 
 foreground-child@^3.1.0:
   version "3.2.1"

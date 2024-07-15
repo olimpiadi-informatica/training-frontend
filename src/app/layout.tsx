@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import type { ReactNode } from "react";
 
 import { Layout } from "@olinfo/react-components";
+import { getMeSync } from "@olinfo/training-api";
 
 import { loadLocale } from "~/lib/locale";
 
@@ -17,6 +19,9 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const i18n = await loadLocale();
 
+  const token = cookies().get("training_token");
+  const user = token && getMeSync(token.value);
+
   return (
     <html lang={i18n.locale}>
       <head>
@@ -25,7 +30,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
       </head>
       <body>
         <Layout>
-          <LayoutClient locale={i18n.locale} messages={i18n.messages}>
+          <LayoutClient syncUser={user} locale={i18n.locale} messages={i18n.messages}>
             {children}
           </LayoutClient>
         </Layout>

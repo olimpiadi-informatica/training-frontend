@@ -1,17 +1,16 @@
-import { cookies } from "next/headers";
 import type { ReactNode } from "react";
 
-import { getMeSync } from "@olinfo/training-api";
+import { loadLocale } from "~/lib/locale";
 
-import { LayoutClient } from "./layout-client";
+import { Navbar } from "./navbar";
 
-export default function Layout({ children }: { children: ReactNode }) {
-  const token = cookies().get("training_token");
-  const user = token && getMeSync(token.value);
+export default async function Layout({ children }: { children: ReactNode }) {
+  await loadLocale();
 
   return (
-    <LayoutClient syncUser={user}>
+    <>
+      <Navbar />
       <div className="mx-auto flex w-full max-w-screen-xl grow flex-col p-4 pb-8">{children}</div>
-    </LayoutClient>
+    </>
   );
 }

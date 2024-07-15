@@ -86,7 +86,7 @@ export default async function Home() {
                 algoritmiche in modo graduale ed efficace.
               </Trans>
             </p>
-            <CardButton href="https://algobadge.olinfo.it" icon={Route}>
+            <CardButton href="/algobadge" icon={Route}>
               <Trans>Algobadge</Trans>
             </CardButton>
           </CardBody>

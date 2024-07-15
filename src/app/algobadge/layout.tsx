@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
@@ -11,23 +14,29 @@ import {
   NavbarSubmenu,
 } from "@olinfo/react-components";
 
-import logo from "~/app/icon0.svg";
 import { LocaleDropdown } from "~/components/locale";
 import { UserDropdown } from "~/components/user";
 
-export function Navbar() {
+import { useMyBadges } from "~/lib/algobadge";
+import { Title } from "./title";
+
+export default function Layout({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <Navbar />
+      <div className="relative mx-auto w-full max-w-screen-xl p-4 pb-8">{children}</div>
+    </>
+  );
+}
+
+function Navbar() {
   const { _ } = useLingui();
+  const { totalBadge } = useMyBadges();
 
   return (
     <BaseNavbar color="bg-base-300 text-base-content">
       <NavbarBrand>
-        <img
-          src={logo.src}
-          width={logo.width}
-          height={logo.height}
-          alt={_(msg`Logo OII`)}
-          className="h-full w-auto"
-        />
+        <Title badge={totalBadge} />
       </NavbarBrand>
       <NavbarMenu>
         <NavbarMenuItem>
@@ -67,16 +76,6 @@ export function Navbar() {
             </Link>
           </NavbarMenuItem>
         </NavbarSubmenu>
-        <NavbarMenuItem>
-          <Link href="/ranking/1">
-            <Trans>Classifica</Trans>
-          </Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link href="/algobadge">
-            <Trans>Algobadge</Trans>
-          </Link>
-        </NavbarMenuItem>
         <NavbarMenuItem>
           <Link href="https://forum.olinfo.it">
             <Trans>Forum</Trans>
