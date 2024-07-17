@@ -26,7 +26,9 @@ export default function Layout({ children }: { children: ReactNode }) {
       <Tree />
       <div className="prose mt-8 max-w-full md:prose-lg">
         {page && <Header category={categories[page]} badge={badges?.[page]} />}
-        {children}
+        <div className="[&_svg]:inline-block [&_svg]:align-text-top [&_svg]:me-1 prose-a:text-blue-600 dark:prose-a:text-blue-400">
+          {children}
+        </div>
       </div>
       {totalBadge === Badge.Diamond && <Fireworks />}
     </>

@@ -46,33 +46,18 @@ function Navbar() {
         </NavbarMenuItem>
         <NavbarSubmenu title={_(msg`Problemi`)}>
           <NavbarMenuItem>
-            <Link href="/scolastiche">
-              <Trans>Scolastiche</Trans>
-            </Link>
-          </NavbarMenuItem>
-          <NavbarMenuItem>
             <Link href="/tasks/terry/1">
               <Trans>Territoriali</Trans>
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
             <Link href="/tasks/1">
-              <Trans>Nazionali e OIS</Trans>
+              <Trans>Nazionali e altre gare</Trans>
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
             <Link href="/tasks/techniques">
               <Trans>Problemi per tecnica</Trans>
-            </Link>
-          </NavbarMenuItem>
-          <NavbarMenuItem>
-            <Link href="/tasks/events">
-              <Trans>Problemi per gara</Trans>
-            </Link>
-          </NavbarMenuItem>
-          <NavbarMenuItem>
-            <Link href="/tasks/years">
-              <Trans>Problemi per anno</Trans>
             </Link>
           </NavbarMenuItem>
         </NavbarSubmenu>
