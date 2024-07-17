@@ -1,14 +1,20 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { type ReactNode, createContext, useContext } from "react";
 
 import { Trans } from "@lingui/macro";
-import { Avatar, Dropdown, DropdownButton, DropdownMenu } from "@olinfo/react-components";
+import {
+  Avatar,
+  Dropdown,
+  DropdownButton,
+  DropdownItem,
+  DropdownMenu,
+} from "@olinfo/react-components";
 import type { User as TerryUser } from "@olinfo/terry-api";
 import { type SyncUser, type User, logout } from "@olinfo/training-api";
 import { LogIn, LogOut, UserRound } from "lucide-react";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 import { useSWRConfig } from "swr";
 
 const UserContext = createContext<User | SyncUser | undefined>(undefined);
@@ -73,16 +79,16 @@ function UserDropdownInner({ user }: { user: User | SyncUser }) {
         <div className="truncate uppercase max-sm:hidden md:max-lg:hidden">{user.username}</div>
       </DropdownButton>
       <DropdownMenu>
-        <li>
+        <DropdownItem>
           <Link href={`/user/${user.username}`} className="flex justify-between gap-4">
             <Trans>Profilo</Trans> <UserRound size={20} />
           </Link>
-        </li>
-        <li>
+        </DropdownItem>
+        <DropdownItem>
           <button className="flex justify-between gap-4" onClick={onLogout} type="button">
             <Trans>Esci</Trans> <LogOut size={20} />
           </button>
-        </li>
+        </DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );

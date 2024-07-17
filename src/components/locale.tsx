@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import { msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
-import { Dropdown, DropdownButton, DropdownMenu } from "@olinfo/react-components";
+import { Dropdown, DropdownButton, DropdownItem, DropdownMenu } from "@olinfo/react-components";
 import clsx from "clsx";
 import { ChevronDown, Languages } from "lucide-react";
 
@@ -24,22 +24,22 @@ export function LocaleDropdown() {
         <ChevronDown size={18} strokeWidth={2.5} />
       </DropdownButton>
       <DropdownMenu>
-        <li>
+        <DropdownItem>
           <button
             className={clsx(i18n.locale === "it" && "active")}
             onClick={() => changeLanguage("it")}
             type="button">
             &#127470;&#127481; Italiano
           </button>
-        </li>
-        <li>
+        </DropdownItem>
+        <DropdownItem>
           <button
             className={clsx(i18n.locale === "en" && "active")}
             onClick={() => changeLanguage("en")}
             type="button">
             &#127468;&#127463; English
           </button>
-        </li>
+        </DropdownItem>
       </DropdownMenu>
     </Dropdown>
   );
