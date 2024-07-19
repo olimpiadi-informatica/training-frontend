@@ -47,9 +47,10 @@ export function useTerryUser() {
   return useContext(TerryUserContext);
 }
 
-export function UserDropdown() {
+export function UserDropdown({ overrideUser }: { overrideUser?: User }) {
   const path = usePathname();
-  const user = useUser();
+  const loggedUser = useUser();
+  const user = overrideUser ?? loggedUser;
 
   return user ? (
     <UserDropdownInner user={user} />
@@ -65,6 +66,7 @@ export function UserDropdown() {
 function UserDropdownInner({ user }: { user: User | SyncUser }) {
   const router = useRouter();
   const { mutate } = useSWRConfig();
+  const me = useUser();
 
   const onLogout = async () => {
     await logout();
@@ -84,11 +86,13 @@ function UserDropdownInner({ user }: { user: User | SyncUser }) {
             <Trans>Profilo</Trans> <UserRound size={20} />
           </Link>
         </DropdownItem>
-        <DropdownItem>
-          <button className="flex justify-between gap-4" onClick={onLogout} type="button">
-            <Trans>Esci</Trans> <LogOut size={20} />
-          </button>
-        </DropdownItem>
+        {user.username === me?.username && (
+          <DropdownItem>
+            <button className="flex justify-between gap-4" onClick={onLogout} type="button">
+              <Trans>Esci</Trans> <LogOut size={20} />
+            </button>
+          </DropdownItem>
+        )}
       </DropdownMenu>
     </Dropdown>
   );

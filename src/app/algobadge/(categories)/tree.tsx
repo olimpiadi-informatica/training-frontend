@@ -9,8 +9,8 @@ import {
   Badge,
   type CategoryBadge,
   type CategoryId,
+  algobadge,
   badgeBackground,
-  categories,
   useMyBadges,
 } from "~/lib/algobadge";
 
@@ -18,7 +18,7 @@ export function Tree() {
   return (
     <div className="relative">
       <div className="grid grid-cols-3 md:grid-cols-4">
-        {Object.keys(categories).map((id) => (
+        {Object.keys(algobadge).map((id) => (
           <TreeNode key={id} categoryId={id as CategoryId} />
         ))}
       </div>
@@ -47,7 +47,7 @@ export function Tree() {
 }
 
 function TreeNode({ categoryId }: { categoryId: CategoryId }) {
-  const category = categories[categoryId];
+  const category = algobadge[categoryId];
 
   const { badges } = useMyBadges();
   const badge = badges?.[categoryId];
@@ -112,9 +112,9 @@ function TreeNodeLocked({ categoryId }: { categoryId: CategoryId }) {
 }
 
 function TreeEdges({ transpose }: { transpose?: boolean }) {
-  return Object.entries(categories).map(([id, node]) => {
+  return Object.entries(algobadge).map(([id, node]) => {
     if (!node.parent) return;
-    const parent = categories[node.parent];
+    const parent = algobadge[node.parent];
     return (
       <line
         key={id}

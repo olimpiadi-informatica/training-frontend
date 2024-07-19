@@ -17,6 +17,9 @@ import {
 import { LocaleDropdown } from "~/components/locale";
 import { UserDropdown } from "~/components/user";
 
+import { type User, getUser } from "@olinfo/training-api";
+import { useSearchParams } from "next/navigation";
+import useSWR from "swr";
 import { useMyBadges } from "~/lib/algobadge";
 import { Title } from "./title";
 
@@ -32,6 +35,15 @@ export default function Layout({ children }: { children: ReactNode }) {
 function Navbar() {
   const { _ } = useLingui();
   const { totalBadge } = useMyBadges();
+
+  const params = useSearchParams();
+  const impersonate = params.get("impersonate");
+
+  const { data: user } = useSWR<User, Error, [string, string] | false>(
+    !!impersonate && ["api/user", impersonate],
+    ([, username]) => getUser(username),
+    { revalidateIfStale: false },
+  );
 
   return (
     <BaseNavbar color="bg-base-300 text-base-content">
@@ -69,7 +81,7 @@ function Navbar() {
       </NavbarMenu>
       <NavbarContent>
         <LocaleDropdown />
-        <UserDropdown />
+        <UserDropdown overrideUser={user} />
       </NavbarContent>
     </BaseNavbar>
   );

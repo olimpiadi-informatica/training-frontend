@@ -3,7 +3,7 @@ import { useMemo } from "react";
 
 import { type Scores as TerryScores, getScores as getTerryScores } from "@olinfo/terry-api";
 import { type User, getUser } from "@olinfo/training-api";
-import { mapValues } from "lodash-es";
+import { map, mapValues } from "lodash-es";
 import useSWR from "swr";
 
 import { useUser } from "~/components/user";
@@ -32,7 +32,7 @@ export type Category = {
   tasks: Task[];
 };
 
-export const categories: Record<CategoryId, Category> = {
+export const algobadge: Record<CategoryId, Category> = {
   [CategoryId.DP]: {
     title: "Programmazione dinamica",
     parent: CategoryId.Rec,
@@ -215,7 +215,7 @@ export function computeCategoryBadges(
   terryScores: TerryScores,
   unlockEverything: boolean,
 ) {
-  const categoryBadges = mapValues(categories, (node) =>
+  const categoryBadges = mapValues(algobadge, (node) =>
     computeCategoryBadge(node, trainingUser, terryScores),
   );
 
@@ -245,7 +245,7 @@ export function computeCategoryBadges(
   };
 
   if (!unlockEverything) {
-    for (const node in categories) {
+    for (const node in algobadge) {
       dfs(node as CategoryId);
     }
   }
@@ -330,9 +330,7 @@ export function useUserBadges(username?: string, unlock?: boolean) {
     [training, terry, unlock],
   );
 
-  const totalBadge = badges
-    ? (Math.min(...Object.values(badges).map((b) => b.badge)) as Badge)
-    : Badge.None;
+  const totalBadge = badges ? (Math.min(...map(badges, "badge")) as Badge) : Badge.None;
   return { badges, totalBadge, isLoading: isLoadingTraining || isLoadingTerry };
 }
 
