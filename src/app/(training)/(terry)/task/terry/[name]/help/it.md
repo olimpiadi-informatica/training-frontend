@@ -22,3 +22,5 @@ Case #3: ...
 ```
 
 Salvalo in un file e caricalo come file di output.
+
+Se hai difficoltà puoi consultare la [Guida per le selezioni territoriali](/bugatti.pdf#page=16).

@@ -18,9 +18,9 @@ msgid "{0} punti"
 msgstr "{0} points"
 
 #: src/app/(training)/login/page.tsx:50
-#: src/app/(training)/navbar.tsx:107
 #: src/app/(training)/task/[name]/submissions/page.tsx:54
 #: src/app/(training)/task/[name]/submit/page.tsx:41
+#: src/components/user.tsx:61
 msgid "Accedi"
 msgstr "Log in"
 
@@ -51,7 +51,7 @@ msgid "Aggiungi tag"
 msgstr "Add tag"
 
 #: src/app/(training)/(home)/page.tsx:90
-#: src/app/(training)/navbar.tsx:90
+#: src/app/(training)/navbar.tsx:77
 msgid "Algobadge"
 msgstr "Algobadge"
 
@@ -109,7 +109,7 @@ msgstr "Update profile picture"
 msgid "Cambia input"
 msgstr "Generate new input"
 
-#: src/app/(training)/navbar.tsx:126
+#: src/components/locale.tsx:22
 msgid "Cambia lingua"
 msgstr "Change language"
 
@@ -121,7 +121,7 @@ msgstr "Update password"
 msgid "Cambia scuola"
 msgstr "Update school"
 
-#: src/app/(training)/navbar.tsx:85
+#: src/app/(training)/navbar.tsx:72
 msgid "Classifica"
 msgstr "Ranking"
 
@@ -269,7 +269,7 @@ msgstr "Wrong"
 msgid "Errore:"
 msgstr "Error:"
 
-#: src/app/(training)/navbar.tsx:176
+#: src/components/user.tsx:92
 msgid "Esci"
 msgstr "Log out"
 
@@ -315,13 +315,18 @@ msgid "File troppo grande"
 msgstr "File too big"
 
 #: src/app/(training)/(home)/page.tsx:74
-#: src/app/(training)/navbar.tsx:95
+#: src/app/(training)/navbar.tsx:82
+#: src/app/algobadge/layout.tsx:78
 msgid "Forum"
 msgstr "Forum"
 
 #: src/app/(training)/user/[username]/edit/layout.tsx:45
 msgid "Foto"
 msgstr "Picture"
+
+#: src/lib/algobadge.ts:129
+msgid "Funzioni di Libreria"
+msgstr "Library functions"
 
 #: src/app/(training)/tasks/events/page.tsx:86
 msgid "Gara di allenamento Istituto Roiti Ferrara"
@@ -357,6 +362,7 @@ msgid "Giochi di Fibonacci - Scuole secondarie"
 msgstr "Fibonacci Games - Secondary schools"
 
 #: src/app/(training)/tasks/techniques/page.tsx:35
+#: src/lib/algobadge.ts:75
 msgid "Grafi"
 msgstr "Graphs"
 
@@ -364,8 +370,17 @@ msgstr "Graphs"
 msgid "Greedy"
 msgstr "Greedy"
 
-#: src/app/(training)/navbar.tsx:48
-#: src/app/fibonacci/navbar.tsx:31
+#: src/lib/algobadge.ts:93
+msgid "Greedy, sorting e searching"
+msgstr "Greedy, sorting and searching"
+
+#: src/app/algobadge/(categories)/header.tsx:65
+msgid "Hai raggiunto il badge di diamante!"
+msgstr "You have reached the diamond badge!"
+
+#: src/app/(training)/navbar.tsx:35
+#: src/app/algobadge/layout.tsx:56
+#: src/app/fibonacci/navbar.tsx:34
 msgid "Home"
 msgstr "Home"
 
@@ -387,6 +402,10 @@ msgstr "Learn step by step"
 #: src/app/(training)/tasks/techniques/page.tsx:45
 msgid "Implementazione"
 msgstr "Implementation"
+
+#: src/lib/algobadge.ts:165
+msgid "Induzione e ricorsione"
+msgstr "Induction and recursion"
 
 #: src/app/(training)/(home)/page.tsx:40
 #: src/app/fibonacci/page.tsx:48
@@ -465,11 +484,11 @@ msgstr "Language"
 msgid "Linguaggio:"
 msgstr "Language:"
 
-#: src/app/fibonacci/navbar.tsx:24
+#: src/app/fibonacci/navbar.tsx:27
 msgid "Logo Giochi di Fibonacci"
 msgstr "Fibonacci Games logo"
 
-#: src/app/(training)/navbar.tsx:41
+#: src/app/(training)/navbar.tsx:28
 msgid "Logo OII"
 msgstr "OII logo"
 
@@ -478,6 +497,7 @@ msgid "Logo Olimpiadi Italiane di Informatica"
 msgstr "Italian Olympiads in Informatics logo"
 
 #: src/app/(training)/tasks/techniques/page.tsx:50
+#: src/lib/algobadge.ts:147
 msgid "Matematica"
 msgstr "Math"
 
@@ -516,7 +536,11 @@ msgstr "Update on Gravatar"
 msgid "Mostra tag"
 msgstr "Show tag"
 
-#: src/app/(training)/navbar.tsx:64
+#: src/app/algobadge/layout.tsx:67
+msgid "Nazionali e altre gare"
+msgstr "Nationals & more"
+
+#: src/app/(training)/navbar.tsx:51
 msgid "Nazionali e OIS"
 msgstr "Nationals & OIS"
 
@@ -680,23 +704,29 @@ msgstr "Introduce yourself to other students, discuss the tasks, clear up your d
 msgid "Probabilmente hai sbagliato a selezionare il linguaggio, in caso contrario ti suggeriamo di smettere di usare Pascal e imparare un linguaggio più moderno."
 msgstr "You probably selected the wrong language, otherwise we suggest you stop using Pascal and learn a more modern language."
 
-#: src/app/(training)/navbar.tsx:51
+#: src/app/(training)/navbar.tsx:38
+#: src/app/algobadge/layout.tsx:59
 msgid "Problemi"
 msgstr "Tasks"
 
-#: src/app/(training)/navbar.tsx:79
+#: src/lib/algobadge.ts:111
+msgid "Problemi introduttivi"
+msgstr "Getting started"
+
+#: src/app/(training)/navbar.tsx:66
 #: src/app/(training)/tasks/years/page.tsx:36
 #: src/app/(training)/tasks/years/skeleton.tsx:13
 msgid "Problemi per anno"
 msgstr "Tasks by year"
 
-#: src/app/(training)/navbar.tsx:74
+#: src/app/(training)/navbar.tsx:61
 #: src/app/(training)/tasks/events/page.tsx:15
 msgid "Problemi per gara"
 msgstr "Tasks by contest"
 
-#: src/app/(training)/navbar.tsx:69
+#: src/app/(training)/navbar.tsx:56
 #: src/app/(training)/tasks/techniques/page.tsx:15
+#: src/app/algobadge/layout.tsx:72
 msgid "Problemi per tecnica"
 msgstr "Tasks by technique"
 
@@ -704,7 +734,7 @@ msgstr "Tasks by technique"
 msgid "Problemi risolti"
 msgstr "Solved task"
 
-#: src/app/(training)/navbar.tsx:171
+#: src/components/user.tsx:86
 msgid "Profilo"
 msgstr "Profile"
 
@@ -714,6 +744,7 @@ msgid "Profilo di {username}"
 msgstr "{username}'s profile"
 
 #: src/app/(training)/tasks/techniques/page.tsx:60
+#: src/lib/algobadge.ts:39
 msgid "Programmazione dinamica"
 msgstr "Dynamic programming"
 
@@ -755,6 +786,7 @@ msgstr "Region"
 #: src/app/(training)/(terry)/tasks/terry/layout.tsx:24
 #: src/app/(training)/user/[username]/edit/layout.tsx:25
 #: src/app/(training)/user/[username]/edit/layout.tsx:29
+#: src/app/algobadge/(categories)/layout.tsx:21
 msgid "Reindirizzamento..."
 msgstr "Redirecting…"
 
@@ -815,7 +847,7 @@ msgid "Scegli la scuola"
 msgstr "Select your school"
 
 #: src/app/(training)/(home)/page.tsx:50
-#: src/app/(training)/navbar.tsx:54
+#: src/app/(training)/navbar.tsx:41
 msgid "Scolastiche"
 msgstr "School selections"
 
@@ -831,12 +863,12 @@ msgstr "School"
 msgid "Scuola di provenienza (opzionale)"
 msgstr "School (optional)"
 
-#: src/app/fibonacci/navbar.tsx:36
+#: src/app/fibonacci/navbar.tsx:39
 #: src/app/fibonacci/page.tsx:56
 msgid "Scuole Primarie"
 msgstr "Primary schools"
 
-#: src/app/fibonacci/navbar.tsx:41
+#: src/app/fibonacci/navbar.tsx:44
 #: src/app/fibonacci/page.tsx:59
 msgid "Scuole Secondarie"
 msgstr "Secondary schools"
@@ -917,6 +949,7 @@ msgid "Stringhe"
 msgstr "Strings"
 
 #: src/app/(training)/tasks/techniques/page.tsx:75
+#: src/lib/algobadge.ts:57
 msgid "Strutture dati"
 msgstr "Data structures"
 
@@ -951,7 +984,8 @@ msgid "Tempo di compilazione:"
 msgstr "Compilation time:"
 
 #: src/app/(training)/(home)/page.tsx:53
-#: src/app/(training)/navbar.tsx:59
+#: src/app/(training)/navbar.tsx:46
+#: src/app/algobadge/layout.tsx:62
 msgid "Territoriali"
 msgstr "Regionals"
 
@@ -985,6 +1019,10 @@ msgstr "{0} statement"
 #: src/lib/language.ts:103
 msgid "Testo semplice"
 msgstr "Plain text"
+
+#: src/app/algobadge/(categories)/header.tsx:66
+msgid "Ti mancano {needed} punti al badge successivo!"
+msgstr "You need {needed} more points for the next badge!"
 
 #: src/app/(training)/task/[name]/submit/batch.tsx:43
 msgid "Tipo di file non valido"

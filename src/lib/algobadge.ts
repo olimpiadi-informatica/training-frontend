@@ -1,6 +1,8 @@
 import { useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
+import type { MessageDescriptor } from "@lingui/core";
+import { msg } from "@lingui/macro";
 import { type Scores as TerryScores, getScores as getTerryScores } from "@olinfo/terry-api";
 import { type User, getUser } from "@olinfo/training-api";
 import { map, mapValues } from "lodash-es";
@@ -26,7 +28,7 @@ export type Task = {
 };
 
 export type Category = {
-  title: string;
+  title: MessageDescriptor;
   parent: CategoryId | null;
   position: [number, number];
   tasks: Task[];
@@ -34,7 +36,7 @@ export type Category = {
 
 export const algobadge: Record<CategoryId, Category> = {
   [CategoryId.DP]: {
-    title: "Programmazione dinamica",
+    title: msg`Programmazione dinamica`,
     parent: CategoryId.Rec,
     position: [3, 3],
     tasks: [
@@ -52,7 +54,7 @@ export const algobadge: Record<CategoryId, Category> = {
     ],
   },
   [CategoryId.DS]: {
-    title: "Strutture dati",
+    title: msg`Strutture dati`,
     parent: CategoryId.Graph,
     position: [4, 2],
     tasks: [
@@ -70,7 +72,7 @@ export const algobadge: Record<CategoryId, Category> = {
     ],
   },
   [CategoryId.Graph]: {
-    title: "Grafi",
+    title: msg`Grafi`,
     parent: CategoryId.Lib,
     position: [3, 2],
     tasks: [
@@ -88,7 +90,7 @@ export const algobadge: Record<CategoryId, Category> = {
     ],
   },
   [CategoryId.Greedy]: {
-    title: "Greedy, sorting e searching",
+    title: msg`Greedy, sorting e searching`,
     parent: CategoryId.Lib,
     position: [3, 1],
     tasks: [
@@ -106,7 +108,7 @@ export const algobadge: Record<CategoryId, Category> = {
     ],
   },
   [CategoryId.Intro]: {
-    title: "Problemi introduttivi",
+    title: msg`Problemi introduttivi`,
     parent: null,
     position: [1, 2],
     tasks: [
@@ -124,7 +126,7 @@ export const algobadge: Record<CategoryId, Category> = {
     ],
   },
   [CategoryId.Lib]: {
-    title: "Funzioni di Libreria",
+    title: msg`Funzioni di Libreria`,
     parent: CategoryId.Intro,
     position: [2, 1],
     tasks: [
@@ -142,7 +144,7 @@ export const algobadge: Record<CategoryId, Category> = {
     ],
   },
   [CategoryId.Math]: {
-    title: "Matematica",
+    title: msg`Matematica`,
     parent: CategoryId.Intro,
     position: [2, 2],
     tasks: [
@@ -160,7 +162,7 @@ export const algobadge: Record<CategoryId, Category> = {
     ],
   },
   [CategoryId.Rec]: {
-    title: "Induzione e ricorsione",
+    title: msg`Induzione e ricorsione`,
     parent: CategoryId.Intro,
     position: [2, 3],
     tasks: [

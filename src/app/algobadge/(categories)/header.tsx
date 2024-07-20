@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import clsx from "clsx";
 import { Gem, LockKeyholeOpen, type LucideIcon, Medal } from "lucide-react";
 
@@ -18,6 +20,8 @@ import {
 import style from "./header.module.css";
 
 export function Header({ category, badge }: { category: Category; badge?: CategoryBadge }) {
+  const { _ } = useLingui();
+
   const maxScore = badge?.maxScore ?? 0;
   const score = badge?.badge === Badge.Locked ? 0 : badge?.score ?? 0;
 
@@ -27,7 +31,7 @@ export function Header({ category, badge }: { category: Category; badge?: Catego
 
   return (
     <>
-      <h1>{category.title}</h1>
+      <h1>{_(category.title)}</h1>
       <div className="flex justify-center gap-4 px-4 pb-8">
         {category.tasks.map((task) => {
           const url = task.terry ? `/task/terry/${task.name}` : `/task/${task.name}`;
@@ -58,8 +62,8 @@ export function Header({ category, badge }: { category: Category; badge?: Catego
           className="h-6 w-full tooltip tooltip-bottom"
           data-tip={
             needed === undefined
-              ? "Hai raggiunto il badge di diamante!"
-              : `Ti mancano ${needed} punti al badge successivo!`
+              ? _(msg`Hai raggiunto il badge di diamante!`)
+              : _(msg`Ti mancano ${needed} punti al badge successivo!`)
           }>
           <div className="size-full overflow-hidden rounded-full bg-base-content/20">
             {badge && (
