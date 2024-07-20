@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { cookies } from "next/headers";
 import type { ReactNode } from "react";
 
@@ -16,6 +16,13 @@ export const metadata: Metadata = {
   description: "Piattaforma di allenamento delle Olimpiadi Italiane di Informatica",
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#e7e2df" },
+    { media: "(prefers-color-scheme: dark)", color: "#151a1f" },
+  ],
+};
+
 export default async function RootLayout({ children }: { children: ReactNode }) {
   const i18n = await loadLocale();
 
@@ -24,10 +31,6 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
 
   return (
     <html lang={i18n.locale}>
-      <head>
-        <meta name="theme-color" content="#e7e2df" />
-        <meta name="theme-color" content="#15191e" media="(prefers-color-scheme: dark)" />
-      </head>
       <body>
         <Layout>
           <LayoutClient syncUser={user} locale={i18n.locale} messages={i18n.messages}>
