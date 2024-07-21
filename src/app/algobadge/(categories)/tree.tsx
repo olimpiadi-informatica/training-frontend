@@ -66,7 +66,7 @@ function TreeNode({ categoryId }: { categoryId: CategoryId }) {
       style={style}>
       {badge ? (
         badge.badge === Badge.Locked ? (
-          <TreeNodeLocked categoryId={categoryId} />
+          <TreeNodeLocked />
         ) : (
           <TreeNodeUnlocked categoryId={categoryId} badge={badge} />
         )
@@ -96,17 +96,14 @@ function TreeNodeUnlocked({ categoryId, badge }: { categoryId: CategoryId; badge
   );
 }
 
-function TreeNodeLocked({ categoryId }: { categoryId: CategoryId }) {
+function TreeNodeLocked() {
   return (
     <div
       className={clsx(
         "flex flex-col items-center justify-center text-neutral-600",
         badgeBackground[Badge.Locked],
       )}>
-      <div className="font-mono text-lg xs:text-2xl">{categoryId}</div>
-      <div className="max-xs:text-sm">
-        <LockKeyhole />
-      </div>
+      <LockKeyhole size={36} />
     </div>
   );
 }

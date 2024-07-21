@@ -32,7 +32,7 @@ export function Header({ category, badge }: { category: Category; badge?: Catego
   return (
     <>
       <h1>{_(category.title)}</h1>
-      <div className="flex justify-center gap-4 px-4 pb-8">
+      <div className="flex flex-wrap justify-center gap-4 px-4 pb-8">
         {category.tasks.map((task) => {
           const url = task.terry ? `/task/terry/${task.name}` : `/task/${task.name}`;
           const score = badge?.tasks?.[task.name];
@@ -44,7 +44,7 @@ export function Header({ category, badge }: { category: Category; badge?: Catego
               key={task.name}
               href={url}
               className={clsx(
-                "btn btn-lg relative h-auto overflow-hidden pb-3 pt-2 dark:btn-neutral",
+                "btn sm:btn-lg !h-auto pb-3 pt-2 dark:btn-neutral",
                 roundedScore === maxScore && "!btn-success",
               )}>
               <div className="*:mb-1">
@@ -59,7 +59,7 @@ export function Header({ category, badge }: { category: Category; badge?: Catego
       </div>
       <div className="mx-4">
         <div
-          className="h-6 w-full tooltip tooltip-bottom"
+          className="h-6 w-full tooltip tooltip-bottom before:max-w-96 before:text-lg before:rounded-lg [--tooltip-tail:0.5rem]"
           data-tip={
             needed === undefined
               ? _(msg`Hai raggiunto il badge di diamante!`)
