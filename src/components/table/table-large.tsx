@@ -3,7 +3,8 @@ import { Fragment, forwardRef, useLayoutEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import { type Components, Virtuoso } from "react-virtuoso";
 
-import type { TableProps } from "./table";
+import type { TableProps } from "~/components/table";
+
 import style from "./table.module.css";
 
 export default function LargeTable<T>({
