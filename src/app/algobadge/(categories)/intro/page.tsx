@@ -43,7 +43,7 @@ export default function Page() {
           />
           <ResourceLink
             title="Telegram"
-            subtitle="dove parlare di qualiasi cosa con altri olimpionici"
+            subtitle="dove parlare di qualsiasi cosa con altri olimpionici"
             url="https://t.me/+Zp70NXu5W04xMjQ0"
             icon={SiTelegram}
           />

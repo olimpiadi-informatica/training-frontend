@@ -27,6 +27,7 @@ export function Summary({ usernames }: { usernames: string[] }) {
       const handle = await window.showSaveFilePicker({ suggestedName: "algobadge.json" });
       const writable = await handle.createWritable();
       await writable.write(JSON.stringify(userBadges));
+      await writable.close();
     } catch (err) {
       throw new Error(
         window.location.protocol !== "https:" && window.location.hostname !== "localhost"

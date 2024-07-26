@@ -86,8 +86,7 @@ function TreeNodeUnlocked({ categoryId, badge }: { categoryId: CategoryId; badge
         "flex flex-col items-center justify-center text-neutral-900",
         badgeBackground[badge.badge],
       )}
-      scroll={false}
-      replace>
+      scroll={false}>
       <div className="font-mono text-lg xs:text-2xl">{categoryId}</div>
       <div className="max-xs:text-sm">
         {badge.score} / {badge.maxScore}

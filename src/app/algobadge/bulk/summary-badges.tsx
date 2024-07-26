@@ -65,7 +65,7 @@ export function SummaryBadges({ users }: { users: Users }) {
           dataKey="name"
           axisLine={false}
           tickLine={false}
-          tickFormatter={(badge) => badgeName[badge as Badge]}
+          tickFormatter={(badge) => `≥${badgeName[badge as Badge]}`}
         />
         <YAxis tickLine={false} axisLine={false} />
         <CartesianGrid vertical={false} stroke="oklch(var(--bc) / 0.1)" />

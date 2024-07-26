@@ -33,7 +33,11 @@ export function ResourceLink({ title, subtitle, url, icon: Icon }: LinkProps) {
       <div className="flex items-center gap-2">
         <Icon />
         <div>
-          <a href={url} target="_blank" rel="noreferrer">
+          <a
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            className="text-blue-600 dark:text-blue-400">
             {title}
           </a>
           {subtitle && <div className="italic text-sm">{subtitle}</div>}

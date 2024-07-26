@@ -118,11 +118,7 @@ function Threshold({ color, score, icon, size }: ThresholdProps) {
   const Icon = icon ?? Medal;
   return (
     <Icon
-      className={clsx(
-        "absolute -translate-x-1/2 last:-translate-x-full",
-        color,
-        Icon === Medal && "last:*:hidden",
-      )}
+      className={clsx("absolute -translate-x-full", color, Icon === Medal && "last:*:hidden")}
       size={size ?? 36}
       style={{ left: `${score * 100}%` }}
     />
