@@ -37,7 +37,7 @@ export default async function Home() {
       </div>
       <div className="grid gap-4 lg:grid-cols-2">
         <Card>
-          <CardBody title={_(msg`Inizia ad allenarti`)}>
+          <CardBody title={_(msg`Risolvi tutti i problemi`)}>
             <p>
               <Trans>
                 La vasta scelta di problemi presenti nel sito ti permetterà di prepararti al meglio

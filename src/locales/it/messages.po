@@ -407,7 +407,6 @@ msgstr "Implementazione"
 msgid "Induzione e ricorsione"
 msgstr "Induzione e ricorsione"
 
-#: src/app/(training)/(home)/page.tsx:40
 #: src/app/fibonacci/page.tsx:48
 msgid "Inizia ad allenarti"
 msgstr "Inizia ad allenarti"
@@ -806,6 +805,10 @@ msgstr "Ricordami"
 #: src/app/(training)/tasks/[page]/page.tsx:91
 msgid "Rimuovi filtro {tag}"
 msgstr "Rimuovi filtro {tag}"
+
+#: src/app/(training)/(home)/page.tsx:40
+msgid "Risolvi tutti i problemi"
+msgstr "Risolvi tutti i problemi"
 
 #: src/app/(training)/(terry)/task/terry/[name]/submissions/[id]/page.tsx:128
 #: src/app/(training)/task/[name]/submissions/[id]/page.tsx:213
