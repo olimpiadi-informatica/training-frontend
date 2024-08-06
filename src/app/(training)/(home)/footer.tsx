@@ -18,7 +18,7 @@ export function Footer() {
             alt={_(msg`Logo Olimpiadi Italiane di Informatica`)}
             className="h-20 w-auto"
           />
-          <p className="text-lg">Olimpiadi di Informatica</p>
+          <p>Olimpiadi di Informatica &copy; {new Date().getFullYear()}</p>
         </aside>
         <nav>
           <h3 className="footer-title">
