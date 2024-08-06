@@ -22,11 +22,17 @@ export default async function Home() {
   return (
     <div className="flex grow flex-col gap-8">
       <div className="hero">
-        <div className="hero-content max-w-2xl flex-col text-center">
-          <h1 className="text-pretty text-4xl font-bold">
-            <Trans>Portale di allenamento delle Olimpiadi Italiane di Informatica</Trans>
+        <div className="hero-content flex-col text-center">
+          <h1 className="text-pretty text-4xl lg:text-5xl font-extrabold dark:md:text-white dark:md:w-min">
+            <Trans>
+              <span className="dark:md:whitespace-nowrap">Portale di allenamento delle</span>{" "}
+              <span className="dark:md:whitespace-nowrap">
+                <span className="dark:md:text-emerald-500">Olimpiadi</span> <span>Italiane di</span>{" "}
+                <span className="dark:md:text-red-500">Informatica</span>
+              </span>
+            </Trans>
           </h1>
-          <p className="py-2">
+          <p className="py-2 text-lg max-w-2xl">
             <Trans>
               Benvenuto nella piattaforma ufficiale di allenamento per le OII! Qui avrai accesso a
               numerosi problemi ai quali potrai inviare delle soluzioni scritte in un linguaggio di
