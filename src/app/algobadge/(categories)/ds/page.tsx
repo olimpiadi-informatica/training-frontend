@@ -28,6 +28,12 @@ export default function Page() {
             url="https://wiki.olinfo.it/2022/array_query.pdf"
             icon={BookText}
           />
+          <ResourceLink
+            title="Introduzione ai Segment Tree"
+            subtitle="di Matteo Arcari"
+            url="https://wiki.olinfo.it/lezioni/segment-tree-1"
+            icon={BookText}
+          />
         </ResourceList>
         <ResourceVideo
           id="iHGCXrqnFO8"

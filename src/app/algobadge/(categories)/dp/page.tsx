@@ -34,12 +34,6 @@ export default function Page() {
             url="https://wiki.olinfo.it/extra/unimi/dinamica.pdf"
             icon={BookText}
           />
-          <ResourceLink
-            title="Massima sottosequenza comune"
-            subtitle="Dispense UniMI"
-            url="https://wiki.olinfo.it/extra/unimi/maxsubseq.pdf"
-            icon={BookText}
-          />
         </ResourceList>
         <ResourceVideo
           id="3tOMj7xZv1U"

@@ -28,12 +28,6 @@ export default function Page() {
             url="/cph.pdf#page=119"
             icon={BookText}
           />
-          <ResourceLink
-            title="L'algoritmo di Dijkstra"
-            subtitle="Dispense UniMI"
-            url="https://wiki.olinfo.it/extra/unimi/dijkstra.pdf"
-            icon={BookText}
-          />
         </ResourceList>
         <ResourceVideo
           id="mIxwWL3oQV8"
