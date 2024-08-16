@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound, useRouter } from "next/navigation";
 import { useEffect, useReducer } from "react";
 
-import { Trans, msg, t } from "@lingui/macro";
+import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import {
   Button,
@@ -49,6 +49,13 @@ export default function Page({ params: { name: taskName } }: Props) {
   const changeInput = async () => {
     await abandonInput(user.token, input!.id);
     await mutate(["terry/user", user.token]);
+  };
+
+  const validateSource = (file: File) => {
+    const lang = fileLanguageName(file.name);
+    if (lang === "N/A") {
+      return _(msg`Seleziona il file sorgente`);
+    }
   };
 
   const onSubmit = async (data: { source: File; output: File }) => {
@@ -129,11 +136,4 @@ function Timer({ date }: { date: Date }) {
       </Trans>
     </span>
   );
-}
-
-function validateSource(file: File) {
-  const lang = fileLanguageName(file.name);
-  if (lang === "N/A") {
-    return t`Seleziona il file sorgente`;
-  }
 }
