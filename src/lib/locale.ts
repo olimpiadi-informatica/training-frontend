@@ -4,8 +4,8 @@ import { type I18n, setupI18n } from "@lingui/core";
 import { setI18n } from "@lingui/react/server";
 
 const locales = {
-  en: () => import("~/locales/en/messages.mjs"),
-  it: () => import("~/locales/it/messages.mjs"),
+  en: () => import("@lingui/loader!~/locales/en.po"),
+  it: () => import("@lingui/loader!~/locales/it.po"),
 };
 
 export async function loadLocale(): Promise<I18n> {

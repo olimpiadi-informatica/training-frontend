@@ -38,6 +38,3 @@ next-env.d.ts
 # IDE
 .vscode
 .idea
-
-# LinguiJS
-src/locales/**/*.mjs

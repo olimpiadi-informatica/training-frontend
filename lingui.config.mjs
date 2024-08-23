@@ -4,7 +4,7 @@ const config = {
   sourceLocale: "it",
   catalogs: [
     {
-      path: "src/locales/{locale}/messages",
+      path: "src/locales/{locale}",
       include: ["src"],
     },
   ],

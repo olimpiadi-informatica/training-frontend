@@ -17,9 +17,8 @@ Before committing, make sure to run `yarn lint` to check for linting errors.
 
 If you've added or changed text, you also need to update the translations:
 
-1. Run `yarn lingui:extract` to extract the new messages.
+1. Run `yarn translate` to extract the new messages.
 2. Update `src/locales/en/messages.po` with the new translation.
-3. Run `yarn lingui:compile` to compile the translations.
 
 ## Deployment
 

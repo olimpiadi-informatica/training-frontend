@@ -50,9 +50,9 @@
     semver "^6.3.1"
 
 "@babel/generator@^7.21.1", "@babel/generator@^7.25.0", "@babel/generator@^7.25.4":
-  version "7.25.4"
-  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.25.4.tgz#1dc63c1c9caae9e6dc24e264eac254eb25005669"
-  integrity sha512-NFtZmZsyzDPJnk9Zg3BbTfKKc9UlHYzD0E//p2Z3B9nCwwtJW9T0gVbCz8+fBngnn4zf1Dr3IK8PHQQHq0lDQw==
+  version "7.25.5"
+  resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.25.5.tgz#b31cf05b3fe8c32d206b6dad03bb0aacbde73450"
+  integrity sha512-abd43wyLfbWoxC6ahM8xTkqLpGB2iWBVyuKC9/srhFunCd1SDNrV1s72bBpK4hLj8KLzHBBcOblvLQZBNw9r3w==
   dependencies:
     "@babel/types" "^7.25.4"
     "@jridgewell/gen-mapping" "^0.3.5"
@@ -418,7 +418,7 @@
   resolved "https://registry.yarnpkg.com/@lingui/babel-plugin-extract-messages/-/babel-plugin-extract-messages-4.11.3.tgz#f112fb07436c77ef98daf0198bc45851301e57f6"
   integrity sha512-wLiquhtxE7qUmoKl4UStFI1XgrCkk9zwxc8z62LPpbutkyxO21B5k8fBUGlgWoKJaXbpvS8VIU8j2663q99JnQ==
 
-"@lingui/cli@^4.11":
+"@lingui/cli@4.11.3", "@lingui/cli@^4.11":
   version "4.11.3"
   resolved "https://registry.yarnpkg.com/@lingui/cli/-/cli-4.11.3.tgz#5450e84be9b4f91928dd13e5061b8eec8d449a8c"
   integrity sha512-ykJLmQciK81I0Cd/iLg8dSpESV9Hnsbw5+G98IEAf4exvoUGRJ2UzkeNc/HeGx3D5Fg+TI8YNWwCbZ7NAOsDCQ==
@@ -483,6 +483,15 @@
     "@lingui/message-utils" "4.11.3"
     date-fns "^3.6.0"
     pofile "^1.1.4"
+
+"@lingui/loader@^4.11":
+  version "4.11.3"
+  resolved "https://registry.yarnpkg.com/@lingui/loader/-/loader-4.11.3.tgz#0f0168a2d08a7d42dddfac9da40e70670ae95c4b"
+  integrity sha512-K0482e0d+KRlljylkOAp6DkOKHboevAqR2nRRipwa8BGV1nJsnSwkvrlny+/OazZK0Dvr7w6tmBODx8KS318Ng==
+  dependencies:
+    "@babel/runtime" "^7.20.13"
+    "@lingui/cli" "4.11.3"
+    "@lingui/conf" "4.11.3"
 
 "@lingui/macro@^4.11":
   version "4.11.3"
@@ -2438,9 +2447,9 @@ lru-cache@^5.1.1:
     yallist "^3.0.2"
 
 "lucide-react@>=0.395, <1":
-  version "0.429.0"
-  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.429.0.tgz#a30b172455fb19aef195b4b69ad6798acfb92d44"
-  integrity sha512-548DahFy7Ey+0OPlOyZ6ipnbGJzewv8gq2DxDrnAzWZ4RN4+3XyIwQXhD4AQvuREFjS1EnbAgOMaYB0VQyaK1g==
+  version "0.435.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.435.0.tgz#88c5cc6de61b89e42cbef309a38f100deee1bb32"
+  integrity sha512-we5GKfzjMDw9m9SsyZJvWim9qaT+Ya5kaRS+OGFqgLqXUrPM1h+7CiMw5pKdEIoaBqfXz2pyv9TASAdpIAJs0Q==
 
 make-cancellable-promise@^1.3.1:
   version "1.3.2"

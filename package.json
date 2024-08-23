@@ -7,13 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "yarn biome check --write",
-    "lingui:extract": "lingui extract",
-    "lingui:compile": "lingui compile",
-    "postinstall": "lingui compile"
+    "translate": "lingui extract"
   },
   "dependencies": {
     "@fireworks-js/react": "^2.10",
     "@icons-pack/react-simple-icons": "^10.0",
+    "@lingui/loader": "^4.11",
     "@lingui/macro": "^4.11",
     "@lingui/react": "^4.11",
     "@mdx-js/loader": "^3.0",
