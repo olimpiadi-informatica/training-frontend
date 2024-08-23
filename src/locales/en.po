@@ -943,7 +943,7 @@ msgstr "Submission"
 #: src/app/(training)/task/[name]/submissions/[id]/page.tsx:64
 #: src/app/(training)/task/[name]/submissions/[id]/skeleton.tsx:9
 msgid "Sottoposizione {0}"
-msgstr "Sottoposizione {0}"
+msgstr "Submission {0}"
 
 #: src/app/(training)/(terry)/task/terry/[name]/layout.tsx:39
 #: src/app/(training)/(terry)/task/terry/[name]/submissions/page.tsx:36
