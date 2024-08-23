@@ -17,7 +17,7 @@ msgstr ""
 msgid "{0} punti"
 msgstr "{0} punti"
 
-#: src/app/(training)/(home)/page.tsx:27
+#: src/app/(training)/(home)/page.tsx:28
 msgid "<0>Portale di allenamento delle</0> <1><2>Olimpiadi</2> <3>Italiane di</3> <4>Informatica</4></1>"
 msgstr "<0>Portale di allenamento delle</0> <1><2>Olimpiadi</2> <3>Italiane di</3> <4>Informatica</4></1>"
 
@@ -54,7 +54,7 @@ msgstr "Aggiungi"
 msgid "Aggiungi tag"
 msgstr "Aggiungi tag"
 
-#: src/app/(training)/(home)/page.tsx:96
+#: src/app/(training)/(home)/page.tsx:97
 #: src/app/(training)/navbar.tsx:77
 msgid "Algobadge"
 msgstr "Algobadge"
@@ -85,6 +85,10 @@ msgstr "Anagrafica"
 msgid "Anziano"
 msgstr "Anziano"
 
+#: src/app/(training)/tools/graph/page.tsx:102
+msgid "Archi del grafo"
+msgstr "Archi del grafo"
+
 #: src/app/(training)/user/[username]/page.tsx:106
 msgid "Aristocratico"
 msgstr "Aristocratico"
@@ -101,7 +105,7 @@ msgstr "Attenzione:"
 msgid "Benvenuto nella piattaforma ufficiale di allenamento dei Giochi di Fibonacci!"
 msgstr "Benvenuto nella piattaforma ufficiale di allenamento dei Giochi di Fibonacci!"
 
-#: src/app/(training)/(home)/page.tsx:36
+#: src/app/(training)/(home)/page.tsx:37
 msgid "Benvenuto nella piattaforma ufficiale di allenamento per le OII! Qui avrai accesso a numerosi problemi ai quali potrai inviare delle soluzioni scritte in un linguaggio di programmazione a tua scelta."
 msgstr "Benvenuto nella piattaforma ufficiale di allenamento per le OII! Qui avrai accesso a numerosi problemi ai quali potrai inviare delle soluzioni scritte in un linguaggio di programmazione a tua scelta."
 
@@ -109,7 +113,7 @@ msgstr "Benvenuto nella piattaforma ufficiale di allenamento per le OII! Qui avr
 msgid "Cambia foto profilo"
 msgstr "Cambia foto profilo"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:81
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:88
 msgid "Cambia input"
 msgstr "Cambia input"
 
@@ -174,7 +178,7 @@ msgstr "Compilazione in corso"
 msgid "Comune"
 msgstr "Comune"
 
-#: src/app/(training)/(home)/page.tsx:89
+#: src/app/(training)/(home)/page.tsx:90
 msgid "Con Algobadge ti guideremo attraverso una selezione accurata di task da risolvere, ordinati per difficoltà crescente, che ti permetteranno di esplorare nuove tecniche algoritmiche in modo graduale ed efficace."
 msgstr "Con Algobadge ti guideremo attraverso una selezione accurata di task da risolvere, ordinati per difficoltà crescente, che ti permetteranno di esplorare nuove tecniche algoritmiche in modo graduale ed efficace."
 
@@ -183,7 +187,7 @@ msgstr "Con Algobadge ti guideremo attraverso una selezione accurata di task da 
 msgid "Corretto"
 msgstr "Corretto"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:109
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:116
 #: src/app/(training)/(terry)/task/terry/[name]/submit/skeleton.tsx:32
 msgid "Cosa devo inviare?"
 msgstr "Cosa devo inviare?"
@@ -224,9 +228,17 @@ msgstr "Dettagli"
 msgid "Devi inviare i seguenti file:"
 msgstr "Devi inviare i seguenti file:"
 
+#: src/app/(training)/tools/graph/page.tsx:112
+msgid "Dimensione nodi"
+msgstr "Dimensione nodi"
+
 #: src/app/(training)/tasks/techniques/page.tsx:25
 msgid "Divide & Conquer"
 msgstr "Divide & Conquer"
+
+#: src/app/(training)/tools/graph/page.tsx:96
+msgid "Editor di grafi"
+msgstr "Editor di grafi"
 
 #: src/app/(training)/scolastiche/page.tsx:27
 #: src/app/fibonacci/primarie/page.tsx:32
@@ -260,7 +272,7 @@ msgstr "Email non valida"
 msgid "Entra"
 msgstr "Entra"
 
-#: src/app/(training)/(home)/page.tsx:70
+#: src/app/(training)/(home)/page.tsx:71
 msgid "Entra nella community"
 msgstr "Entra nella community"
 
@@ -303,13 +315,13 @@ msgstr "Esito:"
 msgid "File \"{output}\" mancante"
 msgstr "File \"{output}\" mancante"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:106
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:113
 #: src/app/(training)/(terry)/task/terry/[name]/submit/skeleton.tsx:29
 #: src/app/(training)/task/[name]/submit/output-only.tsx:43
 msgid "File di output"
 msgstr "File di output"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:105
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:112
 #: src/app/(training)/(terry)/task/terry/[name]/submit/skeleton.tsx:28
 msgid "File sorgente"
 msgstr "File sorgente"
@@ -318,7 +330,7 @@ msgstr "File sorgente"
 msgid "File troppo grande"
 msgstr "File troppo grande"
 
-#: src/app/(training)/(home)/page.tsx:80
+#: src/app/(training)/(home)/page.tsx:81
 #: src/app/(training)/navbar.tsx:82
 #: src/app/algobadge/layout.tsx:78
 msgid "Forum"
@@ -370,6 +382,11 @@ msgstr "Giochi di Fibonacci - Scuole secondarie"
 msgid "Grafi"
 msgstr "Grafi"
 
+#: src/app/(training)/tools/graph/page.tsx:136
+#: src/app/(training)/tools/graph/page.tsx:147
+msgid "Grafo"
+msgstr "Grafo"
+
 #: src/app/(training)/tasks/techniques/page.tsx:40
 msgid "Greedy"
 msgstr "Greedy"
@@ -399,7 +416,7 @@ msgstr "ID"
 msgid "Il task ha già questo tag"
 msgstr "Il task ha già questo tag"
 
-#: src/app/(training)/(home)/page.tsx:87
+#: src/app/(training)/(home)/page.tsx:88
 msgid "Impara gradualmente"
 msgstr "Impara gradualmente"
 
@@ -455,11 +472,11 @@ msgstr "Iscriviti"
 msgid "Istituto"
 msgstr "Istituto"
 
-#: src/app/(training)/(home)/page.tsx:48
+#: src/app/(training)/(home)/page.tsx:49
 msgid "La vasta scelta di problemi presenti nel sito ti permetterà di prepararti al meglio per ogni fase delle Olimpiadi, partendo dalla fase scolastica fino ad arrivare alla finale nazionale."
 msgstr "La vasta scelta di problemi presenti nel sito ti permetterà di prepararti al meglio per ogni fase delle Olimpiadi, partendo dalla fase scolastica fino ad arrivare alla finale nazionale."
 
-#: src/app/(training)/(home)/page.tsx:103
+#: src/app/(training)/(home)/page.tsx:104
 msgid "Leggi la wiki"
 msgstr "Leggi la wiki"
 
@@ -498,6 +515,10 @@ msgstr "Logo OII"
 #: src/app/(training)/(home)/footer.tsx:18
 msgid "Logo Olimpiadi Italiane di Informatica"
 msgstr "Logo Olimpiadi Italiane di Informatica"
+
+#: src/app/(training)/tools/graph/page.tsx:123
+msgid "Lunghezza archi"
+msgstr "Lunghezza archi"
 
 #: src/app/(training)/tasks/techniques/page.tsx:50
 #: src/lib/algobadge.ts:147
@@ -547,7 +568,7 @@ msgstr "Nazionali e altre gare"
 msgid "Nazionali e OIS"
 msgstr "Nazionali e OIS"
 
-#: src/app/(training)/(home)/page.tsx:62
+#: src/app/(training)/(home)/page.tsx:63
 msgid "Nazionali, OIS e altre gare"
 msgstr "Nazionali, OIS e altre gare"
 
@@ -555,7 +576,7 @@ msgstr "Nazionali, OIS e altre gare"
 msgid "Nel sito ufficiale potrai trovare il regolamento, il calendario e le modalità di iscrizione."
 msgstr "Nel sito ufficiale potrai trovare il regolamento, il calendario e le modalità di iscrizione."
 
-#: src/app/(training)/(home)/page.tsx:105
+#: src/app/(training)/(home)/page.tsx:106
 msgid "Nella wiki ufficiale troverai spiegazioni dettagliate e soluzioni di problemi passati, oltre che a tutorial approfonditi su tecniche algoritmiche avanzate."
 msgstr "Nella wiki ufficiale troverai spiegazioni dettagliate e soluzioni di problemi passati, oltre che a tutorial approfonditi su tecniche algoritmiche avanzate."
 
@@ -637,7 +658,7 @@ msgstr "Ordinamento"
 msgid "Ospite"
 msgstr "Ospite"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:72
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:79
 #: src/app/(training)/(terry)/task/terry/[name]/submit/skeleton.tsx:16
 msgid "Ottieni input"
 msgstr "Ottieni input"
@@ -695,7 +716,7 @@ msgstr "Più recenti"
 msgid "Portale di allenamento dei Giochi di Fibonacci"
 msgstr "Portale di allenamento dei Giochi di Fibonacci"
 
-#: src/app/(training)/(home)/page.tsx:72
+#: src/app/(training)/(home)/page.tsx:73
 msgid "Presentati agli altri aspiranti olimpici nel forum della piattaforma, discuti dei problemi, risolvi tutti i tuoi dubbi su: costrutti di base del tuo linguaggio di programmazione, algoritmi e strutture dati di libreria, tecniche algoritmiche, e tanto altro!"
 msgstr "Presentati agli altri aspiranti olimpici nel forum della piattaforma, discuti dei problemi, risolvi tutti i tuoi dubbi su: costrutti di base del tuo linguaggio di programmazione, algoritmi e strutture dati di libreria, tecniche algoritmiche, e tanto altro!"
 
@@ -764,11 +785,11 @@ msgstr "Punteggio massimo:"
 msgid "Questa pagina non è stata trovata 😢"
 msgstr "Questa pagina non è stata trovata 😢"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:88
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:95
 msgid "Questo input è scaduto."
 msgstr "Questo input è scaduto."
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:127
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:134
 msgid "Questo input scade <0/>."
 msgstr "Questo input scade <0/>."
 
@@ -793,7 +814,7 @@ msgstr "Reindirizzamento..."
 msgid "Ricerca binaria"
 msgstr "Ricerca binaria"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:98
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:105
 #: src/app/(training)/(terry)/task/terry/[name]/submit/skeleton.tsx:20
 msgid "Richiedi input"
 msgstr "Richiedi input"
@@ -806,7 +827,7 @@ msgstr "Ricordami"
 msgid "Rimuovi filtro {tag}"
 msgstr "Rimuovi filtro {tag}"
 
-#: src/app/(training)/(home)/page.tsx:46
+#: src/app/(training)/(home)/page.tsx:47
 msgid "Risolvi tutti i problemi"
 msgstr "Risolvi tutti i problemi"
 
@@ -821,7 +842,7 @@ msgid "Scarica codice"
 msgstr "Scarica codice"
 
 #: src/app/(training)/(terry)/task/terry/[name]/submissions/[id]/page.tsx:108
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:78
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:85
 msgid "Scarica input"
 msgstr "Scarica input"
 
@@ -849,7 +870,7 @@ msgstr "Scegli la regione"
 msgid "Scegli la scuola"
 msgstr "Scegli la scuola"
 
-#: src/app/(training)/(home)/page.tsx:56
+#: src/app/(training)/(home)/page.tsx:57
 #: src/app/(training)/navbar.tsx:41
 msgid "Scolastiche"
 msgstr "Scolastiche"
@@ -876,7 +897,7 @@ msgstr "Scuole Primarie"
 msgid "Scuole Secondarie"
 msgstr "Scuole Secondarie"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:137
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page.tsx:57
 msgid "Seleziona il file sorgente"
 msgstr "Seleziona il file sorgente"
 
@@ -986,7 +1007,7 @@ msgstr "Tempo"
 msgid "Tempo di compilazione:"
 msgstr "Tempo di compilazione:"
 
-#: src/app/(training)/(home)/page.tsx:59
+#: src/app/(training)/(home)/page.tsx:60
 #: src/app/(training)/navbar.tsx:46
 #: src/app/algobadge/layout.tsx:62
 msgid "Territoriali"
@@ -1070,6 +1091,6 @@ msgid "Vecchia password"
 msgstr "Vecchia password"
 
 #: src/app/(training)/(home)/footer.tsx:93
-#: src/app/(training)/(home)/page.tsx:111
+#: src/app/(training)/(home)/page.tsx:112
 msgid "Wiki"
 msgstr "Wiki"
