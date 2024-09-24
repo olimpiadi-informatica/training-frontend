@@ -677,9 +677,9 @@
     fastq "^1.6.0"
 
 "@olinfo/react-components@^0.7":
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/@olinfo/react-components/-/react-components-0.7.4.tgz#fc73f1f1bc7d9dc17daa8768138f8ddbbed70bac"
-  integrity sha512-YFrb8D03A59JZ7MDpGjX6AgrbjO74BSrkjDedlBRRVKTxXUPCcvai2qfOgTsUqts1gQ+Knm6tlNQR2u+JNIymA==
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@olinfo/react-components/-/react-components-0.7.5.tgz#57ae8c222cf1683508954b3d395a6ddb6cb7f091"
+  integrity sha512-AznOB2IoOkYco1Jor4+TUKJIM/m1FnO0yL8EhVaQawDjwuEnZXXHZ9iHuJAgFm+uT79LvJlLCLUwM9H6VCt/eQ==
   dependencies:
     "@olinfo/training-api" "^0.2"
     clsx "^2.1"
@@ -708,6 +708,15 @@
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@olinfo/training-api/-/training-api-0.2.1.tgz#e322b70bcba16abf867325696fbeece9543af5ab"
   integrity sha512-aLEln1OakBpT0j2UqQkwE+YDnAcB2AFdzFu6ONeVYnVszsvf+le8cNVajs4Vt4LYoY0qVDuYSKh3W786ffYe1A==
+  dependencies:
+    jwt-decode "^4.0"
+    zod "^3.22"
+    zod-validation-error "^3.0"
+
+"@olinfo/training-api@^0.3":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@olinfo/training-api/-/training-api-0.3.0.tgz#390501ee0dc2599a3a651d632bb1b1085f2a9bfa"
+  integrity sha512-HFzB7rJMFOYeONPh6nF9qmnlrTDQO4X7hxzAWsau7mUS0MJiW8bmf8wfDLtQ0P3X/ea0kKPpS4OBDF+5QuHtOQ==
   dependencies:
     jwt-decode "^4.0"
     zod "^3.22"
@@ -1191,7 +1200,7 @@ brace-expansion@^2.0.1:
   dependencies:
     balanced-match "^1.0.0"
 
-braces@^3.0.3, braces@~3.0.2:
+braces@^3.0.1, braces@^3.0.3, braces@~3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/braces/-/braces-3.0.3.tgz#490332f40919452272d55a8480adc0c441358789"
   integrity sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==
@@ -2973,7 +2982,15 @@ micromark@^4.0.0:
     micromark-util-symbol "^2.0.0"
     micromark-util-types "^2.0.0"
 
-micromatch@^4.0.2, micromatch@^4.0.4, micromatch@^4.0.5:
+micromatch@4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.2.tgz#4fcb0999bf9fbc2fcbdd212f6d629b9a56c39259"
+  integrity sha512-y7FpHSbMUMoyPbYUSzO6PaZ6FyRnQOpHuKwbo1G+Knck95XVU4QAiKdGEnj5wwoS7PlOgthX/09u5iFJ+aYf5Q==
+  dependencies:
+    braces "^3.0.1"
+    picomatch "^2.0.5"
+
+micromatch@^4.0.4, micromatch@^4.0.5:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-4.0.8.tgz#d66fa18f3a47076789320b9b1af32bd86d9fa202"
   integrity sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==
@@ -3314,7 +3331,7 @@ picocolors@^1, picocolors@^1.0.0, picocolors@^1.0.1, picocolors@^1.1.0:
   resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.1.0.tgz#5358b76a78cde483ba5cef6a9dc9671440b27d59"
   integrity sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==
 
-picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.3.1:
+picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1, picomatch@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
