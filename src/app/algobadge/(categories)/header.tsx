@@ -23,7 +23,7 @@ export function Header({ category, badge }: { category: Category; badge?: Catego
   const { _ } = useLingui();
 
   const maxScore = badge?.maxScore ?? 0;
-  const score = badge?.badge === Badge.Locked ? 0 : badge?.score ?? 0;
+  const score = badge?.badge === Badge.Locked ? 0 : (badge?.score ?? 0);
 
   const needed = [bronzeScore, silverScore, goldScore, diamondScore]
     .map((threshold) => threshold * maxScore - score)

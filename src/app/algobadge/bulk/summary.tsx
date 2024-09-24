@@ -76,7 +76,7 @@ function UserEntry({
   useEffect(() => {
     setUsers((prev) => ({
       ...prev,
-      [username]: isLoading ? undefined : badges ?? null,
+      [username]: isLoading ? undefined : (badges ?? null),
     }));
     return () => setUsers(({ [username]: _user, ...users }) => users);
   }, [isLoading, badges, setUsers, username]);
