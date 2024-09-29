@@ -713,10 +713,10 @@
     zod "^3.22"
     zod-validation-error "^3.0"
 
-"@olinfo/training-api@^0.3":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@olinfo/training-api/-/training-api-0.3.0.tgz#390501ee0dc2599a3a651d632bb1b1085f2a9bfa"
-  integrity sha512-HFzB7rJMFOYeONPh6nF9qmnlrTDQO4X7hxzAWsau7mUS0MJiW8bmf8wfDLtQ0P3X/ea0kKPpS4OBDF+5QuHtOQ==
+"@olinfo/training-api@^0.4":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@olinfo/training-api/-/training-api-0.4.0.tgz#3ff3c5094695ffd042d6b32b8659372c3f81efe9"
+  integrity sha512-R/I+lk4ghFyMILDra30FbjUdctzILS5rAyJUfXZOLqXHQHzhcJpz+nYB5rMyLujBs8uEUClrVMf+bpWREH+jUA==
   dependencies:
     jwt-decode "^4.0"
     zod "^3.22"
