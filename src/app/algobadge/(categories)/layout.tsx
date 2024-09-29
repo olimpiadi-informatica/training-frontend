@@ -1,25 +1,17 @@
 "use client";
 
-import { Trans } from "@lingui/macro";
-import { useRouter, useSearchParams, useSelectedLayoutSegment } from "next/navigation";
+import { useSelectedLayoutSegment } from "next/navigation";
 import type { ReactNode } from "react";
 
+import { Fireworks } from "~/components/fireworks";
 import { Badge, type CategoryId, algobadge, useMyBadges } from "~/lib/algobadge";
 
-import { Fireworks } from "~/components/fireworks";
 import { Header } from "./header";
 import { Tree } from "./tree";
 
 export default function Layout({ children }: { children: ReactNode }) {
-  const router = useRouter();
   const page = useSelectedLayoutSegment() as CategoryId | null;
-  const params = useSearchParams();
-  const { badges, totalBadge, isLoading } = useMyBadges();
-
-  if (!isLoading && !badges) {
-    router.push(`/login?redirect=${encodeURIComponent(`/algobadge?${params}`)}`);
-    return <Trans>Reindirizzamento...</Trans>;
-  }
+  const { badges, totalBadge } = useMyBadges();
 
   return (
     <>

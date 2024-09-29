@@ -213,8 +213,8 @@ function computeBadge(score: number, maxScore: number): Badge {
 }
 
 export function computeCategoryBadges(
-  trainingUser: User,
-  terryScores: TerryScores,
+  trainingUser: User | undefined,
+  terryScores: TerryScores | undefined,
   unlockEverything: boolean,
 ) {
   const categoryBadges = mapValues(algobadge, (node) =>
@@ -257,8 +257,8 @@ export function computeCategoryBadges(
 
 export function computeCategoryBadge(
   category: Category,
-  trainingUser: User,
-  terryScores: TerryScores,
+  trainingUser: User | undefined,
+  terryScores: TerryScores | undefined,
 ): CategoryBadge {
   let score = 0;
   let maxScore = 0;
@@ -267,10 +267,10 @@ export function computeCategoryBadge(
   for (const task of category.tasks) {
     const taskMaxScore = task.maxScore ?? 100;
     if (task.terry) {
-      const terryTask = terryScores.find((t) => t.name === task.name);
+      const terryTask = terryScores?.find((t) => t.name === task.name);
       tasks[task.name] = terryTask ? (terryTask.score / terryTask.max_score) * taskMaxScore : 0;
     } else {
-      tasks[task.name] = trainingUser.scores?.find((t) => t.name === task.name)?.score ?? 0;
+      tasks[task.name] = trainingUser?.scores?.find((t) => t.name === task.name)?.score ?? 0;
     }
     score += tasks[task.name];
     maxScore += taskMaxScore;
@@ -328,8 +328,11 @@ export function useUserBadges(username?: string, unlock?: boolean) {
   );
 
   const badges = useMemo(
-    () => training && terry && computeCategoryBadges(training, terry, unlock ?? false),
-    [training, terry, unlock],
+    () =>
+      !isLoadingTraining && !isLoadingTerry
+        ? computeCategoryBadges(training, terry, unlock ?? false)
+        : undefined,
+    [isLoadingTraining, isLoadingTerry, training, terry, unlock],
   );
 
   const totalBadge = badges ? (Math.min(...map(badges, "badge")) as Badge) : Badge.None;
