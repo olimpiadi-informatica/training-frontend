@@ -64,7 +64,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.8.3",
     "@lingui/cli": "^4.11",
-    "@lingui/swc-plugin": "^4.0"
+    "@lingui/swc-plugin": "=4.0.9"
   },
   "postcss": {
     "plugins": {
