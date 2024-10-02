@@ -49,7 +49,7 @@ export function SubmitBatch({ task }: { task: Task }) {
     const sub = await submitBatch(
       task,
       value.lang,
-      new File([editorValue ?? ""], value.src?.name ?? "source.txt"),
+      isSubmitPage ? new File([editorValue ?? ""], value.src?.name ?? "source.txt") : value.src,
     );
     router.push(`/task/${task.name}/submissions/${sub.id}`);
     await new Promise(() => {});
