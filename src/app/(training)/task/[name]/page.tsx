@@ -2,11 +2,12 @@
 
 import { Suspense, lazy } from "react";
 
+import { msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { type Task, fileUrl, getTask } from "@olinfo/training-api";
+import { supportsPDFs } from "pdfobject";
 import useSWR from "swr";
 
-import { msg } from "@lingui/macro";
 import Attachments from "./attachments/page";
 import Submit from "./submit/page";
 import Tags from "./tags/page";
@@ -38,7 +39,7 @@ export default function Page({ params }: Props) {
       <div className="relative min-h-[75vh] overflow-hidden rounded-lg">
         <div className="absolute inset-0">
           {statement ? (
-            navigator.pdfViewerEnabled ? (
+            supportsPDFs ? (
               <object
                 title={_(msg`Testo di ${task.title}`)}
                 data={statement}
