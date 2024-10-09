@@ -42,7 +42,7 @@ export default function Page({ params }: Props) {
             supportsPDFs ? (
               <object
                 title={_(msg`Testo di ${task.title}`)}
-                data={statement}
+                data={`${statement}#navpanes=0`}
                 className="size-full"
               />
             ) : (
