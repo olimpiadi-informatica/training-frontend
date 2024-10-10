@@ -1,17 +1,21 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
 
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Form, SelectField, SingleFileField, SubmitButton } from "@olinfo/react-components";
-import { type Task, submitBatch } from "@olinfo/training-api";
+import type { Task } from "@olinfo/training-api";
 import clsx from "clsx";
 import { Send, TriangleAlert } from "lucide-react";
 
 import { H2 } from "~/components/header";
 import { Language, fileLanguage } from "~/lib/language";
+
+import { submitBatch } from "./actions";
 
 const Editor = dynamic(() => import("./editor"), {
   loading: () => <div className="skeleton size-full rounded-none" />,
@@ -19,7 +23,6 @@ const Editor = dynamic(() => import("./editor"), {
 });
 
 export function SubmitBatch({ task }: { task: Task }) {
-  const router = useRouter();
   const { _ } = useLingui();
 
   const languages = useMemo(() => task.supported_languages.map((l) => compilerLang(l)), [task]);
@@ -46,12 +49,14 @@ export function SubmitBatch({ task }: { task: Task }) {
 
   const [editorValue, setEditorValue] = useState<string>();
   const submit = async (value: { lang: string; src: File }) => {
-    const sub = await submitBatch(
-      task,
-      value.lang,
-      isSubmitPage ? new File([editorValue ?? ""], value.src?.name ?? "source.txt") : value.src,
-    );
-    router.push(`/task/${task.name}/submissions/${sub.id}`);
+    const files = new FormData();
+    if (isSubmitPage) {
+      files.append("src", new File([editorValue ?? ""], value.src?.name ?? "source.txt"));
+    } else {
+      files.append("src", value.src);
+    }
+
+    await submitBatch(task, value.lang, files);
     await new Promise(() => {});
   };
 

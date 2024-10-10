@@ -1,31 +1,22 @@
-"use client";
-
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { Trans } from "@lingui/macro";
-import { type Task, getTask } from "@olinfo/training-api";
-import useSWR from "swr";
+import { getMe, getTask } from "@olinfo/training-api";
 
 import { H2 } from "~/components/header";
-import { useUser } from "~/components/user";
 
 import { SubmitBatch } from "./batch";
 import { SubmitOutputOnly } from "./output-only";
-import { Skeleton } from "./skeleton";
 
 type Props = {
   params: { name: string };
 };
 
-export default function Page({ params }: Props) {
-  const { data: task } = useSWR<Task, Error, [string, string]>(
-    ["api/task", params.name],
-    ([, ...params]) => getTask(...params),
-    { revalidateIfStale: false },
-  );
+export default async function Page({ params: { name } }: Props) {
+  const [user, task] = await Promise.all([getMe(), getTask(name)]);
 
-  const user = useUser();
-
+  if (!task) notFound();
   if (!user) {
     return (
       <div className="text-center">
@@ -36,15 +27,13 @@ export default function Page({ params }: Props) {
           <Trans>Accedi per inviare soluzioni</Trans>
         </div>
         <Link
-          href={`/login?redirect=${encodeURIComponent(`/task/${params.name}/submit`)}`}
+          href={`/login?redirect=${encodeURIComponent(`/task/${name}/submit`)}`}
           className="btn btn-primary">
           <Trans>Accedi</Trans>
         </Link>
       </div>
     );
   }
-
-  if (!task) return <Skeleton />;
 
   return task.task_type === "OutputOnly" ? (
     <SubmitOutputOnly task={task} />

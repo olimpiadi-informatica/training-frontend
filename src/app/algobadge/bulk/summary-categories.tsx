@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 
+import { useLingui } from "@lingui/react";
 import { mapValues, omitBy, pull } from "lodash-es";
 import {
   Bar,
@@ -12,22 +13,17 @@ import {
   YAxis,
 } from "recharts";
 
-import { type CategoryId, algobadge } from "~/lib/algobadge";
+import { Badge, type CategoryId, algobadge } from "~/lib/algobadge";
 
-import {
-  BadgeExtra,
-  type ExtendedBadge,
-  type Users,
-  badgeColor,
-  badgeName,
-  badgeTypes,
-} from "./common";
+import { type ExtendedBadge, type UserBadges, badgeColor, badgeName, badgeTypes } from "./common";
 import { TooltipContent } from "./tooltip";
 
 type DataEntry = { name: CategoryId } & { [key in ExtendedBadge]?: number };
 type Data = DataEntry[];
 
-export function SummaryCategories({ users }: { users: Users }) {
+export function SummaryCategories({ users }: { users: UserBadges }) {
+  const { _ } = useLingui();
+
   const data = useMemo((): Data => {
     const badges = mapValues(
       algobadge,
@@ -38,13 +34,13 @@ export function SummaryCategories({ users }: { users: Users }) {
     );
 
     for (const user of Object.values(users)) {
-      if (user) {
-        for (const [name, value] of Object.entries(user)) {
+      if (user.totalBadge <= Badge.Diamond) {
+        for (const [name, value] of Object.entries(user.badges)) {
           badges[name as CategoryId][value.badge]! += 1;
         }
       } else {
         for (const badge of Object.values(badges)) {
-          badge[user === null ? BadgeExtra.Invalid : BadgeExtra.Loading]! += 1;
+          badge[user.totalBadge]! += 1;
         }
       }
     }
@@ -63,7 +59,7 @@ export function SummaryCategories({ users }: { users: Users }) {
         <Tooltip
           cursor={{ fill: "oklch(var(--bc) / 0.1)" }}
           content={TooltipContent}
-          formatter={(value, badge) => [value, badgeName[badge as unknown as ExtendedBadge]]}
+          formatter={(value, badge) => [value, _(badgeName[badge as unknown as ExtendedBadge])]}
         />
         {badgeTypes.map((badge) => (
           <Bar

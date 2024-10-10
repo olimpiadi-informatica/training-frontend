@@ -1,35 +1,25 @@
-"use client";
-
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Avatar, Card, CardBody } from "@olinfo/react-components";
-import { AccessLevel, type User, getUser } from "@olinfo/training-api";
+import { AccessLevel, getMe, getUser } from "@olinfo/training-api";
 import clsx from "clsx";
 import { orderBy } from "lodash-es";
-import useSWR from "swr";
 
 import { H1 } from "~/components/header";
-import { useUser } from "~/components/user";
-
-import { Skeleton } from "./skeleton";
+import { loadLocale } from "~/lib/locale";
 
 type Props = {
   params: { username: string };
 };
 
-export default function Page({ params: { username } }: Props) {
+export default async function Page({ params: { username } }: Props) {
+  const [_i18n, user, me] = await Promise.all([loadLocale(), getUser(username), getMe()]);
+  if (!user) notFound();
+
   const { _ } = useLingui();
-
-  const { data: user } = useSWR<User, Error, [string, string]>(
-    ["api/user", username],
-    ([, ...params]) => getUser(...params),
-  );
-
-  const me = useUser();
-
-  if (!user) return <Skeleton username={username} />;
 
   return (
     <div className="flex flex-col gap-4">

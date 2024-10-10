@@ -1,5 +1,7 @@
 import { useMemo } from "react";
 
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { omitBy, pull, range } from "lodash-es";
 import {
   Bar,
@@ -14,7 +16,7 @@ import {
 
 import { Badge, algobadge } from "~/lib/algobadge";
 
-import { type Users, badgeColor, badgeName } from "./common";
+import { type UserBadges, badgeColor, badgeName } from "./common";
 import { TooltipContent } from "./tooltip";
 
 type DataEntry = { name: Badge; fill: string; [count: string]: any };
@@ -22,7 +24,9 @@ type Data = DataEntry[];
 
 const filteredBadges = [Badge.Bronze, Badge.Silver, Badge.Gold, Badge.Diamond];
 
-export function SummaryBadges({ users }: { users: Users }) {
+export function SummaryBadges({ users }: { users: UserBadges }) {
+  const { _ } = useLingui();
+
   const numCategories = Object.keys(algobadge).length;
 
   const data = useMemo((): Data => {
@@ -38,12 +42,10 @@ export function SummaryBadges({ users }: { users: Users }) {
     );
 
     for (const user of Object.values(users)) {
-      if (!user) continue;
-
       const count = Object.fromEntries(filteredBadges.map((badge) => [badge, 0]));
-      for (const value of Object.values(user)) {
+      for (const value of Object.values(user.badges)) {
         for (const badge of Object.keys(count)) {
-          if (value.badge >= Number(badge)) {
+          if (value.badge >= Number(badge) && value.badge <= Badge.Diamond) {
             count[badge] += 1;
           }
         }
@@ -65,14 +67,14 @@ export function SummaryBadges({ users }: { users: Users }) {
           dataKey="name"
           axisLine={false}
           tickLine={false}
-          tickFormatter={(badge) => `≥${badgeName[badge as Badge]}`}
+          tickFormatter={(badge) => `≥${_(badgeName[badge as Badge])}`}
         />
         <YAxis tickLine={false} axisLine={false} />
         <CartesianGrid vertical={false} stroke="oklch(var(--bc) / 0.1)" />
         <Tooltip
           cursor={{ fill: "oklch(var(--bc) / 0.1)" }}
           content={TooltipContent}
-          formatter={(value, i) => [value, `${i} badge`]}
+          formatter={(value, num) => [value, _(msg`${num} badge`)]}
         />
         {range(numCategories + 1).map((i) => (
           <Bar

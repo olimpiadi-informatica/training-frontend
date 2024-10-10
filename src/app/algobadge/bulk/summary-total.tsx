@@ -1,32 +1,20 @@
 import { useMemo } from "react";
 
-import { map } from "lodash-es";
+import { useLingui } from "@lingui/react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 
-import {
-  BadgeExtra,
-  type ExtendedBadge,
-  type Users,
-  badgeColor,
-  badgeName,
-  badgeTypes,
-} from "./common";
+import { type ExtendedBadge, type UserBadges, badgeColor, badgeName, badgeTypes } from "./common";
 import { TooltipContent } from "./tooltip";
 
-export function SummaryTotal({ users }: { users: Users }) {
+export function SummaryTotal({ users }: { users: UserBadges }) {
+  const { _ } = useLingui();
+
   const data = useMemo(() => {
     const badges = Object.fromEntries(
       badgeTypes.map((badge) => [badge, { name: badge, value: 0 }]),
     );
     for (const user of Object.values(users)) {
-      if (user === undefined) {
-        badges[BadgeExtra.Loading].value += 1;
-      } else if (user === null) {
-        badges[BadgeExtra.Invalid].value += 1;
-      } else {
-        const badge = Math.min(...map(user, "badge"));
-        badges[badge].value += 1;
-      }
+      badges[user.totalBadge].value += 1;
     }
 
     return Object.values(badges).filter((badge) => badge.value > 0);
@@ -52,7 +40,7 @@ export function SummaryTotal({ users }: { users: Users }) {
         </Pie>
         <Tooltip
           content={TooltipContent}
-          formatter={(value, badge) => [value, badgeName[badge as unknown as ExtendedBadge]]}
+          formatter={(value, badge) => [value, _(badgeName[badge as unknown as ExtendedBadge])]}
         />
       </PieChart>
     </ResponsiveContainer>

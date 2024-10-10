@@ -1,58 +1,34 @@
-"use client";
+import { notFound } from "next/navigation";
 
-import { Suspense, lazy } from "react";
+import { fileUrl, getTask } from "@olinfo/training-api";
 
-import { msg } from "@lingui/macro";
-import { useLingui } from "@lingui/react";
-import { type Task, fileUrl, getTask } from "@olinfo/training-api";
-import { supportsPDFs } from "pdfobject";
-import useSWR from "swr";
+import { loadLocale } from "~/lib/locale";
 
 import Attachments from "./attachments/page";
+import { Statement } from "./statement";
 import Submit from "./submit/page";
 import Tags from "./tags/page";
-
-const MobileStatement = lazy(() => import("./mobile-statement"));
 
 type Props = {
   params: { name: string };
 };
 
-export default function Page({ params }: Props) {
-  const { i18n, _ } = useLingui();
+export default async function Page({ params }: Props) {
+  const i18n = await loadLocale();
 
-  const { data: task } = useSWR<Task, Error, [string, string]>(
-    ["api/task", params.name],
-    ([, ...params]) => getTask(...params),
-    { revalidateIfStale: false },
-  );
+  const task = await getTask(params.name);
+  if (!task) notFound();
 
-  const statement =
-    task &&
-    fileUrl({
-      name: "testo.pdf",
-      digest: task.statements[i18n.locale] ?? Object.values(task.statements)[0],
-    });
+  const statement = fileUrl({
+    name: "testo.pdf",
+    digest: task.statements[i18n.locale] ?? Object.values(task.statements)[0],
+  });
 
   return (
     <div className="grid grow gap-4 lg:grid-cols-[1fr_18rem]">
       <div className="relative min-h-[75vh] overflow-hidden rounded-lg">
         <div className="absolute inset-0">
-          {statement ? (
-            supportsPDFs ? (
-              <object
-                title={_(msg`Testo di ${task.title}`)}
-                data={`${statement}#navpanes=0`}
-                className="size-full"
-              />
-            ) : (
-              <Suspense fallback={<LoadingStatement />}>
-                <MobileStatement url={statement} fallback={<LoadingStatement />} />
-              </Suspense>
-            )
-          ) : (
-            <LoadingStatement />
-          )}
+          <Statement url={statement} title={task.title} />
         </div>
       </div>
       <div className="max-lg:hidden">
@@ -64,8 +40,4 @@ export default function Page({ params }: Props) {
       </div>
     </div>
   );
-}
-
-function LoadingStatement() {
-  return <div className="skeleton absolute inset-0 rounded-none" />;
 }

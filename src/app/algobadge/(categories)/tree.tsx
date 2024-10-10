@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import type { CSSProperties } from "react";
 
 import clsx from "clsx";
@@ -11,15 +10,24 @@ import {
   type CategoryId,
   algobadge,
   badgeBackground,
-  useMyBadges,
 } from "~/lib/algobadge";
 
-export function Tree() {
+type TreeProps = {
+  badges: Record<CategoryId, CategoryBadge>;
+  searchParams: URLSearchParams;
+};
+
+export function Tree({ badges, searchParams }: TreeProps) {
   return (
     <div className="relative">
       <div className="grid grid-cols-3 md:grid-cols-4">
         {Object.keys(algobadge).map((id) => (
-          <TreeNode key={id} categoryId={id as CategoryId} />
+          <TreeNode
+            key={id}
+            categoryId={id as CategoryId}
+            badge={badges[id as CategoryId]}
+            searchParams={searchParams}
+          />
         ))}
       </div>
       <div className="absolute inset-0 -z-10 md:hidden">
@@ -46,11 +54,14 @@ export function Tree() {
   );
 }
 
-function TreeNode({ categoryId }: { categoryId: CategoryId }) {
-  const category = algobadge[categoryId];
+type NodeProps = {
+  categoryId: CategoryId;
+  badge: CategoryBadge;
+  searchParams: URLSearchParams;
+};
 
-  const { badges } = useMyBadges();
-  const badge = badges?.[categoryId];
+function TreeNode({ categoryId, badge, searchParams }: NodeProps) {
+  const category = algobadge[categoryId];
 
   const style = {
     "--row": category.position[1],
@@ -64,24 +75,21 @@ function TreeNode({ categoryId }: { categoryId: CategoryId }) {
         "*:size-20 *:xs:size-24 *:rounded-full *:border *:border-base-content/20 *:mx-auto",
       )}
       style={style}>
-      {badge ? (
-        badge.badge === Badge.Locked ? (
-          <TreeNodeLocked />
-        ) : (
-          <TreeNodeUnlocked categoryId={categoryId} badge={badge} />
-        )
+      {badge.badge === Badge.Locked ? (
+        <TreeNodeLocked />
       ) : (
-        <div className="skeleton" />
+        <TreeNodeUnlocked categoryId={categoryId} badge={badge} searchParams={searchParams} />
       )}
     </div>
   );
 }
 
-function TreeNodeUnlocked({ categoryId, badge }: { categoryId: CategoryId; badge: CategoryBadge }) {
-  const searchParams = useSearchParams();
+function TreeNodeUnlocked({ categoryId, badge, searchParams }: NodeProps) {
+  const newParams = new URLSearchParams(searchParams);
+  newParams.set("category", categoryId);
   return (
     <Link
-      href={`/algobadge/${categoryId}?${searchParams}`}
+      href={`/algobadge?${newParams}`}
       className={clsx(
         "flex flex-col items-center justify-center text-neutral-900",
         badgeBackground[badge.badge],

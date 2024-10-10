@@ -10,7 +10,7 @@ import {
   NavbarMenuItem,
 } from "@olinfo/react-components";
 
-import { LocaleDropdown } from "~/components/locale";
+import { LocaleDropdown } from "~/components/navbar/locale-dropdown";
 
 import logo from "./icon.jpg";
 

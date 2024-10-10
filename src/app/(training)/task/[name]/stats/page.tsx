@@ -1,30 +1,24 @@
-"use client";
-
 import Link from "next/link";
+import { notFound } from "next/navigation";
 
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Menu } from "@olinfo/react-components";
-import { type TaskStats, getTaskStats } from "@olinfo/training-api";
-import useSWR from "swr";
+import { getTaskStats } from "@olinfo/training-api";
 
 import { H2 } from "~/components/header";
-
-import { Skeleton } from "./skeleton";
+import { loadLocale } from "~/lib/locale";
 
 type Props = {
   params: { name: string };
 };
 
-export default function Page({ params: { name: taskName } }: Props) {
+export default async function Page({ params: { name: taskName } }: Props) {
+  await loadLocale();
   const { _ } = useLingui();
 
-  const { data: stats } = useSWR<TaskStats, Error, [string, string]>(
-    ["api/stats", taskName],
-    ([, ...params]) => getTaskStats(...params),
-  );
-
-  if (!stats) return <Skeleton />;
+  const stats = await getTaskStats(taskName);
+  if (!stats) notFound();
 
   return (
     <div>

@@ -1,49 +1,35 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
-import {
-  EmailField,
-  Form,
-  FormFieldError,
-  SubmitButton,
-  useNotifications,
-} from "@olinfo/react-components";
-import { changeEmail } from "@olinfo/training-api";
-import { useSWRConfig } from "swr";
+import { CurrentPasswordField, EmailField, Form, SubmitButton } from "@olinfo/react-components";
 
 import { H2 } from "~/components/header";
+
+import { changeEmail } from "./actions";
 
 type Props = {
   params: { username: string };
 };
 
 export default function Page({ params: { username } }: Props) {
-  const router = useRouter();
-  const { mutate } = useSWRConfig();
-  const { notifySuccess } = useNotifications();
   const { _ } = useLingui();
 
-  const submit = async (data: { email: string }) => {
+  const submit = async (data: { password: string; email: string }) => {
     try {
-      await changeEmail(data.email);
+      await changeEmail(username, data.password, data.email);
     } catch (err) {
       switch ((err as Error).message) {
+        case "login.error":
+          throw new Error(_(msg`Password non corretta`), { cause: { field: "password" } });
         case "Invalid e-mail":
-          throw new FormFieldError("email", _(msg`Email non valida`));
+          throw new Error(_(msg`Email non valida`), { cause: { field: "email" } });
         case "E-mail already used":
-          throw new FormFieldError("email", _(msg`Email già in uso`));
+          throw new Error(_(msg`Email già in uso`), { cause: { field: "email" } });
         default:
           throw err;
       }
     }
-    await mutate("api/me");
-    await mutate(["api/user", username]);
-    router.push(`/user/${username}`);
-    router.refresh();
-    notifySuccess(_(msg`Email modificata con successo`));
     await new Promise(() => {});
   };
 
@@ -52,6 +38,7 @@ export default function Page({ params: { username } }: Props) {
       <H2>
         <Trans>Modifica email</Trans>
       </H2>
+      <CurrentPasswordField field="password" />
       <EmailField field="email" />
       <SubmitButton>
         <Trans>Modifica email</Trans>

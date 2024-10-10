@@ -1,14 +1,8 @@
-import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
-
 import type { MessageDescriptor } from "@lingui/core";
 import { msg } from "@lingui/macro";
-import { type Scores as TerryScores, getScores as getTerryScores } from "@olinfo/terry-api";
-import { type User, getUser } from "@olinfo/training-api";
+import type { Scores as TerryScores } from "@olinfo/terry-api";
+import type { User } from "@olinfo/training-api";
 import { map, mapValues } from "lodash-es";
-import useSWR from "swr";
-
-import { useUser } from "~/components/user";
 
 export enum CategoryId {
   DP = "dp",
@@ -212,11 +206,11 @@ function computeBadge(score: number, maxScore: number): Badge {
   return Badge.None;
 }
 
-export function computeCategoryBadges(
+function computeCategoryBadges(
   trainingUser: User | undefined,
   terryScores: TerryScores | undefined,
   unlockEverything: boolean,
-) {
+): Record<CategoryId, CategoryBadge> {
   const categoryBadges = mapValues(algobadge, (node) =>
     computeCategoryBadge(node, trainingUser, terryScores),
   );
@@ -255,7 +249,7 @@ export function computeCategoryBadges(
   return categoryBadges;
 }
 
-export function computeCategoryBadge(
+function computeCategoryBadge(
   category: Category,
   trainingUser: User | undefined,
   terryScores: TerryScores | undefined,
@@ -312,35 +306,12 @@ export const badgeColor: Record<Badge, string> = {
   [Badge.Diamond]: "text-cyan-500",
 };
 
-export function useUserBadges(username?: string, unlock?: boolean) {
-  type Key = [string, string] | false;
-
-  const { data: training, isLoading: isLoadingTraining } = useSWR<User, Error, Key>(
-    !!username && ["api/user", username],
-    ([, username]) => getUser(username),
-    { revalidateIfStale: false },
-  );
-
-  const { data: terry, isLoading: isLoadingTerry } = useSWR<TerryScores, Error, Key>(
-    !!username && ["terry/scores", username],
-    ([, username]) => getTerryScores(username),
-    { revalidateIfStale: false },
-  );
-
-  const badges = useMemo(
-    () =>
-      !isLoadingTraining && !isLoadingTerry
-        ? computeCategoryBadges(training, terry, unlock ?? false)
-        : undefined,
-    [isLoadingTraining, isLoadingTerry, training, terry, unlock],
-  );
-
+export function getUserBadges(
+  user: User | undefined,
+  terryScores: TerryScores | undefined,
+  unlock?: boolean,
+) {
+  const badges = computeCategoryBadges(user, terryScores, unlock ?? false);
   const totalBadge = badges ? (Math.min(...map(badges, "badge")) as Badge) : Badge.None;
-  return { badges, totalBadge, isLoading: isLoadingTraining || isLoadingTerry };
-}
-
-export function useMyBadges() {
-  const user = useUser();
-  const params = useSearchParams();
-  return useUserBadges(params.get("impersonate") ?? user?.username, params.has("unlock"));
+  return { badges, totalBadge };
 }

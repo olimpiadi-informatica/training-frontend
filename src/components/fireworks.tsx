@@ -1,3 +1,5 @@
+"use client";
+
 import { Suspense, lazy, useEffect, useRef } from "react";
 
 import type { FireworksHandlers } from "@fireworks-js/react";

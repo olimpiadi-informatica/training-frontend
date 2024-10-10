@@ -1,21 +1,14 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
-import { Form, SubmitButton, useNotifications } from "@olinfo/react-components";
-import {
-  changeSchool,
-  getCities,
-  getInstitutes,
-  getProvinces,
-  getRegions,
-} from "@olinfo/training-api";
-import { useSWRConfig } from "swr";
+import { Form, SubmitButton } from "@olinfo/react-components";
+import { getCities, getInstitutes, getProvinces, getRegions } from "@olinfo/training-api";
 
 import { H2 } from "~/components/header";
 import { LocationField } from "~/components/location-field";
+
+import { changeSchool } from "./actions";
 
 type Props = {
   params: { username: string };
@@ -29,18 +22,10 @@ type Institute = {
 };
 
 export default function Page({ params: { username } }: Props) {
-  const router = useRouter();
-  const { mutate } = useSWRConfig();
-  const { notifySuccess } = useNotifications();
   const { _ } = useLingui();
 
   const submit = async (data: Institute) => {
-    await changeSchool(data.institute);
-    await mutate("api/me");
-    await mutate(["api/user", username]);
-    router.push(`/user/${username}`);
-    router.refresh();
-    notifySuccess(_(msg`Scuola cambiata con successo`));
+    await changeSchool(username, data.institute);
     await new Promise(() => {});
   };
 
@@ -53,7 +38,7 @@ export default function Page({ params: { username } }: Props) {
         label={_(msg`Regione`)}
         field="region"
         placeholder={_(msg`Scegli la regione`)}
-        id="🇮🇹"
+        id="🇮"
         fetcher={getRegions}
       />
       {({ region }) => (

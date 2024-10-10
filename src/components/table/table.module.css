@@ -1,5 +1,5 @@
 .outerContainer {
-  @apply w-screen -translate-x-4 overflow-x-auto px-4 xl:-translate-x-[calc(50vw-640px+1rem)];
+  @apply w-screen overflow-x-auto px-4 xl:-translate-x-[calc(50vw-640px)];
 }
 
 .innerContainer {

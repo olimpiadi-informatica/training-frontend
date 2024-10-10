@@ -1,42 +1,21 @@
-"use client";
-
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { notFound } from "next/navigation";
 
 import { Trans } from "@lingui/macro";
-import { DateTime, Menu } from "@olinfo/react-components";
-import { type Submission, getTaskSubmissions, isEvaluating } from "@olinfo/training-api";
-import useSWR from "swr";
+import { getMe, getTaskSubmissions } from "@olinfo/training-api";
 
 import { H2 } from "~/components/header";
-import { Outcome } from "~/components/outcome";
-import { useUser } from "~/components/user";
-import { fileLanguageName } from "~/lib/language";
+import { loadLocale } from "~/lib/locale";
 
-import { Skeleton } from "./skeleton";
+import { PageClient } from "./page-client";
 
 type Props = {
   params: { name: string };
 };
 
-export default function Page({ params: { name: taskName } }: Props) {
-  const user = useUser();
-
-  const [refreshInterval, setRefreshInterval] = useState<number>();
-
-  const { data: submissions } = useSWR<Submission[], Error, [string, string] | undefined>(
-    user && ["api/submissions", taskName],
-    ([, ...params]) => getTaskSubmissions(...params),
-    { refreshInterval },
-  );
-
-  useEffect(() => {
-    if (submissions?.some(isEvaluating)) {
-      setRefreshInterval(1000);
-    } else {
-      setRefreshInterval(undefined);
-    }
-  }, [submissions]);
+export default async function Page({ params: { name: taskName } }: Props) {
+  await loadLocale();
+  const user = await getMe();
 
   if (!user) {
     return (
@@ -58,52 +37,8 @@ export default function Page({ params: { name: taskName } }: Props) {
     );
   }
 
-  if (!submissions) return <Skeleton />;
+  const submissions = await getTaskSubmissions(taskName);
+  if (!submissions) notFound();
 
-  return (
-    <div>
-      <H2 className="mb-2">
-        <Trans>Sottoposizioni</Trans>
-      </H2>
-      <div className="w-full overflow-x-auto max-md:w-screen max-md:-translate-x-4 max-md:px-4">
-        <Menu className="grid min-w-fit grid-cols-[auto_auto_1fr_auto]">
-          <h3 className="menu-title col-span-4 grid grid-cols-subgrid gap-2">
-            <div>
-              <Trans>ID</Trans>
-            </div>
-            <div>
-              <Trans>Linguaggio</Trans>
-            </div>
-            <div>
-              <Trans>Data e ora</Trans>
-            </div>
-            <div className="text-end">
-              <Trans>Esito</Trans>
-            </div>
-          </h3>
-          {submissions.map((sub) => (
-            <li key={sub.id} className="col-span-4 grid grid-cols-subgrid">
-              <Link
-                href={`/task/${taskName}/submissions/${sub.id}`}
-                className="col-span-4 grid grid-cols-subgrid text-nowrap">
-                <div className="w-20 font-mono">{sub.id}</div>
-                <div>{fileLanguageName(sub.files[0].name)}</div>
-                <div>
-                  <DateTime date={sub.timestamp} />
-                </div>
-                <div className="min-w-40 text-end">
-                  <Outcome submission={sub} />
-                </div>
-              </Link>
-            </li>
-          ))}
-          {submissions.length === 0 && (
-            <li className="col-span-full p-2 text-center">
-              <Trans>Nessuna sottoposizione inviata</Trans>
-            </li>
-          )}
-        </Menu>
-      </div>
-    </div>
-  );
+  return <PageClient taskName={taskName} submissions={submissions} />;
 }

@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { cookies } from "next/headers";
 import type { ReactNode } from "react";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Layout } from "@olinfo/react-components";
-import { getMeSync } from "@olinfo/training-api";
+import { getContest } from "@olinfo/training-api";
 
 import { loadLocale } from "~/lib/locale";
 
@@ -24,20 +24,18 @@ export const viewport: Viewport = {
 };
 
 export default async function RootLayout({ children }: { children: ReactNode }) {
-  const i18n = await loadLocale();
-
-  const token = cookies().get("training_token");
-  const user = token && getMeSync(token.value);
+  const [i18n, contest] = await Promise.all([loadLocale(), getContest()]);
 
   return (
     <html lang={i18n.locale}>
       <body>
         <Layout>
-          <LayoutClient syncUser={user} locale={i18n.locale} messages={i18n.messages}>
+          <LayoutClient locale={i18n.locale} messages={i18n.messages}>
             {children}
           </LayoutClient>
         </Layout>
         <Routing />
+        {contest && <GoogleAnalytics gaId={contest.analytics} />}
       </body>
     </html>
   );

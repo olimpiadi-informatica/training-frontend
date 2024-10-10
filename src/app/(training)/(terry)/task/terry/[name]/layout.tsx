@@ -1,65 +1,31 @@
-"use client";
-
-import Link from "next/link";
-import { notFound, useParams, useSelectedLayoutSegment } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import type { ReactNode } from "react";
 
-import { Trans } from "@lingui/macro";
-import { Tabs } from "@olinfo/react-components";
-import clsx from "clsx";
+import { getUser } from "@olinfo/terry-api";
+import { getMe } from "@olinfo/training-api";
 
-import { useTerryUser } from "~/components/user";
+import { TaskTabs } from "./tabs";
 
 type Props = {
   params: { name: string };
   children: ReactNode;
 };
 
-export default function Layout({ params: { name: taskName }, children }: Props) {
-  const user = useTerryUser();
+export default async function Layout({ params: { name: taskName }, children }: Props) {
+  const trainingUser = await getMe();
+  if (!trainingUser) {
+    redirect(`/login?redirect=${encodeURIComponent(`/task/terry/${taskName}`)}`);
+  }
 
-  const task = user?.contest.tasks.find((t) => t.name === taskName);
-  if (user && !task) return notFound();
+  const user = await getUser(trainingUser.username);
+  const task = user.contest.tasks.find((t) => t.name === taskName);
+  if (!task) notFound();
 
   return (
     <div className="flex grow flex-col gap-4">
-      {task ? (
-        <h1 className="text-center text-3xl font-bold">{task.title}</h1>
-      ) : (
-        <div className="skeleton mx-auto my-1 h-7 w-full max-w-xs" />
-      )}
-      <Tabs>
-        <Tab page="">
-          <Trans>Testo</Trans>
-        </Tab>
-        <Tab page="submit">
-          <Trans>Invia</Trans>
-        </Tab>
-        <Tab page="submissions">
-          <Trans>Sottoposizioni</Trans>
-        </Tab>
-      </Tabs>
+      <h1 className="text-center text-3xl font-bold">{task.title}</h1>
+      <TaskTabs />
       {children}
     </div>
-  );
-}
-
-type TabProps = {
-  page: string;
-  children: ReactNode;
-};
-
-function Tab({ page, children }: TabProps) {
-  const selectedPage = useSelectedLayoutSegment() ?? "";
-  const { name: taskName } = useParams();
-
-  return (
-    <Link
-      role="tab"
-      className={clsx("tab", selectedPage === page && "tab-active")}
-      href={`/task/terry/${taskName}/${page}`}
-      prefetch>
-      {children}
-    </Link>
   );
 }

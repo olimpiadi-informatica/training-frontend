@@ -1,38 +1,34 @@
-"use client";
-
-import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Fragment, type ReactNode } from "react";
 
 import { Trans } from "@lingui/macro";
 import { DateTime } from "@olinfo/react-components";
-import { type Submission, getSubmission } from "@olinfo/terry-api";
+import { type Submission, getSubmission, getUser } from "@olinfo/terry-api";
+import { getMe } from "@olinfo/training-api";
 import clsx from "clsx";
 import { Check, FileInput, FileOutput, X } from "lucide-react";
-import useSWR from "swr";
 
 import { H2, H3 } from "~/components/header";
 import { OutcomeScore } from "~/components/outcome";
 import { SourceCode } from "~/components/source-code";
-import { useTerryUser } from "~/components/user";
 import { fileLanguageName } from "~/lib/language";
-
-import { Skeleton } from "./skeleton";
+import { loadLocale } from "~/lib/locale";
 
 type Props = {
   params: { name: string; id: string };
 };
 
-export default function Page({ params: { name: taskName, id } }: Props) {
-  const user = useTerryUser();
-  const task = user?.contest.tasks.find((t) => t.name === taskName);
+export default async function Page({ params: { name: taskName, id } }: Props) {
+  const i18n = await loadLocale();
 
-  const { data: submission } = useSWR<Submission, Error, [string, string]>(
-    ["terry/submission", id],
-    ([, id]) => getSubmission(id),
-  );
+  const trainingUser = await getMe();
+  if (!trainingUser) return null;
 
-  if (!task || !submission) return <Skeleton />;
+  const user = await getUser(trainingUser.username);
+  const task = user.contest.tasks.find((t) => t.name === taskName);
+  if (!task) notFound();
 
+  const submission = await getSubmission(id);
   const alerts = [...submission.feedback.alerts, ...submission.output.validation.alerts];
 
   return (
@@ -48,7 +44,7 @@ export default function Page({ params: { name: taskName, id } }: Props) {
           <span className="font-bold">
             <Trans>Esito:</Trans>
           </span>{" "}
-          <OutcomeScore score={submission.score} maxScore={task?.max_score} />
+          <OutcomeScore score={submission.score} maxScore={task.max_score} />
         </li>
         <li>
           <span className="font-bold">
@@ -60,7 +56,7 @@ export default function Page({ params: { name: taskName, id } }: Props) {
           <span className="font-bold">
             <Trans>Data e ora:</Trans>
           </span>{" "}
-          <DateTime date={submission.date} />
+          <DateTime date={submission.date} locale={i18n.locale} />
         </li>
         {alerts.length > 0 && (
           <li>
@@ -99,20 +95,14 @@ export default function Page({ params: { name: taskName, id } }: Props) {
       <H3 className="mb-2 mt-6">
         <Trans>Codice sorgente</Trans>
       </H3>
-      <SourceCode url={`/api-terry/files/${submission.source.path}`} />
+      <SourceCode url={`${process.env.NEXT_PUBLIC_TERRY_URL}/files/${submission.source.path}`} />
       <div className="mt-6 flex flex-wrap justify-center gap-2">
-        <Link
-          href={`/api-terry/files/${submission.input.path}`}
-          className="btn btn-primary"
-          download>
+        <a href={`/api-terry/files/${submission.input.path}`} className="btn btn-primary" download>
           <FileInput size={22} /> <Trans>Scarica input</Trans>
-        </Link>
-        <Link
-          href={`/api-terry/files/${submission.output.path}`}
-          className="btn btn-primary"
-          download>
+        </a>
+        <a href={`/api-terry/files/${submission.output.path}`} className="btn btn-primary" download>
           <FileOutput size={22} /> <Trans>Scarica output</Trans>
-        </Link>
+        </a>
       </div>
     </div>
   );

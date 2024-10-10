@@ -1,24 +1,17 @@
-"use client";
-
 import type { ReactNode } from "react";
 
-import clsx from "clsx";
-import { useSelectedLayoutSegment } from "next/navigation";
+import { loadLocale } from "~/lib/locale";
+
+import { LayoutClient } from "./layout-client";
 import { Navbar } from "./navbar";
 
-export default function Layout({ children }: { children: ReactNode }) {
-  const segment = useSelectedLayoutSegment();
+export default async function Layout({ children }: { children: ReactNode }) {
+  await loadLocale();
 
   return (
     <>
       <Navbar />
-      <div
-        className={clsx(
-          "flex grow w-full flex-col",
-          segment !== "(home)" && "mx-auto max-w-screen-xl p-4 pb-8",
-        )}>
-        {children}
-      </div>
+      <LayoutClient>{children}</LayoutClient>
     </>
   );
 }

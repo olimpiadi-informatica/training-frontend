@@ -1,34 +1,22 @@
-"use client";
-
 import Link from "next/link";
-import { useMemo } from "react";
 
 import { Trans } from "@lingui/macro";
 import { Menu } from "@olinfo/react-components";
 import { getEventTags } from "@olinfo/training-api";
-import useSWR from "swr";
 
 import { H1 } from "~/components/header";
+import { loadLocale } from "~/lib/locale";
 
-import { Skeleton } from "./skeleton";
+export default async function Page() {
+  await loadLocale();
 
-export default function Page() {
-  const { data: tags } = useSWR("api/event-tags", getEventTags, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-  });
+  const tags = await getEventTags();
 
-  const years = useMemo(
-    () =>
-      tags
-        ?.map((tag) => tag.match(/^ioi(\d{4})$/))
-        .filter(Boolean)
-        .map((match) => +match![1])
-        .sort((a, b) => b - a),
-    [tags],
-  );
-
-  if (!years) return <Skeleton />;
+  const years = tags
+    .map((tag) => tag.match(/^ioi(\d{4})$/))
+    .filter(Boolean)
+    .map((match) => +match![1])
+    .sort((a, b) => b - a);
 
   return (
     <>

@@ -1,16 +1,17 @@
-import { useRouter } from "next/navigation";
+"use client";
 
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Form, MultipleFileField, SubmitButton } from "@olinfo/react-components";
-import { type Task, submitOutputOnly } from "@olinfo/training-api";
+import type { Task } from "@olinfo/training-api";
 import { sortBy } from "lodash-es";
 import { Send } from "lucide-react";
 
 import { H2 } from "~/components/header";
 
+import { submitOutputOnly } from "./actions";
+
 export function SubmitOutputOnly({ task }: { task: Task }) {
-  const router = useRouter();
   const { _ } = useLingui();
 
   const validate = (files: Record<string, File>) => {
@@ -20,8 +21,12 @@ export function SubmitOutputOnly({ task }: { task: Task }) {
   };
 
   const submit = async ({ outputs }: { outputs: Record<string, File> }) => {
-    const sub = await submitOutputOnly(task, outputs);
-    router.push(`/task/${task.name}/submissions/${sub.id}`);
+    const files = new FormData();
+    for (const [name, file] of Object.entries(outputs)) {
+      files.append(name, file);
+    }
+
+    await submitOutputOnly(task, files);
     await new Promise(() => {});
   };
 

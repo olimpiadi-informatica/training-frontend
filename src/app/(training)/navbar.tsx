@@ -12,8 +12,8 @@ import {
 } from "@olinfo/react-components";
 
 import logo from "~/app/icon0.svg";
-import { LocaleDropdown } from "~/components/locale";
-import { UserDropdown } from "~/components/user";
+import { LocaleDropdown } from "~/components/navbar/locale-dropdown";
+import { UserDropdown } from "~/components/navbar/user-dropdown";
 
 export function Navbar() {
   const { _ } = useLingui();

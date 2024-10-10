@@ -1,6 +1,8 @@
-import { Badge, type CategoryBadge, type CategoryId } from "~/lib/algobadge";
+import type { MessageDescriptor } from "@lingui/core";
+import { msg } from "@lingui/macro";
 
-export type Users = Record<string, Record<CategoryId, CategoryBadge> | null | undefined>;
+import type { User } from "@olinfo/training-api";
+import { Badge, type CategoryBadge, type CategoryId } from "~/lib/algobadge";
 
 export enum BadgeExtra {
   Loading = 100,
@@ -8,6 +10,15 @@ export enum BadgeExtra {
 }
 
 export type ExtendedBadge = Badge | BadgeExtra;
+
+export type UserBadge = {
+  username: string;
+  user?: User;
+  badges: Record<CategoryId, CategoryBadge>;
+  totalBadge: ExtendedBadge;
+};
+
+export type UserBadges = Record<string, UserBadge>;
 
 export const badgeTypes: ExtendedBadge[] = [
   Badge.None,
@@ -30,13 +41,13 @@ export const badgeColor: Record<ExtendedBadge, string> = {
   [BadgeExtra.Loading]: "#1f2937",
 };
 
-export const badgeName: Record<ExtendedBadge, string> = {
-  [Badge.Locked]: "Bloccato",
-  [Badge.None]: "Nessuno",
-  [Badge.Bronze]: "Bronzo",
-  [Badge.Silver]: "Argento",
-  [Badge.Gold]: "Oro",
-  [Badge.Diamond]: "Diamante",
-  [BadgeExtra.Invalid]: "Non valido",
-  [BadgeExtra.Loading]: "Caricamento",
+export const badgeName: Record<ExtendedBadge, MessageDescriptor> = {
+  [Badge.Locked]: msg`Bloccato`,
+  [Badge.None]: msg`Nessuno`,
+  [Badge.Bronze]: msg`Bronzo`,
+  [Badge.Silver]: msg`Argento`,
+  [Badge.Gold]: msg`Oro`,
+  [Badge.Diamond]: msg`Diamante`,
+  [BadgeExtra.Invalid]: msg`Non valido`,
+  [BadgeExtra.Loading]: msg`Caricamento`,
 };

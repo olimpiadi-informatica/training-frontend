@@ -1,41 +1,33 @@
-"use client";
-
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Avatar, Menu } from "@olinfo/react-components";
-import { type Ranking, type User, getRanking } from "@olinfo/training-api";
-import useSWR from "swr";
+import { type User, getRanking } from "@olinfo/training-api";
 
 import { H1 } from "~/components/header";
 import { Pagination } from "~/components/pagination";
-
-import { Skeleton } from "./skeleton";
+import { loadLocale } from "~/lib/locale";
 
 type Props = {
   params: { page: string };
 };
 
-export default function Page({ params: { page: pageStr } }: Props) {
+export default async function Page({ params: { page: pageStr } }: Props) {
   const page = Number(pageStr);
   const pageSize = 20;
 
   if (!Number.isInteger(page) || page < 1) notFound();
 
-  const { _ } = useLingui();
-
-  const { data: ranking } = useSWR<Ranking, Error, [string, number, number]>(
-    ["api/ranking", page, pageSize],
-    ([, ...params]) => getRanking(...params),
-  );
-
-  if (!ranking) return <Skeleton page={page} pageSize={pageSize} />;
+  const ranking = await getRanking(page, pageSize);
 
   const { users, num } = ranking;
   const pageCount = Math.max(Math.ceil(num / pageSize), 1);
   if (page > pageCount) notFound();
+
+  await loadLocale();
+  const { _ } = useLingui();
 
   return (
     <div className="flex flex-col gap-4">
