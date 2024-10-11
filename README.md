@@ -22,4 +22,6 @@ If you've added or changed text, you also need to update the translations:
 
 ## Deployment
 
-Ask Filippo Casarin.
+Once the PR is merged, check https://hub.docker.com/r/olimpiadiinformatica/training/tags for the
+new tag and copy it (it's a hash, DO NOT use "latest"). Then ssh in the server and update the hash
+in `~/infrastructure/unito/docker/training/docker-compose.yaml` with the new hash.
