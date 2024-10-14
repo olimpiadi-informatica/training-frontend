@@ -535,7 +535,7 @@ msgstr "Memory used:"
 
 #: src/app/(training)/(home)/footer.tsx:53
 msgid "Ministero dell'Istruzione e del Merito"
-msgstr "Italian Minister of Education and Merit"
+msgstr "Ministry of Education and Merit"
 
 #: src/app/(training)/user/[username]/edit/email/page.tsx:53
 #: src/app/(training)/user/[username]/edit/email/page.tsx:57
