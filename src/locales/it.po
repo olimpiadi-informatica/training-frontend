@@ -187,11 +187,11 @@ msgstr "Codice non valido"
 
 #: src/app/(training)/(terry)/task/terry/[name]/submissions/[id]/page.tsx:96
 #: src/app/(training)/task/[name]/submissions/[id]/files.tsx:15
-#: src/app/(training)/task/[name]/submit/batch.tsx:85
+#: src/app/(training)/task/[name]/submit/batch.tsx:94
 msgid "Codice sorgente"
 msgstr "Codice sorgente"
 
-#: src/app/(training)/task/[name]/submit/batch.tsx:106
+#: src/app/(training)/task/[name]/submit/batch.tsx:115
 msgid "Come si usano i grader?"
 msgstr "Come si usano i grader?"
 
@@ -256,7 +256,7 @@ msgstr "Data e ora:"
 msgid "Dettagli"
 msgstr "Dettagli"
 
-#: src/app/(training)/task/[name]/submit/output-only.tsx:39
+#: src/app/(training)/task/[name]/submit/output-only.tsx:48
 msgid "Devi inviare i seguenti file:"
 msgstr "Devi inviare i seguenti file:"
 
@@ -357,7 +357,7 @@ msgid "File \"{output}\" mancante"
 msgstr "File \"{output}\" mancante"
 
 #: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:97
-#: src/app/(training)/task/[name]/submit/output-only.tsx:48
+#: src/app/(training)/task/[name]/submit/output-only.tsx:57
 msgid "File di output"
 msgstr "File di output"
 
@@ -487,8 +487,8 @@ msgid "Inserisci il codice di recupero"
 msgstr "Inserisci il codice di recupero"
 
 #: src/app/(training)/(terry)/task/terry/[name]/tabs.tsx:18
-#: src/app/(training)/task/[name]/submit/batch.tsx:91
-#: src/app/(training)/task/[name]/submit/output-only.tsx:53
+#: src/app/(training)/task/[name]/submit/batch.tsx:100
+#: src/app/(training)/task/[name]/submit/output-only.tsx:62
 #: src/app/(training)/task/[name]/tabs.tsx:27
 msgid "Invia"
 msgstr "Invia"
@@ -497,11 +497,11 @@ msgstr "Invia"
 msgid "Invia email"
 msgstr "Invia email"
 
-#: src/app/(training)/task/[name]/submit/output-only.tsx:36
+#: src/app/(training)/task/[name]/submit/output-only.tsx:45
 msgid "Invia output"
 msgstr "Invia output"
 
-#: src/app/(training)/task/[name]/submit/batch.tsx:71
+#: src/app/(training)/task/[name]/submit/batch.tsx:80
 #: src/app/(training)/task/[name]/submit/page.tsx:24
 msgid "Invia soluzione"
 msgstr "Invia soluzione"
@@ -533,7 +533,7 @@ msgstr "Limite di tempo:"
 
 #: src/app/(training)/(terry)/task/terry/[name]/submissions/page.tsx:42
 #: src/app/(training)/task/[name]/submissions/page-client.tsx:54
-#: src/app/(training)/task/[name]/submit/batch.tsx:80
+#: src/app/(training)/task/[name]/submit/batch.tsx:89
 msgid "Linguaggio"
 msgstr "Linguaggio"
 
@@ -984,6 +984,11 @@ msgstr "Sottoposizione {0}"
 #: src/app/(training)/task/[name]/tabs.tsx:30
 msgid "Sottoposizioni"
 msgstr "Sottoposizioni"
+
+#: src/app/(training)/task/[name]/submit/batch.tsx:64
+#: src/app/(training)/task/[name]/submit/output-only.tsx:34
+msgid "Sottoposizioni troppo frequenti"
+msgstr "Sottoposizioni troppo frequenti"
 
 #: src/app/(training)/task/[name]/tabs.tsx:24
 msgid "Statistiche"

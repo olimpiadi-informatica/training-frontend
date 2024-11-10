@@ -56,7 +56,16 @@ export function SubmitBatch({ task }: { task: Task }) {
       files.append("src", value.src);
     }
 
-    await submitBatch(task, value.lang, files);
+    try {
+      await submitBatch(task, value.lang, files);
+    } catch (err) {
+      switch ((err as Error).message) {
+        case "Too frequent submissions!":
+          throw new Error(_(msg`Sottoposizioni troppo frequenti`));
+        default:
+          throw err;
+      }
+    }
     await new Promise(() => {});
   };
 

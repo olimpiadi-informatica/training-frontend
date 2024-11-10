@@ -187,11 +187,11 @@ msgstr "Invalid code"
 
 #: src/app/(training)/(terry)/task/terry/[name]/submissions/[id]/page.tsx:96
 #: src/app/(training)/task/[name]/submissions/[id]/files.tsx:15
-#: src/app/(training)/task/[name]/submit/batch.tsx:85
+#: src/app/(training)/task/[name]/submit/batch.tsx:94
 msgid "Codice sorgente"
 msgstr "Source code"
 
-#: src/app/(training)/task/[name]/submit/batch.tsx:106
+#: src/app/(training)/task/[name]/submit/batch.tsx:115
 msgid "Come si usano i grader?"
 msgstr "How to use graders"
 
@@ -256,7 +256,7 @@ msgstr "Date and time:"
 msgid "Dettagli"
 msgstr "Details"
 
-#: src/app/(training)/task/[name]/submit/output-only.tsx:39
+#: src/app/(training)/task/[name]/submit/output-only.tsx:48
 msgid "Devi inviare i seguenti file:"
 msgstr "You must send the following files:"
 
@@ -357,7 +357,7 @@ msgid "File \"{output}\" mancante"
 msgstr "Missing file \"{output}\""
 
 #: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:97
-#: src/app/(training)/task/[name]/submit/output-only.tsx:48
+#: src/app/(training)/task/[name]/submit/output-only.tsx:57
 msgid "File di output"
 msgstr "Output file"
 
@@ -487,8 +487,8 @@ msgid "Inserisci il codice di recupero"
 msgstr "Enter the recovery code"
 
 #: src/app/(training)/(terry)/task/terry/[name]/tabs.tsx:18
-#: src/app/(training)/task/[name]/submit/batch.tsx:91
-#: src/app/(training)/task/[name]/submit/output-only.tsx:53
+#: src/app/(training)/task/[name]/submit/batch.tsx:100
+#: src/app/(training)/task/[name]/submit/output-only.tsx:62
 #: src/app/(training)/task/[name]/tabs.tsx:27
 msgid "Invia"
 msgstr "Submit"
@@ -497,11 +497,11 @@ msgstr "Submit"
 msgid "Invia email"
 msgstr "Send email"
 
-#: src/app/(training)/task/[name]/submit/output-only.tsx:36
+#: src/app/(training)/task/[name]/submit/output-only.tsx:45
 msgid "Invia output"
 msgstr "Submit outputs"
 
-#: src/app/(training)/task/[name]/submit/batch.tsx:71
+#: src/app/(training)/task/[name]/submit/batch.tsx:80
 #: src/app/(training)/task/[name]/submit/page.tsx:24
 msgid "Invia soluzione"
 msgstr "Submit solution"
@@ -533,7 +533,7 @@ msgstr "Time limit:"
 
 #: src/app/(training)/(terry)/task/terry/[name]/submissions/page.tsx:42
 #: src/app/(training)/task/[name]/submissions/page-client.tsx:54
-#: src/app/(training)/task/[name]/submit/batch.tsx:80
+#: src/app/(training)/task/[name]/submit/batch.tsx:89
 msgid "Linguaggio"
 msgstr "Language"
 
@@ -984,6 +984,11 @@ msgstr "Submission {0}"
 #: src/app/(training)/task/[name]/tabs.tsx:30
 msgid "Sottoposizioni"
 msgstr "Submissions"
+
+#: src/app/(training)/task/[name]/submit/batch.tsx:64
+#: src/app/(training)/task/[name]/submit/output-only.tsx:34
+msgid "Sottoposizioni troppo frequenti"
+msgstr "Too frequent submissions"
 
 #: src/app/(training)/task/[name]/tabs.tsx:24
 msgid "Statistiche"
