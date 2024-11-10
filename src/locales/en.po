@@ -57,6 +57,11 @@ msgstr "Add"
 msgid "Aggiungi tag"
 msgstr "Add tag"
 
+#: src/app/(training)/(terry)/task/terry/[name]/tabs.tsx:24
+#: src/app/(training)/task/[name]/tabs.tsx:33
+msgid "Aiuto"
+msgstr "Help"
+
 #: src/app/(training)/(home)/page.tsx:97
 #: src/app/(training)/navbar.tsx:77
 msgid "Algobadge"
@@ -230,6 +235,10 @@ msgstr "Create"
 msgid "Crea un nuovo account"
 msgstr "Create new account"
 
+#: src/components/forum-posts.tsx:84
+msgid "Crea un nuovo post"
+msgstr "Create new post"
+
 #: src/app/(training)/(terry)/task/terry/[name]/submissions/page.tsx:45
 #: src/app/(training)/task/[name]/submissions/page-client.tsx:57
 msgid "Data e ora"
@@ -262,6 +271,11 @@ msgstr "Diamond"
 #: src/app/(training)/tools/graph/page.tsx:112
 msgid "Dimensione nodi"
 msgstr "Node size"
+
+#: src/app/(training)/(terry)/task/terry/[name]/help/page.tsx:28
+#: src/app/(training)/task/[name]/help/page.tsx:23
+msgid "Discussioni del forum"
+msgstr "Forum posts"
 
 #: src/app/(training)/tasks/techniques/page.tsx:25
 msgid "Divide & Conquer"
@@ -364,6 +378,10 @@ msgstr "Forum"
 #: src/app/(training)/user/[username]/edit/tabs.tsx:21
 msgid "Foto"
 msgstr "Picture"
+
+#: src/components/forum-posts.tsx:44
+msgid "Foto profilo di {0}"
+msgstr "{0}'s profile picture"
 
 #: src/lib/algobadge.ts:123
 msgid "Funzioni di Libreria"
@@ -603,6 +621,10 @@ msgstr "In the official wiki you will find detailed explanations and solutions o
 #: src/app/(training)/task/[name]/attachments/page.tsx:28
 msgid "Nessun allegato"
 msgstr "No attachments"
+
+#: src/components/forum-posts.tsx:20
+msgid "Nessun post trovato."
+msgstr "No posts found."
 
 #: src/app/(training)/user/[username]/page.tsx:63
 msgid "Nessun problema risolto"

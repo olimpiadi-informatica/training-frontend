@@ -20,6 +20,9 @@ export function TaskTabs() {
       <Tab page="submissions">
         <Trans>Sottoposizioni</Trans>
       </Tab>
+      <Tab page="help">
+        <Trans>Aiuto</Trans>
+      </Tab>
     </Tabs>
   );
 }

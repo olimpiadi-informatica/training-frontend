@@ -57,6 +57,11 @@ msgstr "Aggiungi"
 msgid "Aggiungi tag"
 msgstr "Aggiungi tag"
 
+#: src/app/(training)/(terry)/task/terry/[name]/tabs.tsx:24
+#: src/app/(training)/task/[name]/tabs.tsx:33
+msgid "Aiuto"
+msgstr "Aiuto"
+
 #: src/app/(training)/(home)/page.tsx:97
 #: src/app/(training)/navbar.tsx:77
 msgid "Algobadge"
@@ -230,6 +235,10 @@ msgstr "Crea"
 msgid "Crea un nuovo account"
 msgstr "Crea un nuovo account"
 
+#: src/components/forum-posts.tsx:84
+msgid "Crea un nuovo post"
+msgstr "Crea un nuovo post"
+
 #: src/app/(training)/(terry)/task/terry/[name]/submissions/page.tsx:45
 #: src/app/(training)/task/[name]/submissions/page-client.tsx:57
 msgid "Data e ora"
@@ -262,6 +271,11 @@ msgstr "Diamante"
 #: src/app/(training)/tools/graph/page.tsx:112
 msgid "Dimensione nodi"
 msgstr "Dimensione nodi"
+
+#: src/app/(training)/(terry)/task/terry/[name]/help/page.tsx:28
+#: src/app/(training)/task/[name]/help/page.tsx:23
+msgid "Discussioni del forum"
+msgstr "Discussioni del forum"
 
 #: src/app/(training)/tasks/techniques/page.tsx:25
 msgid "Divide & Conquer"
@@ -364,6 +378,10 @@ msgstr "Forum"
 #: src/app/(training)/user/[username]/edit/tabs.tsx:21
 msgid "Foto"
 msgstr "Foto"
+
+#: src/components/forum-posts.tsx:44
+msgid "Foto profilo di {0}"
+msgstr "Foto profilo di {0}"
 
 #: src/lib/algobadge.ts:123
 msgid "Funzioni di Libreria"
@@ -603,6 +621,10 @@ msgstr "Nella wiki ufficiale troverai spiegazioni dettagliate e soluzioni di pro
 #: src/app/(training)/task/[name]/attachments/page.tsx:28
 msgid "Nessun allegato"
 msgstr "Nessun allegato"
+
+#: src/components/forum-posts.tsx:20
+msgid "Nessun post trovato."
+msgstr "Nessun post trovato."
 
 #: src/app/(training)/user/[username]/page.tsx:63
 msgid "Nessun problema risolto"

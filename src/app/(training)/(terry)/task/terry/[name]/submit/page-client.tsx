@@ -96,7 +96,7 @@ export function PageClient({ user, task }: Props) {
         <SingleFileField field="source" label={_(msg`File sorgente`)} validate={validateSource} />
         <SingleFileField field="output" label={_(msg`File di output`)} />
         <SubmitButton icon={Send}>Invia</SubmitButton>
-        <Link href={`/task/terry/${task.name}/help`} className="link link-info mt-4">
+        <Link href={`/task/terry/${task.name}/submit/help`} className="link link-info mt-4">
           <Trans>Cosa devo inviare?</Trans>
         </Link>
       </Form>
