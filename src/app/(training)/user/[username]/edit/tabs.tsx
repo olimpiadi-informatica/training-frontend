@@ -25,6 +25,10 @@ export function UserEditTabs() {
                 https://github.com/algorithm-ninja/cmsocial/blob/master/cmsocial/server/pws.py#L829
         */}
       {/* <Tab page="school">Scuola</Tab> */}
+
+      <Tab page="delete">
+        <Trans>Eliminazione</Trans>
+      </Tab>
     </Tabs>
   );
 }
