@@ -84,7 +84,7 @@ msgstr "Allenati per i Giochi di Fibonacci risolvendo gli esercizi degli anni pa
 msgid "Altre gare"
 msgstr "Altre gare"
 
-#: src/app/(training)/(home)/footer.tsx:65
+#: src/app/(training)/(home)/footer.tsx:79
 msgid "Altre Risorse"
 msgstr "Altre Risorse"
 
@@ -173,11 +173,11 @@ msgstr "Categorie"
 msgid "Classifica"
 msgstr "Classifica"
 
-#: src/app/(training)/(home)/footer.tsx:72
+#: src/app/(training)/(home)/footer.tsx:93
 msgid "Classifiche OII"
 msgstr "Classifiche OII"
 
-#: src/app/(training)/(home)/footer.tsx:79
+#: src/app/(training)/(home)/footer.tsx:100
 msgid "Classifiche OIS"
 msgstr "Classifiche OIS"
 
@@ -423,7 +423,7 @@ msgstr "Gare ufficiali"
 msgid "Geometria"
 msgstr "Geometria"
 
-#: src/app/(training)/(home)/footer.tsx:46
+#: src/app/(training)/(home)/footer.tsx:60
 #: src/app/(training)/tasks/events/page.tsx:70
 msgid "Giochi di Fibonacci"
 msgstr "Giochi di Fibonacci"
@@ -587,7 +587,7 @@ msgstr "Memoria"
 msgid "Memoria utilizzata:"
 msgstr "Memoria utilizzata:"
 
-#: src/app/(training)/(home)/footer.tsx:53
+#: src/app/(training)/(home)/footer.tsx:67
 msgid "Ministero dell'Istruzione e del Merito"
 msgstr "Ministero dell'Istruzione e del Merito"
 
@@ -707,11 +707,11 @@ msgstr "Oggetto:"
 msgid "Olimpiadi di Informatica {0}/{1}"
 msgstr "Olimpiadi di Informatica {0}/{1}"
 
-#: src/app/(training)/(home)/footer.tsx:39
+#: src/app/(training)/(home)/footer.tsx:53
 msgid "Olimpiadi di Informatica a Squadre"
 msgstr "Olimpiadi di Informatica a Squadre"
 
-#: src/app/(training)/(home)/footer.tsx:32
+#: src/app/(training)/(home)/footer.tsx:46
 msgid "Olimpiadi Italiane di Informatica"
 msgstr "Olimpiadi Italiane di Informatica"
 
@@ -957,6 +957,10 @@ msgstr "Scuole Primarie"
 msgid "Scuole Secondarie"
 msgstr "Scuole Secondarie"
 
+#: src/app/(training)/(home)/footer.tsx:86
+msgid "Segnalazioni bug"
+msgstr "Segnalazioni bug"
+
 #: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:38
 msgid "Seleziona il file sorgente"
 msgstr "Seleziona il file sorgente"
@@ -973,7 +977,7 @@ msgstr "Selezione SWERC dell'Università degli Studi di Milano"
 msgid "Selezioni scolastiche"
 msgstr "Selezioni scolastiche"
 
-#: src/app/(training)/(home)/footer.tsx:25
+#: src/app/(training)/(home)/footer.tsx:39
 msgid "Siti ufficiali"
 msgstr "Siti ufficiali"
 
@@ -1022,7 +1026,7 @@ msgstr "Statistiche"
 msgid "Statistiche generali"
 msgstr "Statistiche generali"
 
-#: src/app/(training)/(home)/footer.tsx:86
+#: src/app/(training)/(home)/footer.tsx:107
 msgid "Stato server"
 msgstr "Stato server"
 
@@ -1153,7 +1157,7 @@ msgstr "Utenti che l'hanno risolto:"
 msgid "Vecchia password"
 msgstr "Vecchia password"
 
-#: src/app/(training)/(home)/footer.tsx:93
+#: src/app/(training)/(home)/footer.tsx:114
 #: src/app/(training)/(home)/page.tsx:112
 msgid "Wiki"
 msgstr "Wiki"

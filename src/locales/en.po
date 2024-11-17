@@ -84,7 +84,7 @@ msgstr "Train for the Fibonacci Games by solving the tasks of the past years."
 msgid "Altre gare"
 msgstr "Other contests"
 
-#: src/app/(training)/(home)/footer.tsx:65
+#: src/app/(training)/(home)/footer.tsx:79
 msgid "Altre Risorse"
 msgstr "Other websites"
 
@@ -173,11 +173,11 @@ msgstr "Categories"
 msgid "Classifica"
 msgstr "Ranking"
 
-#: src/app/(training)/(home)/footer.tsx:72
+#: src/app/(training)/(home)/footer.tsx:93
 msgid "Classifiche OII"
 msgstr "OII rankings"
 
-#: src/app/(training)/(home)/footer.tsx:79
+#: src/app/(training)/(home)/footer.tsx:100
 msgid "Classifiche OIS"
 msgstr "OIS rankings"
 
@@ -423,7 +423,7 @@ msgstr "Official contests"
 msgid "Geometria"
 msgstr "Geometry"
 
-#: src/app/(training)/(home)/footer.tsx:46
+#: src/app/(training)/(home)/footer.tsx:60
 #: src/app/(training)/tasks/events/page.tsx:70
 msgid "Giochi di Fibonacci"
 msgstr "Fibonacci Games"
@@ -587,7 +587,7 @@ msgstr "Memory"
 msgid "Memoria utilizzata:"
 msgstr "Memory used:"
 
-#: src/app/(training)/(home)/footer.tsx:53
+#: src/app/(training)/(home)/footer.tsx:67
 msgid "Ministero dell'Istruzione e del Merito"
 msgstr "Ministry of Education and Merit"
 
@@ -707,11 +707,11 @@ msgstr "Subject:"
 msgid "Olimpiadi di Informatica {0}/{1}"
 msgstr "Italian Olympiads in Informatics {0}/{1}"
 
-#: src/app/(training)/(home)/footer.tsx:39
+#: src/app/(training)/(home)/footer.tsx:53
 msgid "Olimpiadi di Informatica a Squadre"
 msgstr "Italian Olympiads in Informatics in Teams"
 
-#: src/app/(training)/(home)/footer.tsx:32
+#: src/app/(training)/(home)/footer.tsx:46
 msgid "Olimpiadi Italiane di Informatica"
 msgstr "Italian Olympiads in Informatics"
 
@@ -957,6 +957,10 @@ msgstr "Primary schools"
 msgid "Scuole Secondarie"
 msgstr "Secondary schools"
 
+#: src/app/(training)/(home)/footer.tsx:86
+msgid "Segnalazioni bug"
+msgstr "Bug reports"
+
 #: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:38
 msgid "Seleziona il file sorgente"
 msgstr "Select the source file"
@@ -973,7 +977,7 @@ msgstr "University of Milan SWERC selection"
 msgid "Selezioni scolastiche"
 msgstr "School selections"
 
-#: src/app/(training)/(home)/footer.tsx:25
+#: src/app/(training)/(home)/footer.tsx:39
 msgid "Siti ufficiali"
 msgstr "Official websites"
 
@@ -1022,7 +1026,7 @@ msgstr "Stats"
 msgid "Statistiche generali"
 msgstr "Stats"
 
-#: src/app/(training)/(home)/footer.tsx:86
+#: src/app/(training)/(home)/footer.tsx:107
 msgid "Stato server"
 msgstr "Server status"
 
@@ -1153,7 +1157,7 @@ msgstr "Number of people who solved it:"
 msgid "Vecchia password"
 msgstr "Old password"
 
-#: src/app/(training)/(home)/footer.tsx:93
+#: src/app/(training)/(home)/footer.tsx:114
 #: src/app/(training)/(home)/page.tsx:112
 msgid "Wiki"
 msgstr "Wiki"

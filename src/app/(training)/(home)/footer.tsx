@@ -19,6 +19,20 @@ export function Footer() {
             className="h-20 w-auto"
           />
           <p>Olimpiadi di Informatica &copy; {new Date().getFullYear()}</p>
+          <div className="mt-1 flex gap-2">
+            <a href="https://github.com/olimpiadi-informatica" target="_blank" rel="noreferrer">
+              <SiGithub size={20} />
+            </a>
+            <a href="https://t.me/+Zp70NXu5W04xMjQ0" target="_blank" rel="noreferrer">
+              <SiTelegram size={20} />
+            </a>
+            <a
+              href="https://www.youtube.com/@olimpiadiitalianediinforma4928"
+              target="_blank"
+              rel="noreferrer">
+              <SiYoutube size={20} />
+            </a>
+          </div>
         </aside>
         <nav>
           <h3 className="footer-title">
@@ -65,6 +79,13 @@ export function Footer() {
             <Trans>Altre Risorse</Trans>
           </h3>
           <a
+            href="https://forum.olinfo.it/new-topic?category=Meta"
+            className="link-hover link"
+            target="_blank"
+            rel="noreferrer">
+            <Trans>Segnalazioni bug</Trans>
+          </a>
+          <a
             href="https://stats.olinfo.it"
             className="link-hover link"
             target="_blank"
@@ -92,20 +113,6 @@ export function Footer() {
             rel="noreferrer">
             <Trans>Wiki</Trans>
           </a>
-          <div className="mt-1 flex gap-2">
-            <a href="https://github.com/olimpiadi-informatica" target="_blank" rel="noreferrer">
-              <SiGithub size={20} />
-            </a>
-            <a href="https://t.me/+Zp70NXu5W04xMjQ0" target="_blank" rel="noreferrer">
-              <SiTelegram size={20} />
-            </a>
-            <a
-              href="https://www.youtube.com/@olimpiadiitalianediinforma4928"
-              target="_blank"
-              rel="noreferrer">
-              <SiYoutube size={20} />
-            </a>
-          </div>
         </nav>
       </footer>
     </div>
