@@ -29,7 +29,7 @@ msgstr "<1><2>Italian</2> <3>Olympiads in</3> <4>Informatics</4></1> <0>training
 msgid "A:"
 msgstr "To:"
 
-#: src/app/(training)/login/page.tsx:50
+#: src/app/(training)/login/page-client.tsx:43
 #: src/app/(training)/task/[name]/submissions/page.tsx:33
 #: src/app/(training)/task/[name]/submit/page.tsx:32
 #: src/components/navbar/login-button.tsx:16
@@ -88,7 +88,7 @@ msgstr "Other contests"
 msgid "Altre Risorse"
 msgstr "Other websites"
 
-#: src/app/(training)/signup/page-client.tsx:86
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:86
 msgid "Anagrafica"
 msgstr "Personal informations"
 
@@ -152,7 +152,7 @@ msgstr "Generate new input"
 msgid "Cambia lingua"
 msgstr "Change language"
 
-#: src/app/(training)/recover/page.tsx:62
+#: src/app/(training)/(not-logged)/recover/page.tsx:62
 msgid "Cambia password"
 msgstr "Update password"
 
@@ -181,11 +181,11 @@ msgstr "OII rankings"
 msgid "Classifiche OIS"
 msgstr "OIS rankings"
 
-#: src/app/(training)/recover/page.tsx:56
+#: src/app/(training)/(not-logged)/recover/page.tsx:56
 msgid "Codice di recupero"
 msgstr "Recovery code"
 
-#: src/app/(training)/recover/page.tsx:33
+#: src/app/(training)/(not-logged)/recover/page.tsx:33
 msgid "Codice non valido"
 msgstr "Invalid code"
 
@@ -212,7 +212,7 @@ msgstr "Compilation failed"
 msgid "Compilazione in corso"
 msgstr "Compiling"
 
-#: src/app/(training)/signup/page-client.tsx:113
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:113
 #: src/app/(training)/user/[username]/edit/school/page.tsx:55
 msgid "Comune"
 msgstr "City"
@@ -230,12 +230,12 @@ msgstr "Correct"
 msgid "Cosa devo inviare?"
 msgstr "What should I submit?"
 
-#: src/app/(training)/signup/page-client.tsx:148
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:148
 msgid "Crea"
 msgstr "Create"
 
-#: src/app/(training)/login/page.tsx:65
-#: src/app/(training)/signup/page-client.tsx:80
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:80
+#: src/app/(training)/login/page-client.tsx:58
 msgid "Crea un nuovo account"
 msgstr "Create new account"
 
@@ -311,7 +311,7 @@ msgstr "Delete account"
 msgid "Email"
 msgstr "Email"
 
-#: src/app/(training)/signup/page-client.tsx:69
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:69
 #: src/app/(training)/user/[username]/edit/email/page.tsx:28
 msgid "Email già in uso"
 msgstr "Email already used"
@@ -320,16 +320,16 @@ msgstr "Email already used"
 msgid "Email modificata con successo"
 msgstr "Email successfully modified"
 
-#: src/app/(training)/recover/page.tsx:31
+#: src/app/(training)/(not-logged)/recover/page.tsx:31
 msgid "Email non registrata"
 msgstr "Invalid email"
 
-#: src/app/(training)/signup/page-client.tsx:67
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:67
 #: src/app/(training)/user/[username]/edit/email/page.tsx:26
 msgid "Email non valida"
 msgstr "Invalid email"
 
-#: src/app/(training)/login/page.tsx:56
+#: src/app/(training)/login/page-client.tsx:49
 msgid "Entra"
 msgstr "Log in"
 
@@ -498,7 +498,7 @@ msgstr "Teacher"
 msgid "Inserisci gli username"
 msgstr "Enter the usernames"
 
-#: src/app/(training)/recover/page.tsx:57
+#: src/app/(training)/(not-logged)/recover/page.tsx:57
 msgid "Inserisci il codice di recupero"
 msgstr "Enter the recovery code"
 
@@ -509,7 +509,7 @@ msgstr "Enter the recovery code"
 msgid "Invia"
 msgstr "Submit"
 
-#: src/app/(training)/recover/page.tsx:62
+#: src/app/(training)/(not-logged)/recover/page.tsx:62
 msgid "Invia email"
 msgstr "Send email"
 
@@ -526,7 +526,7 @@ msgstr "Submit solution"
 msgid "Iscriviti"
 msgstr "Participate"
 
-#: src/app/(training)/signup/page-client.tsx:123
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:123
 #: src/app/(training)/user/[username]/edit/school/page.tsx:64
 msgid "Istituto"
 msgstr "School"
@@ -750,7 +750,7 @@ msgstr "Partially correct"
 msgid "Password"
 msgstr "Password"
 
-#: src/app/(training)/login/page.tsx:60
+#: src/app/(training)/login/page-client.tsx:53
 msgid "Password dimenticata"
 msgstr "Forgot password"
 
@@ -833,7 +833,7 @@ msgstr "{username}'s profile"
 msgid "Programmazione dinamica"
 msgstr "Dynamic programming"
 
-#: src/app/(training)/signup/page-client.tsx:103
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:103
 #: src/app/(training)/user/[username]/edit/school/page.tsx:46
 msgid "Provincia"
 msgstr "Province"
@@ -858,11 +858,11 @@ msgstr "This input has expired."
 msgid "Questo input scade <0/>."
 msgstr "This input expires <0/>."
 
-#: src/app/(training)/recover/page.tsx:50
+#: src/app/(training)/(not-logged)/recover/page.tsx:50
 msgid "Recupera password"
 msgstr "Recover password"
 
-#: src/app/(training)/signup/page-client.tsx:94
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:94
 #: src/app/(training)/user/[username]/edit/school/page.tsx:38
 msgid "Regione"
 msgstr "Region"
@@ -875,7 +875,7 @@ msgstr "Binary search"
 msgid "Richiedi input"
 msgstr "Generate input"
 
-#: src/app/(training)/login/page.tsx:54
+#: src/app/(training)/login/page-client.tsx:47
 msgid "Ricordami"
 msgstr "Keep me logged in"
 
@@ -910,22 +910,22 @@ msgstr "Download input"
 msgid "Scarica output"
 msgstr "Download output"
 
-#: src/app/(training)/signup/page-client.tsx:115
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:115
 #: src/app/(training)/user/[username]/edit/school/page.tsx:57
 msgid "Scegli il comune"
 msgstr "Select your city"
 
-#: src/app/(training)/signup/page-client.tsx:105
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:105
 #: src/app/(training)/user/[username]/edit/school/page.tsx:48
 msgid "Scegli la provincia"
 msgstr "Select your province"
 
-#: src/app/(training)/signup/page-client.tsx:96
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:96
 #: src/app/(training)/user/[username]/edit/school/page.tsx:40
 msgid "Scegli la regione"
 msgstr "Select your region"
 
-#: src/app/(training)/signup/page-client.tsx:125
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:125
 #: src/app/(training)/user/[username]/edit/school/page.tsx:66
 msgid "Scegli la scuola"
 msgstr "Select your school"
@@ -943,7 +943,7 @@ msgstr "School successfully modified"
 msgid "Scuola di provenienza"
 msgstr "School"
 
-#: src/app/(training)/signup/page-client.tsx:91
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:91
 msgid "Scuola di provenienza (opzionale)"
 msgstr "School (optional)"
 
@@ -1125,23 +1125,23 @@ msgstr "Total"
 msgid "Tutor"
 msgstr "Tutor"
 
-#: src/app/(training)/recover/page.tsx:42
+#: src/app/(training)/(not-logged)/recover/page.tsx:42
 msgid "Un codice di recupero è stato inviato alla tua email"
 msgstr "The recovery code has been sent to your email"
 
-#: src/app/(training)/recover/actions.ts:12
+#: src/app/(training)/(not-logged)/recover/actions.ts:12
 msgid "Una password temporanea è stata inviata alla tua email"
 msgstr "A temporary password has been sent to your email"
 
-#: src/app/(training)/signup/page-client.tsx:65
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:65
 msgid "Username non disponibile"
 msgstr "Username already taken"
 
-#: src/app/(training)/signup/page-client.tsx:63
+#: src/app/(training)/(not-logged)/signup/page-client.tsx:63
 msgid "Username non valido"
 msgstr "Invalid username"
 
-#: src/app/(training)/login/page.tsx:39
+#: src/app/(training)/login/page-client.tsx:32
 msgid "Username o password non corretti"
 msgstr "Wrong username or password"
 

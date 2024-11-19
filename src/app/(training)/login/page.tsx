@@ -1,70 +1,19 @@
-"use client";
+import { redirect } from "next/navigation";
 
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { getMe } from "@olinfo/training-api";
 
-import { Trans, msg } from "@lingui/macro";
-import { useLingui } from "@lingui/react";
-import {
-  CheckboxField,
-  CurrentPasswordField,
-  Form,
-  SubmitButton,
-  UsernameField,
-} from "@olinfo/react-components";
+import { PageClient } from "./page-client";
 
-import { H1 } from "~/components/header";
-
-import { login } from "./actions";
-
-export default function Page() {
-  const params = useSearchParams();
-  const { _ } = useLingui();
-
-  const submit = async (credential: {
-    username: string;
-    password: string;
-    keepSigned: boolean;
-  }) => {
-    try {
-      await login(
-        credential.username,
-        credential.password,
-        credential.keepSigned,
-        params.get("redirect") || "/",
-      );
-    } catch (err) {
-      switch ((err as Error).message) {
-        case "login.error":
-          throw new Error(_(msg`Username o password non corretti`));
-        default:
-          throw err;
-      }
-    }
-    await new Promise(() => {});
+type Props = {
+  searchParams: {
+    redirect?: string;
   };
+};
 
-  return (
-    <Form defaultValue={{ keepSigned: true }} onSubmit={submit}>
-      <H1>
-        <Trans>Accedi</Trans>
-      </H1>
-      <UsernameField field="username" />
-      <CurrentPasswordField field="password" />
-      <CheckboxField field="keepSigned" label={_(msg`Ricordami`)} optional />
-      <SubmitButton>
-        <Trans>Entra</Trans>
-      </SubmitButton>
-      <div className="mt-6 w-full">
-        <Link href="/recover" className="link link-info">
-          <Trans>Password dimenticata</Trans>
-        </Link>
-      </div>
-      <div className="mt-1 w-full">
-        <Link href="/signup" className="link link-info">
-          <Trans>Crea un nuovo account</Trans>
-        </Link>
-      </div>
-    </Form>
-  );
+export default async function Page({ searchParams: { redirect: redirectUrl = "/" } }: Props) {
+  if (await getMe()) {
+    return redirect(redirectUrl);
+  }
+
+  return <PageClient redirectUrl={redirectUrl} />;
 }
