@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -14,6 +15,16 @@ import { loadLocale } from "~/lib/locale";
 type Props = {
   params: { username: string };
 };
+
+export async function generateMetadata({ params: { username } }: Props): Promise<Metadata> {
+  const user = await getUser(username);
+  if (!user) return {};
+
+  return {
+    title: `Training - Profilo di ${username}`,
+    description: `Lista dei problemi risolti da ${user?.first_name} ${user?.last_name} (${username}) nella piattaforma di allenamento delle Olimpiadi Italiane di Informatica`,
+  };
+}
 
 export default async function Page({ params: { username } }: Props) {
   const [_i18n, user, me] = await Promise.all([loadLocale(), getUser(username), getMe()]);

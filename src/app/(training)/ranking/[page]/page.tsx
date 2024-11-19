@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -9,6 +10,12 @@ import { type User, getRanking } from "@olinfo/training-api";
 import { H1 } from "~/components/header";
 import { Pagination } from "~/components/pagination";
 import { loadLocale } from "~/lib/locale";
+
+export const metadata: Metadata = {
+  title: "Training - Ranking",
+  description:
+    "Classifica della piattaforma di allenamento delle Olimpiadi Italiane di Informatica",
+};
 
 type Props = {
   params: { page: string };

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: src/app/(training)/user/[username]/page.tsx:46
+#: src/app/(training)/user/[username]/page.tsx:57
 msgid "{0} punti"
 msgstr "{0} points"
 
@@ -48,7 +48,7 @@ msgstr "You must be logged in to see your submissions"
 msgid "Ad hoc"
 msgstr "Ad hoc"
 
-#: src/app/(training)/user/[username]/page.tsx:76
+#: src/app/(training)/user/[username]/page.tsx:87
 msgid "Admin"
 msgstr "Admin"
 
@@ -92,7 +92,7 @@ msgstr "Other websites"
 msgid "Anagrafica"
 msgstr "Personal informations"
 
-#: src/app/(training)/user/[username]/page.tsx:102
+#: src/app/(training)/user/[username]/page.tsx:113
 msgid "Anziano"
 msgstr "Senior"
 
@@ -104,7 +104,7 @@ msgstr "Graph edges"
 msgid "Argento"
 msgstr "Silver"
 
-#: src/app/(training)/user/[username]/page.tsx:96
+#: src/app/(training)/user/[username]/page.tsx:107
 msgid "Aristocratico"
 msgstr "Superuser"
 
@@ -293,7 +293,7 @@ msgstr "Divide & Conquer"
 msgid "Editor di grafi"
 msgstr "Graph editor"
 
-#: src/app/(training)/scolastiche/page.tsx:27
+#: src/app/(training)/scolastiche/page.tsx:34
 #: src/app/fibonacci/primarie/page.tsx:32
 #: src/app/fibonacci/secondarie/page.tsx:33
 msgid "Edizione {edition}"
@@ -490,7 +490,7 @@ msgstr "Induction and recursion"
 msgid "Inizia ad allenarti"
 msgstr "Start training"
 
-#: src/app/(training)/user/[username]/page.tsx:90
+#: src/app/(training)/user/[username]/page.tsx:101
 msgid "Insegnante"
 msgstr "Teacher"
 
@@ -539,11 +539,11 @@ msgstr "The wide range of problems on the website will help you prepare for each
 msgid "Leggi la wiki"
 msgstr "Read the wiki"
 
-#: src/app/(training)/task/[name]/layout.tsx:28
+#: src/app/(training)/task/[name]/layout.tsx:39
 msgid "Limite di memoria:"
 msgstr "Memory limit:"
 
-#: src/app/(training)/task/[name]/layout.tsx:24
+#: src/app/(training)/task/[name]/layout.tsx:35
 msgid "Limite di tempo:"
 msgstr "Time limit:"
 
@@ -601,8 +601,8 @@ msgstr "Update email"
 msgid "Modifica password"
 msgstr "Update password"
 
-#: src/app/(training)/user/[username]/edit/layout.tsx:31
-#: src/app/(training)/user/[username]/page.tsx:51
+#: src/app/(training)/user/[username]/edit/layout.tsx:36
+#: src/app/(training)/user/[username]/page.tsx:62
 msgid "Modifica profilo"
 msgstr "Update profile"
 
@@ -642,7 +642,7 @@ msgstr "No attachments"
 msgid "Nessun post trovato."
 msgstr "No posts found."
 
-#: src/app/(training)/user/[username]/page.tsx:63
+#: src/app/(training)/user/[username]/page.tsx:74
 msgid "Nessun problema risolto"
 msgstr "No task solved"
 
@@ -655,7 +655,7 @@ msgstr "No task found"
 msgid "Nessun tag"
 msgstr "No tag"
 
-#: src/app/(training)/ranking/[page]/page.tsx:37
+#: src/app/(training)/ranking/[page]/page.tsx:44
 msgid "Nessun utente trovato"
 msgstr "No users found"
 
@@ -691,7 +691,7 @@ msgstr "Invalid"
 msgid "Nota:"
 msgstr "Info:"
 
-#: src/app/(training)/user/[username]/page.tsx:108
+#: src/app/(training)/user/[username]/page.tsx:119
 msgid "Novizio"
 msgstr "Newbie"
 
@@ -723,7 +723,7 @@ msgstr "Sort by"
 msgid "Oro"
 msgstr "Gold"
 
-#: src/app/(training)/user/[username]/page.tsx:114
+#: src/app/(training)/user/[username]/page.tsx:125
 msgid "Ospite"
 msgstr "Guest"
 
@@ -736,7 +736,7 @@ msgid "Ottimizzazioni estreme"
 msgstr "Extreme optimizations"
 
 #: src/app/(training)/(terry)/tasks/terry/[page]/page-client.tsx:36
-#: src/app/(training)/ranking/[page]/page.tsx:35
+#: src/app/(training)/ranking/[page]/page.tsx:42
 #: src/app/(training)/tasks/[page]/page-client.tsx:40
 #: src/components/pagination.tsx:95
 msgid "Pagina {page}"
@@ -816,7 +816,7 @@ msgstr "Tasks by contest"
 msgid "Problemi per tecnica"
 msgstr "Tasks by technique"
 
-#: src/app/(training)/user/[username]/page.tsx:58
+#: src/app/(training)/user/[username]/page.tsx:69
 msgid "Problemi risolti"
 msgstr "Solved task"
 
@@ -824,7 +824,7 @@ msgstr "Solved task"
 msgid "Profilo"
 msgstr "Profile"
 
-#: src/app/(training)/user/[username]/page.tsx:27
+#: src/app/(training)/user/[username]/page.tsx:38
 msgid "Profilo di {username}"
 msgstr "{username}'s profile"
 
@@ -842,7 +842,7 @@ msgstr "Province"
 msgid "Pseudocodice"
 msgstr "Pseudocode"
 
-#: src/app/(training)/task/[name]/layout.tsx:33
+#: src/app/(training)/task/[name]/layout.tsx:44
 msgid "Punteggio massimo:"
 msgstr "Maximum score:"
 
@@ -973,7 +973,7 @@ msgstr "Select a tag"
 msgid "Selezione SWERC dell'Università degli Studi di Milano"
 msgstr "University of Milan SWERC selection"
 
-#: src/app/(training)/scolastiche/page.tsx:17
+#: src/app/(training)/scolastiche/page.tsx:24
 msgid "Selezioni scolastiche"
 msgstr "School selections"
 
@@ -1121,7 +1121,7 @@ msgstr "Return to home"
 msgid "Totale"
 msgstr "Total"
 
-#: src/app/(training)/user/[username]/page.tsx:84
+#: src/app/(training)/user/[username]/page.tsx:95
 msgid "Tutor"
 msgstr "Tutor"
 

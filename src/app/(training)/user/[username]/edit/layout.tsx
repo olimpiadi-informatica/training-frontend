@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import type { ReactNode } from "react";
 
@@ -8,6 +9,10 @@ import { H1 } from "~/components/header";
 import { loadLocale } from "~/lib/locale";
 
 import { UserEditTabs } from "./tabs";
+
+export const metadata: Metadata = {
+  title: "Training - Modifica profilo",
+};
 
 type Props = {
   params: { username: string };

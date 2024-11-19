@@ -1,15 +1,26 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 
 import { Trans } from "@lingui/macro";
 import { getTask } from "@olinfo/training-api";
 
-import { notFound } from "next/navigation";
 import { TaskTabs } from "./tabs";
 
 type Props = {
   params: { name: string };
   children: ReactNode;
 };
+
+export async function generateMetadata({ params: { name } }: Props): Promise<Metadata> {
+  const task = await getTask(name);
+  if (!task) return {};
+
+  return {
+    title: `Training - ${task.title}`,
+    description: `Problemi ${task.title} (${task.name}) della piattaforma di allenamento delle Olimpiadi Italiane di Informatica`,
+  };
+}
 
 export default async function Layout({ params: { name }, children }: Props) {
   const task = await getTask(name);

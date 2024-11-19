@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+
 import { type TaskListOptions, getTaskList } from "@olinfo/training-api";
 
-import { notFound } from "next/navigation";
 import { PageClient } from "./page-client";
+
+export const metadata: Metadata = {
+  title: "Training - Problemi",
+  description:
+    "Lista dei problemi della piattaforma di allenamento delle Olimpiadi Italiane di Informatica",
+};
 
 type Params = {
   params: {

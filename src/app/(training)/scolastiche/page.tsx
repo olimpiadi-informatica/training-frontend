@@ -2,8 +2,15 @@ import { Trans } from "@lingui/macro";
 import { Menu } from "@olinfo/react-components";
 import { kebabCase } from "lodash-es";
 
+import type { Metadata } from "next";
 import { H1 } from "~/components/header";
 import { loadLocale } from "~/lib/locale";
+
+export const metadata: Metadata = {
+  title: "Training - Scolastiche",
+  description:
+    "Lista delle prove delle selezioni scolastiche delle Olimpiadi Italiane di Informatica",
+};
 
 const editions = ["2023", "2022", "2022 - Demo", "2021", "2020", "2019"];
 

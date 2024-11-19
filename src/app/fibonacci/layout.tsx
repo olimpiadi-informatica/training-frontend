@@ -1,10 +1,11 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
 import { loadLocale } from "~/lib/locale";
 
 import { Navbar } from "./navbar";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Giochi di Fibonacci",
   description: "Raccolta delle prove dei Giochi di Fibonacci",
 };
