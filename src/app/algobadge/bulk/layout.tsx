@@ -31,7 +31,7 @@ export default async function Layout({ children }: { children: ReactNode }) {
   );
 }
 
-export function Navbar() {
+function Navbar() {
   return (
     <BaseNavbar color="bg-base-300 text-base-content">
       <NavbarBrand>
