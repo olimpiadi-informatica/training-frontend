@@ -58,7 +58,7 @@ export const algobadge: Record<CategoryId, Category> = {
         maxScore: 50,
       },
       {
-        name: "muraglia",
+        name: "museo",
       },
       {
         name: "oii_paletta",
@@ -76,10 +76,10 @@ export const algobadge: Record<CategoryId, Category> = {
         maxScore: 50,
       },
       {
-        name: "ois_islands",
+        name: "connessioni",
       },
       {
-        name: "ois_police5",
+        name: "mincammino2",
       },
     ],
   },
@@ -166,10 +166,10 @@ export const algobadge: Record<CategoryId, Category> = {
         maxScore: 50,
       },
       {
-        name: "ctf",
+        name: "ois_cabala",
       },
       {
-        name: "shiftmul",
+        name: "ctf",
       },
     ],
   },
