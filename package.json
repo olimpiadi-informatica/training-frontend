@@ -70,6 +70,9 @@
     "@lingui/cli": "^4.11",
     "@lingui/swc-plugin": "=4.0.9"
   },
+  "resolutions": {
+    "@types/react": "18.3"
+  },
   "postcss": {
     "plugins": {
       "tailwindcss": {},
