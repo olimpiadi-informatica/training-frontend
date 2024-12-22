@@ -20,9 +20,35 @@ export async function generateMetadata({ params: { username } }: Props): Promise
   const user = await getUser(username);
   if (!user) return {};
 
+  const title = `Training - Profilo di ${username}`;
+  const description = `Lista dei problemi risolti da ${user.first_name} ${user.last_name} (${username}) nella piattaforma di allenamento delle Olimpiadi Italiane di Informatica`;
+
+  const image = {
+    url: `${userPictureUrl(user)}&s=1200`,
+    height: 1200,
+    width: 1200,
+  };
+
   return {
-    title: `Training - Profilo di ${username}`,
-    description: `Lista dei problemi risolti da ${user?.first_name} ${user?.last_name} (${username}) nella piattaforma di allenamento delle Olimpiadi Italiane di Informatica`,
+    title,
+    description,
+    openGraph: {
+      title,
+      type: "profile",
+      images: image,
+      url: `https://training.olinfo.it/user/${username}`,
+      description,
+      firstName: user.first_name,
+      lastName: user.last_name,
+      username: user.username,
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@olimpiadi_info",
+      title,
+      description,
+      images: image,
+    },
   };
 }
 
