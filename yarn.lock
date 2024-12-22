@@ -644,12 +644,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@olinfo/react-components@^0.8":
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/@olinfo/react-components/-/react-components-0.8.2.tgz#e2f13e8f22c1e18ab7bc7c8fa5697aa176234cdc"
-  integrity sha512-INzxq0ENyj4tzc7v6DDLn9wVuJCt5qVx1CsCpOx5dfFjT09qOrpD11+l6iDYO5P6kDl5azYT7Jo+x2ln9D16/g==
+"@olinfo/react-components@^0.9":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@olinfo/react-components/-/react-components-0.9.0.tgz#c3ff474d26b9415743496acc2e0491d3bb9763ee"
+  integrity sha512-enQ0ek3lMJIGkBpKusU3bNXf56Fn36YoDjyIucWHLXRb6HS0/npFsMCU4pYHZzaS+1Zf7qGkNEdB3jPwfjV2Xg==
   dependencies:
-    "@olinfo/training-api" "^0.8"
     clsx "^2.1"
     date-fns "^3.6"
     lucide-react ">=0.395, <1"

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Avatar, Card, CardBody } from "@olinfo/react-components";
-import { AccessLevel, getMe, getUser } from "@olinfo/training-api";
+import { AccessLevel, getMe, getUser, userPictureUrl } from "@olinfo/training-api";
 import clsx from "clsx";
 import { orderBy } from "lodash-es";
 
@@ -38,7 +38,12 @@ export default async function Page({ params: { username } }: Props) {
         <Trans>Profilo di {username}</Trans>
       </H1>
       <Card>
-        <Avatar user={user} size={256} className="max-sm:mx-auto max-sm:p-4" />
+        <Avatar
+          size={256}
+          username={user.username}
+          url={userPictureUrl(user)}
+          className="max-sm:mx-auto max-sm:p-4"
+        />
         <CardBody
           title={
             <>

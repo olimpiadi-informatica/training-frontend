@@ -9,7 +9,7 @@ import {
   DropdownItem,
   DropdownMenu,
 } from "@olinfo/react-components";
-import { type User, getMe, logout } from "@olinfo/training-api";
+import { type User, getMe, logout, userPictureUrl } from "@olinfo/training-api";
 import { LogOut, UserRound } from "lucide-react";
 
 import { DropdownAction } from "./dropdown-action";
@@ -31,7 +31,7 @@ function UserDropdownInner({ user }: { user: User }) {
   return (
     <Dropdown className="dropdown-end">
       <DropdownButton>
-        <Avatar size={32} user={user} />
+        <Avatar size={32} username={user.username} url={userPictureUrl(user)} />
         <div className="truncate uppercase max-sm:hidden md:max-lg:hidden">{user.username}</div>
       </DropdownButton>
       <DropdownMenu>

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { Avatar, Menu } from "@olinfo/react-components";
-import { type User, getRanking } from "@olinfo/training-api";
+import { type User, getRanking, userPictureUrl } from "@olinfo/training-api";
 
 import { H1 } from "~/components/header";
 import { Pagination } from "~/components/pagination";
@@ -47,7 +47,7 @@ export default async function Page({ params: { page: pageStr } }: Props) {
             <Link href={`/user/${user.username}`} className="flex justify-between">
               <div className="flex items-center gap-2 sm:gap-4">
                 <div className="min-w-8">{i + (page - 1) * pageSize + 1}</div>
-                <Avatar user={user} size={32} />
+                <Avatar size={32} username={user.username} url={userPictureUrl(user)} />
                 <div>{user.username}</div>
                 <div className="text-base-content/60 max-sm:hidden">
                   ({user.first_name} {user.last_name})
