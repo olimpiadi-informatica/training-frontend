@@ -30,7 +30,7 @@ function SmallPagination({ page, pageCount }: Props) {
 
   return (
     <div className="join w-full justify-center *:btn *:no-animation *:w-11 md:hidden">
-      <PageButton page={page - 1} disabled={page <= 1}>
+      <PageButton page={page - 1} disabled={page <= 1} prefetch>
         <ChevronLeft size={20} />
       </PageButton>
       {range(middle - 2, last).map((i) => (
@@ -38,7 +38,7 @@ function SmallPagination({ page, pageCount }: Props) {
           {i}
         </PageButton>
       ))}
-      <PageButton page={page + 1} disabled={page >= pageCount}>
+      <PageButton page={page + 1} disabled={page >= pageCount} prefetch>
         <ChevronRight size={20} />
       </PageButton>
     </div>
@@ -54,7 +54,7 @@ function LargePagination({ page, pageCount }: Props) {
       <PageButton page={1} disabled={page <= 1}>
         <ChevronsLeft size={20} />
       </PageButton>
-      <PageButton page={page - 1} disabled={page <= 1}>
+      <PageButton page={page - 1} disabled={page <= 1} prefetch>
         <ChevronLeft size={20} />
       </PageButton>
       {range(middle - 3, last).map((i) => (
@@ -62,7 +62,7 @@ function LargePagination({ page, pageCount }: Props) {
           {i}
         </PageButton>
       ))}
-      <PageButton page={page + 1} disabled={page >= pageCount}>
+      <PageButton page={page + 1} disabled={page >= pageCount} prefetch>
         <ChevronRight size={20} />
       </PageButton>
       <PageButton page={pageCount} disabled={page >= pageCount}>
@@ -75,11 +75,12 @@ function LargePagination({ page, pageCount }: Props) {
 type ButtonProps = {
   page: number;
   disabled?: boolean;
+  prefetch?: boolean;
   className?: ClassValue;
   children: ReactNode;
 };
 
-function PageButton({ page, disabled, className, children }: ButtonProps) {
+function PageButton({ page, disabled, prefetch, className, children }: ButtonProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const { _ } = useLingui();
@@ -92,6 +93,7 @@ function PageButton({ page, disabled, className, children }: ButtonProps) {
     <Link
       href={`${base}/${page}?${searchParams}`}
       className={clsx("join-item", className)}
+      prefetch={!disabled && prefetch}
       aria-label={_(msg`Pagina ${page}`)}>
       {children}
     </Link>

@@ -53,13 +53,13 @@ export default async function Home() {
                 </Trans>
               </p>
               <CardActions>
-                <Link href="/scolastiche" className="btn btn-accent">
+                <Link href="/scolastiche" className="btn btn-accent" prefetch>
                   <Trans>Scolastiche</Trans>
                 </Link>
-                <Link href="/tasks/terry/1" className="btn btn-accent">
+                <Link href="/tasks/terry/1" className="btn btn-accent" prefetch>
                   <Trans>Territoriali</Trans>
                 </Link>
-                <Link href="/tasks/1" className="btn btn-accent">
+                <Link href="/tasks/1" className="btn btn-accent" prefetch>
                   <Trans>Nazionali, OIS e altre gare</Trans>
                 </Link>
               </CardActions>
