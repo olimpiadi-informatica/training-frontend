@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { getEventTags, getMe, getTags, getTask } from "@olinfo/training-api";
+import { range } from "lodash-es";
 
 import { PageClient } from "./page-client";
 
@@ -17,5 +18,15 @@ export default async function Page({ params: { name } }: Props) {
   ]);
   if (!task) notFound();
 
-  return <PageClient task={task} tags={tags} eventTags={eventTags} isLogged={!!user} />;
+  const tagPlaceholders = range(10).map(() => Math.round(1e6 ** (Math.random() + 1)).toString());
+
+  return (
+    <PageClient
+      task={task}
+      tags={tags}
+      eventTags={eventTags}
+      isLogged={!!user}
+      tagPlaceholders={tagPlaceholders}
+    />
+  );
 }

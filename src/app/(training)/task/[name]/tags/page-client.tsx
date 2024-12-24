@@ -28,9 +28,10 @@ type Props = {
   tags: string[];
   eventTags: string[];
   isLogged: boolean;
+  tagPlaceholders: string[];
 };
 
-export function PageClient({ task, tags, eventTags, isLogged }: Props) {
+export function PageClient({ task, tags, eventTags, isLogged, tagPlaceholders }: Props) {
   const { _ } = useLingui();
   const router = useRouter();
 
@@ -54,12 +55,12 @@ export function PageClient({ task, tags, eventTags, isLogged }: Props) {
         <Trans>Tags</Trans>
       </H2>
       <Menu fallback={_(msg`Nessun tag`)}>
-        {taskTags.map((tag) => (
+        {taskTags.map((tag, i) => (
           <li key={tag.name}>
             {tag.can_delete || eventTags.includes(tag.name) ? (
               <BaseTag tag={tag} />
             ) : (
-              <HiddenTag tag={tag} />
+              <HiddenTag tag={tag} placeholder={tagPlaceholders[i % tagPlaceholders.length]} />
             )}
           </li>
         ))}
@@ -99,11 +100,10 @@ function BaseTag({ tag }: { tag: Tag }) {
   );
 }
 
-function HiddenTag({ tag }: { tag: Tag }) {
+function HiddenTag({ tag, placeholder }: { tag: Tag; placeholder: string }) {
   const { _ } = useLingui();
 
   const [shown, setShown] = useState(false);
-  const rand = useRef(Math.round(1e6 ** (Math.random() + 1)));
 
   if (shown) return <BaseTag tag={tag} />;
 
@@ -114,7 +114,7 @@ function HiddenTag({ tag }: { tag: Tag }) {
       aria-label={_(msg`Mostra tag`)}
       type="button">
       <div className="blur-sm" aria-hidden={true}>
-        {rand.current}
+        {placeholder}
       </div>
       <div className="mr-px justify-self-end px-2">
         <Eye size={18} />

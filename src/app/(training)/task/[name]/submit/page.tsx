@@ -5,6 +5,7 @@ import { Trans } from "@lingui/macro";
 import { getMe, getTask } from "@olinfo/training-api";
 
 import { H2 } from "~/components/header";
+import { loadLocale } from "~/lib/locale";
 
 import { SubmitBatch } from "./batch";
 import { SubmitOutputOnly } from "./output-only";
@@ -14,7 +15,7 @@ type Props = {
 };
 
 export default async function Page({ params: { name } }: Props) {
-  const [user, task] = await Promise.all([getMe(), getTask(name)]);
+  const [_, user, task] = await Promise.all([loadLocale(), getMe(), getTask(name)]);
 
   if (!task) notFound();
   if (!user) {
