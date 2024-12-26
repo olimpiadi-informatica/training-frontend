@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Lista delle prove delle selezioni scolastiche delle Olimpiadi Italiane di Informatica",
 };
 
-const editions = ["2023", "2022", "2022 - Demo", "2021", "2020", "2019"];
+const editions = ["2024", "2023", "2022", "2022 - Demo", "2021", "2020", "2019"];
 
 export default async function Page() {
   await loadLocale();

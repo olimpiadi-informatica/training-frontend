@@ -6,6 +6,7 @@ import { H1 } from "~/components/header";
 import { loadLocale } from "~/lib/locale";
 
 const editions = [
+  "2024 - Prima fase",
   "2023 - Seconda fase",
   "2023 - Seconda fase - Demo",
   "2023 - Prima fase",
