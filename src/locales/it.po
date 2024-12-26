@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 3.4.4\n"
 
-#: src/app/(training)/user/[username]/page.tsx:57
+#: src/app/(training)/user/[username]/page.tsx:88
 msgid "{0} punti"
 msgstr "{0} punti"
 
@@ -31,12 +31,12 @@ msgstr "A:"
 
 #: src/app/(training)/login/page-client.tsx:43
 #: src/app/(training)/task/[name]/submissions/page.tsx:33
-#: src/app/(training)/task/[name]/submit/page.tsx:32
+#: src/app/(training)/task/[name]/submit/page.tsx:33
 #: src/components/navbar/login-button.tsx:16
 msgid "Accedi"
 msgstr "Accedi"
 
-#: src/app/(training)/task/[name]/submit/page.tsx:27
+#: src/app/(training)/task/[name]/submit/page.tsx:28
 msgid "Accedi per inviare soluzioni"
 msgstr "Accedi per inviare soluzioni"
 
@@ -48,7 +48,7 @@ msgstr "Accedi per vedere le tue sottoposizioni"
 msgid "Ad hoc"
 msgstr "Ad hoc"
 
-#: src/app/(training)/user/[username]/page.tsx:87
+#: src/app/(training)/user/[username]/page.tsx:118
 msgid "Admin"
 msgstr "Admin"
 
@@ -56,7 +56,7 @@ msgstr "Admin"
 msgid "Aggiungi"
 msgstr "Aggiungi"
 
-#: src/app/(training)/task/[name]/tags/page-client.tsx:70
+#: src/app/(training)/task/[name]/tags/page-client.tsx:71
 #: src/app/(training)/task/[name]/tags/page-client.tsx:151
 msgid "Aggiungi tag"
 msgstr "Aggiungi tag"
@@ -92,7 +92,7 @@ msgstr "Altre Risorse"
 msgid "Anagrafica"
 msgstr "Anagrafica"
 
-#: src/app/(training)/user/[username]/page.tsx:113
+#: src/app/(training)/user/[username]/page.tsx:144
 msgid "Anziano"
 msgstr "Anziano"
 
@@ -104,7 +104,7 @@ msgstr "Archi del grafo"
 msgid "Argento"
 msgstr "Argento"
 
-#: src/app/(training)/user/[username]/page.tsx:107
+#: src/app/(training)/user/[username]/page.tsx:138
 msgid "Aristocratico"
 msgstr "Aristocratico"
 
@@ -226,7 +226,7 @@ msgstr "Con Algobadge ti guideremo attraverso una selezione accurata di task da 
 msgid "Corretto"
 msgstr "Corretto"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:100
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:104
 msgid "Cosa devo inviare?"
 msgstr "Cosa devo inviare?"
 
@@ -372,12 +372,12 @@ msgstr "Esito:"
 msgid "File \"{output}\" mancante"
 msgstr "File \"{output}\" mancante"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:97
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:99
 #: src/app/(training)/task/[name]/submit/output-only.tsx:57
 msgid "File di output"
 msgstr "File di output"
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:96
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:98
 msgid "File sorgente"
 msgstr "File sorgente"
 
@@ -490,7 +490,7 @@ msgstr "Induzione e ricorsione"
 msgid "Inizia ad allenarti"
 msgstr "Inizia ad allenarti"
 
-#: src/app/(training)/user/[username]/page.tsx:101
+#: src/app/(training)/user/[username]/page.tsx:132
 msgid "Insegnante"
 msgstr "Insegnante"
 
@@ -502,6 +502,7 @@ msgstr "Inserisci gli username"
 msgid "Inserisci il codice di recupero"
 msgstr "Inserisci il codice di recupero"
 
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:101
 #: src/app/(training)/(terry)/task/terry/[name]/tabs.tsx:18
 #: src/app/(training)/task/[name]/submit/batch.tsx:100
 #: src/app/(training)/task/[name]/submit/output-only.tsx:62
@@ -517,8 +518,9 @@ msgstr "Invia email"
 msgid "Invia output"
 msgstr "Invia output"
 
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:96
 #: src/app/(training)/task/[name]/submit/batch.tsx:80
-#: src/app/(training)/task/[name]/submit/page.tsx:24
+#: src/app/(training)/task/[name]/submit/page.tsx:25
 msgid "Invia soluzione"
 msgstr "Invia soluzione"
 
@@ -602,7 +604,7 @@ msgid "Modifica password"
 msgstr "Modifica password"
 
 #: src/app/(training)/user/[username]/edit/layout.tsx:36
-#: src/app/(training)/user/[username]/page.tsx:62
+#: src/app/(training)/user/[username]/page.tsx:93
 msgid "Modifica profilo"
 msgstr "Modifica profilo"
 
@@ -642,7 +644,7 @@ msgstr "Nessun allegato"
 msgid "Nessun post trovato."
 msgstr "Nessun post trovato."
 
-#: src/app/(training)/user/[username]/page.tsx:74
+#: src/app/(training)/user/[username]/page.tsx:105
 msgid "Nessun problema risolto"
 msgstr "Nessun problema risolto"
 
@@ -651,7 +653,7 @@ msgstr "Nessun problema risolto"
 msgid "Nessun problema trovato"
 msgstr "Nessun problema trovato"
 
-#: src/app/(training)/task/[name]/tags/page-client.tsx:56
+#: src/app/(training)/task/[name]/tags/page-client.tsx:57
 msgid "Nessun tag"
 msgstr "Nessun tag"
 
@@ -691,7 +693,7 @@ msgstr "Non valido"
 msgid "Nota:"
 msgstr "Nota:"
 
-#: src/app/(training)/user/[username]/page.tsx:119
+#: src/app/(training)/user/[username]/page.tsx:150
 msgid "Novizio"
 msgstr "Novizio"
 
@@ -723,7 +725,7 @@ msgstr "Ordinamento"
 msgid "Oro"
 msgstr "Oro"
 
-#: src/app/(training)/user/[username]/page.tsx:125
+#: src/app/(training)/user/[username]/page.tsx:156
 msgid "Ospite"
 msgstr "Ospite"
 
@@ -738,7 +740,7 @@ msgstr "Ottimizzazioni estreme"
 #: src/app/(training)/(terry)/tasks/terry/[page]/page-client.tsx:36
 #: src/app/(training)/ranking/[page]/page.tsx:42
 #: src/app/(training)/tasks/[page]/page-client.tsx:40
-#: src/components/pagination.tsx:95
+#: src/components/pagination.tsx:97
 msgid "Pagina {page}"
 msgstr "Pagina {page}"
 
@@ -816,7 +818,7 @@ msgstr "Problemi per gara"
 msgid "Problemi per tecnica"
 msgstr "Problemi per tecnica"
 
-#: src/app/(training)/user/[username]/page.tsx:69
+#: src/app/(training)/user/[username]/page.tsx:100
 msgid "Problemi risolti"
 msgstr "Problemi risolti"
 
@@ -824,7 +826,7 @@ msgstr "Problemi risolti"
 msgid "Profilo"
 msgstr "Profilo"
 
-#: src/app/(training)/user/[username]/page.tsx:38
+#: src/app/(training)/user/[username]/page.tsx:64
 msgid "Profilo di {username}"
 msgstr "Profilo di {username}"
 
@@ -854,7 +856,7 @@ msgstr "Questa pagina non è stata trovata 😢"
 msgid "Questo input è scaduto."
 msgstr "Questo input è scaduto."
 
-#: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:119
+#: src/app/(training)/(terry)/task/terry/[name]/submit/page-client.tsx:123
 msgid "Questo input scade <0/>."
 msgstr "Questo input scade <0/>."
 
@@ -1051,12 +1053,12 @@ msgstr "Tag"
 msgid "Tag aggiunto con successo"
 msgstr "Tag aggiunto con successo"
 
-#: src/app/(training)/task/[name]/tags/page-client.tsx:87
+#: src/app/(training)/task/[name]/tags/page-client.tsx:88
 msgid "Tag rimosso con successo"
 msgstr "Tag rimosso con successo"
 
 #: src/app/(training)/task/[name]/tabs.tsx:21
-#: src/app/(training)/task/[name]/tags/page-client.tsx:54
+#: src/app/(training)/task/[name]/tags/page-client.tsx:55
 msgid "Tags"
 msgstr "Tag"
 
@@ -1121,7 +1123,7 @@ msgstr "Torna alla home"
 msgid "Totale"
 msgstr "Totale"
 
-#: src/app/(training)/user/[username]/page.tsx:95
+#: src/app/(training)/user/[username]/page.tsx:126
 msgid "Tutor"
 msgstr "Tutor"
 

@@ -92,10 +92,14 @@ export function PageClient({ user, task }: Props) {
       )}
       <div className="divider mx-auto w-full max-w-sm" />
       <Form onSubmit={onSubmit} disabled={!input || expired}>
-        <H2>Invia soluzione</H2>
+        <H2>
+          <Trans>Invia soluzione</Trans>
+        </H2>
         <SingleFileField field="source" label={_(msg`File sorgente`)} validate={validateSource} />
         <SingleFileField field="output" label={_(msg`File di output`)} />
-        <SubmitButton icon={Send}>Invia</SubmitButton>
+        <SubmitButton icon={Send}>
+          <Trans>Invia</Trans>
+        </SubmitButton>
         <Link href={`/task/terry/${task.name}/submit/help`} className="link link-info mt-4">
           <Trans>Cosa devo inviare?</Trans>
         </Link>
