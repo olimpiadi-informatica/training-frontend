@@ -20,7 +20,7 @@ import {
   getProvinces,
   getRegions,
 } from "@olinfo/training-api";
-import { ReCAPTCHA } from "react-google-recaptcha";
+import ReCaptchaWidget, { type ReCAPTCHA } from "react-google-recaptcha";
 
 import { H1, H2 } from "~/components/header";
 import { LocationField } from "~/components/location-field";
@@ -131,7 +131,7 @@ export function PageClient({ contest }: { contest: Contest }) {
       {contest.captcha_enabled && (
         <div className="mx-auto mt-4 h-20">
           {theme && (
-            <ReCAPTCHA
+            <ReCaptchaWidget
               ref={captchaRef}
               theme={theme}
               className="h-[76px] w-[302px] overflow-hidden rounded-[3px]"
