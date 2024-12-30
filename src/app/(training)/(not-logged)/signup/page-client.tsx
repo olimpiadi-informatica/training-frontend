@@ -66,6 +66,8 @@ export function PageClient({ contest }: { contest: Contest }) {
           throw new Error(_(msg`Email non valida`), { cause: { field: "email" } });
         case "E-mail already used":
           throw new Error(_(msg`Email già in uso`), { cause: { field: "email" } });
+        case "Anti-spam check failed":
+          throw new Error(_(msg`Captcha fallito`));
         default:
           throw err;
       }

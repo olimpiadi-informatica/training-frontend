@@ -9,6 +9,10 @@ const config = {
     },
   ],
   format: "po",
+  formatOptions: {
+    origins: true,
+    lineNumbers: false,
+  },
   compileNamespace: "es",
 };
 
