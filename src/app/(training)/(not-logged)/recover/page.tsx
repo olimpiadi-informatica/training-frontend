@@ -23,10 +23,9 @@ export default function Page() {
   const [sent, setSent] = useState(false);
 
   const submit = async (recover: { email: string; code: string }) => {
-    try {
-      await recoverPassword(recover.email, recover.code);
-    } catch (err) {
-      switch ((err as Error).message) {
+    const err = await recoverPassword(recover.email, recover.code);
+    if (err) {
+      switch (err) {
         case "No such user":
           throw new Error(_(msg`Email non registrata`), { cause: { field: "email" } });
         case "Wrong code":

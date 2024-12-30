@@ -29,7 +29,7 @@ function LocaleItem({ lang, children }: { lang: string; children: string }) {
   const { i18n } = useLingui();
 
   // biome-ignore lint/suspicious/useAwait: server function must be async
-  async function changeLanguage() {
+  async function changeLanguage(): Promise<undefined> {
     "use server";
 
     cookies().set("lang", lang, { maxAge: 31536000 });

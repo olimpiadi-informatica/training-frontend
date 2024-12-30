@@ -21,10 +21,14 @@ export async function UserDropdown() {
 }
 
 function UserDropdownInner({ user }: { user: User }) {
-  async function onLogout() {
+  async function onLogout(): Promise<string | undefined> {
     "use server";
 
-    await logout();
+    try {
+      await logout();
+    } catch (err) {
+      return (err as Error).message;
+    }
     revalidatePath("/", "layout");
   }
 

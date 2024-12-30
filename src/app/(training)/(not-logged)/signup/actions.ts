@@ -13,8 +13,12 @@ export async function signup(
   lastName: string,
   institute?: string,
   recaptchaResponse?: string,
-): Promise<void> {
-  await signupAPI(email, username, password, firstName, lastName, institute, recaptchaResponse);
+): Promise<string | undefined> {
+  try {
+    await signupAPI(email, username, password, firstName, lastName, institute, recaptchaResponse);
+  } catch (err) {
+    return (err as Error).message;
+  }
   revalidatePath("/", "layout");
   redirect("/");
 }

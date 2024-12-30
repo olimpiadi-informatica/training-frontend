@@ -26,10 +26,9 @@ export function SubmitOutputOnly({ task }: { task: Task }) {
       files.append(name, file);
     }
 
-    try {
-      await submitOutputOnly(task, files);
-    } catch (err) {
-      switch ((err as Error).message) {
+    const err = await submitOutputOnly(task, files);
+    if (err) {
+      switch (err) {
         case "Too frequent submissions!":
           throw new Error(_(msg`Sottoposizioni troppo frequenti`));
         default:

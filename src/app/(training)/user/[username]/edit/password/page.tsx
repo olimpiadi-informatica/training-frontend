@@ -21,10 +21,9 @@ export default function Page({ params: { username } }: Props) {
   const { _ } = useLingui();
 
   const submit = async (data: { oldPassword: string; newPassword: string }) => {
-    try {
-      await changePassword(username, data.oldPassword, data.newPassword);
-    } catch (err) {
-      switch ((err as Error).message) {
+    const err = await changePassword(username, data.oldPassword, data.newPassword);
+    if (err) {
+      switch (err) {
         case "Wrong password":
           throw new Error(_(msg`Password non corretta`), { cause: { field: "oldPassword" } });
         default:

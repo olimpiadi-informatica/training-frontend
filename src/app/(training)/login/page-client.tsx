@@ -24,10 +24,14 @@ export function PageClient({ redirectUrl }: { redirectUrl: string }) {
     password: string;
     keepSigned: boolean;
   }) => {
-    try {
-      await login(credential.username, credential.password, credential.keepSigned, redirectUrl);
-    } catch (err) {
-      switch ((err as Error).message) {
+    const err = await login(
+      credential.username,
+      credential.password,
+      credential.keepSigned,
+      redirectUrl,
+    );
+    if (err) {
+      switch (err) {
         case "login.error":
           throw new Error(_(msg`Username o password non corretti`));
         default:

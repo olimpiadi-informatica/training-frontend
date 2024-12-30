@@ -16,10 +16,9 @@ export default function Page({ params: { username } }: Props) {
   const { _ } = useLingui();
 
   const submit = async (data: { password: string; email: string }) => {
-    try {
-      await changeEmail(username, data.password, data.email);
-    } catch (err) {
-      switch ((err as Error).message) {
+    const err = await changeEmail(username, data.password, data.email);
+    if (err) {
+      switch (err) {
         case "login.error":
           throw new Error(_(msg`Password non corretta`), { cause: { field: "password" } });
         case "Invalid e-mail":

@@ -47,18 +47,17 @@ export function PageClient({ contest }: { contest: Contest }) {
   const captchaRef = useRef<ReCAPTCHA>(null);
 
   const submit = async (user: FormValue) => {
-    try {
-      await signup(
-        user.email,
-        user.username,
-        user.password,
-        user.name,
-        user.surname,
-        user.institute,
-        captchaRef.current?.getValue() ?? undefined,
-      );
-    } catch (err) {
-      switch ((err as Error).message) {
+    const err = await signup(
+      user.email,
+      user.username,
+      user.password,
+      user.name,
+      user.surname,
+      user.institute,
+      captchaRef.current?.getValue() ?? undefined,
+    );
+    if (err) {
+      switch (err) {
         case "Username is invalid":
           throw new Error(_(msg`Username non valido`), { cause: { field: "username" } });
         case "This username is not available":

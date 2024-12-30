@@ -40,12 +40,14 @@ export function PageClient({ user, task }: Props) {
   };
 
   const onRequestInput = async () => {
-    await requestInput(user.token, task.name);
+    const err = await requestInput(user.token, task.name);
+    if (err) throw new Error(err);
     await new Promise(() => {});
   };
 
   const onChangeInput = async () => {
-    await changeInput(user.token, input!.id);
+    const err = await changeInput(user.token, input!.id);
+    if (err) throw new Error(err);
     await new Promise(() => {});
   };
 
@@ -53,7 +55,8 @@ export function PageClient({ user, task }: Props) {
     const files = new FormData();
     files.append("source", data.source);
     files.append("output", data.output);
-    await uploadAndSubmit(task.name, input!.id, files);
+    const err = await uploadAndSubmit(task.name, input!.id, files);
+    if (err) throw new Error(err);
     await new Promise(() => {});
   };
 

@@ -84,7 +84,8 @@ function BaseTag({ tag }: { tag: Tag }) {
 
   const remove = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    await removeTag(taskName as string, tag.name);
+    const err = await removeTag(taskName as string, tag.name);
+    if (err) throw new Error(err);
     notifySuccess(_(msg`Tag rimosso con successo`));
   };
 
@@ -133,10 +134,9 @@ const AddTagModal = forwardRef(function AddTagModal(
   const options = Object.fromEntries(sortBy(tags).map((tag) => [tag, tag]));
 
   const submit = async (data: { tag: string }) => {
-    try {
-      await addTag(taskName, data.tag);
-    } catch (err) {
-      switch ((err as Error).message) {
+    const err = await addTag(taskName, data.tag);
+    if (err) {
+      switch (err) {
         case "The task already has this tag":
           throw new Error(_(msg`Il task ha già questo tag`), { cause: { field: "tag" } });
         default:

@@ -10,8 +10,12 @@ export async function login(
   password: string,
   keepSigned: boolean,
   redirectUrl: string,
-) {
-  await loginAPI(username, password, keepSigned);
+): Promise<string | undefined> {
+  try {
+    await loginAPI(username, password, keepSigned);
+  } catch (err) {
+    return (err as Error).message;
+  }
   revalidatePath("/", "layout");
   redirect(redirectUrl);
 }
