@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 
@@ -18,8 +20,8 @@ export async function ForumPosts({ taskName, taskTitle, taskUrl }: Props) {
     return (
       <div className="text-center">
         <Trans>Nessun post trovato.</Trans>
-        <br />
-        <NewPost taskName={taskName} taskTitle={taskTitle} taskUrl={taskUrl} />
+        <div className="h-4" />
+        <ForumLinks taskName={taskName} taskTitle={taskTitle} taskUrl={taskUrl} />
       </div>
     );
   }
@@ -47,20 +49,68 @@ export async function ForumPosts({ taskName, taskTitle, taskUrl }: Props) {
           </div>
           <div>
             <div className="text-lg">
-              <span className="link link-info">{post.title}</span>
+              <span className="link link-info">
+                <Highlight keyword={taskTitle}>{post.title}</Highlight>
+              </span>
             </div>
-            <div>{post.description}</div>
+            <div>
+              <Highlight keyword={taskTitle}>{post.description}</Highlight>
+            </div>
           </div>
         </a>
       ))}
       <div className="text-center">
-        <NewPost taskName={taskName} taskTitle={taskTitle} taskUrl={taskUrl} />
+        <ForumLinks taskName={taskName} taskTitle={taskTitle} taskUrl={taskUrl} />
       </div>
     </div>
   );
 }
 
-function NewPost({ taskName, taskTitle, taskUrl }: Props) {
+function Highlight({ keyword, children }: { keyword: string; children: string }) {
+  const lowerChildren = children.toLowerCase();
+  const lowerKeyword = keyword.toLowerCase();
+  const parts: ReactNode[] = [];
+  let prevPos = 0;
+  let pos = 0;
+
+  // biome-ignore lint/suspicious/noAssignInExpressions: clearer this way
+  while ((pos = lowerChildren.indexOf(lowerKeyword, prevPos)) !== -1) {
+    parts.push(children.slice(prevPos, pos));
+    parts.push(
+      <mark key={pos} className="bg-warning/80 rounded-sm">
+        {children.slice(pos, pos + keyword.length)}
+      </mark>,
+    );
+    prevPos = pos + keyword.length;
+  }
+  parts.push(children.slice(prevPos));
+
+  return parts;
+}
+
+function ForumLinks({ taskName, taskTitle, taskUrl }: Props) {
+  return (
+    <div className="text-center">
+      <a
+        href="https://forum.olinfo.it/search"
+        target="_blank"
+        rel="noreferrer"
+        className="link link-info">
+        <Trans>Cerca altri argomenti</Trans>
+      </a>
+      <br />
+      <a
+        href={newPostUrl(taskName, taskTitle, taskUrl)}
+        target="_blank"
+        rel="noreferrer"
+        className="link link-info">
+        <Trans>Crea un nuovo argomento</Trans>
+      </a>
+    </div>
+  );
+}
+
+function newPostUrl(taskName: string, taskTitle: string, taskUrl: string) {
   const url = new URL("https://forum.olinfo.it/new-topic");
   url.searchParams.append("title", `Aiuto per ${taskTitle} (${taskName})`);
   url.searchParams.append(
@@ -79,9 +129,5 @@ Grazie mille in anticipo!`,
   );
   url.searchParams.append("category", "Aiuto");
 
-  return (
-    <a href={url.href} target="_blank" rel="noreferrer" className="link link-info">
-      <Trans>Crea un nuovo post</Trans>
-    </a>
-  );
+  return url.href;
 }
