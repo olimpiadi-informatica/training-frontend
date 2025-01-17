@@ -22,7 +22,7 @@ import {
 } from "@olinfo/training-api";
 import ReCaptchaWidget, { type ReCAPTCHA } from "react-google-recaptcha";
 
-import { H1, H2 } from "~/components/header";
+import { H2 } from "~/components/header";
 import { LocationField } from "~/components/location-field";
 import { useTheme } from "~/lib/theme";
 
@@ -40,7 +40,7 @@ type FormValue = {
   institute: string;
 };
 
-export function PageClient({ contest }: { contest: Contest }) {
+export function PageClient({ contest, redirectUrl }: { contest: Contest; redirectUrl: string }) {
   const theme = useTheme();
   const { _ } = useLingui();
 
@@ -55,6 +55,7 @@ export function PageClient({ contest }: { contest: Contest }) {
       user.surname,
       user.institute,
       captchaRef.current?.getValue() ?? undefined,
+      redirectUrl,
     );
     if (err) {
       switch (err) {
@@ -77,9 +78,6 @@ export function PageClient({ contest }: { contest: Contest }) {
 
   return (
     <Form onSubmit={submit}>
-      <H1>
-        <Trans>Crea un nuovo account</Trans>
-      </H1>
       <EmailField field="email" />
       <UsernameField field="username" minLength={4} />
       <NewPasswordField field="password" minLength={8} />
