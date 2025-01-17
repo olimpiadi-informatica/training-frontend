@@ -22,6 +22,7 @@ export type UserBadges = Record<string, UserBadge>;
 
 export const badgeTypes: ExtendedBadge[] = [
   Badge.None,
+  Badge.Honorable,
   Badge.Bronze,
   Badge.Silver,
   Badge.Gold,
@@ -35,6 +36,7 @@ export const badgeColor: Record<ExtendedBadge, string> = {
   [Badge.Gold]: "#fbbf24",
   [Badge.Silver]: "#9ca3af",
   [Badge.Bronze]: "#d97706",
+  [Badge.Honorable]: "#22c55e",
   [Badge.None]: "#374151",
   [Badge.Locked]: "#f87171",
   [BadgeExtra.Invalid]: "#f87171",
@@ -44,6 +46,7 @@ export const badgeColor: Record<ExtendedBadge, string> = {
 export const badgeName: Record<ExtendedBadge, MessageDescriptor> = {
   [Badge.Locked]: msg`Bloccato`,
   [Badge.None]: msg`Nessuno`,
+  [Badge.Honorable]: msg`Menzione`,
   [Badge.Bronze]: msg`Bronzo`,
   [Badge.Silver]: msg`Argento`,
   [Badge.Gold]: msg`Oro`,

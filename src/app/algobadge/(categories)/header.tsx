@@ -3,7 +3,7 @@ import Link from "next/link";
 import { msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import clsx from "clsx";
-import { Gem, LockKeyholeOpen, type LucideIcon, Medal } from "lucide-react";
+import { Gem, type LucideIcon, Medal } from "lucide-react";
 
 import {
   Badge,
@@ -13,8 +13,8 @@ import {
   bronzeScore,
   diamondScore,
   goldScore,
+  honorableScore,
   silverScore,
-  unlockScore,
 } from "~/lib/algobadge";
 
 import style from "./header.module.css";
@@ -25,7 +25,7 @@ export function Header({ category, badge }: { category: Category; badge?: Catego
   const maxScore = badge?.maxScore ?? 0;
   const score = badge?.badge === Badge.Locked ? 0 : (badge?.score ?? 0);
 
-  const needed = [bronzeScore, silverScore, goldScore, diamondScore]
+  const needed = [honorableScore, bronzeScore, silverScore, goldScore, diamondScore]
     .map((threshold) => threshold * maxScore - score)
     .filter((value) => value > 0)[0];
 
@@ -75,12 +75,7 @@ export function Header({ category, badge }: { category: Category; badge?: Catego
           </div>
         </div>
         <div className="relative mt-4 h-8 w-full">
-          <Threshold
-            color="stroke-base-content"
-            score={unlockScore}
-            icon={LockKeyholeOpen}
-            size={32}
-          />
+          <Threshold color={badgeStroke[Badge.Honorable]} score={honorableScore} />
           <Threshold color={badgeStroke[Badge.Bronze]} score={bronzeScore} />
           <Threshold color={badgeStroke[Badge.Silver]} score={silverScore} />
           <Threshold color={badgeStroke[Badge.Gold]} score={goldScore} />
@@ -94,6 +89,8 @@ export function Header({ category, badge }: { category: Category; badge?: Catego
 
 function progress(badge: Badge) {
   switch (badge) {
+    case Badge.Honorable:
+      return style.progressHonorable;
     case Badge.Bronze:
       return style.progressBronze;
     case Badge.Silver:

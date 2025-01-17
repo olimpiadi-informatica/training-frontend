@@ -22,7 +22,7 @@ import { TooltipContent } from "./tooltip";
 type DataEntry = { name: Badge; fill: string; [count: string]: any };
 type Data = DataEntry[];
 
-const filteredBadges = [Badge.Bronze, Badge.Silver, Badge.Gold, Badge.Diamond];
+const filteredBadges = [Badge.Honorable, Badge.Bronze, Badge.Silver, Badge.Gold, Badge.Diamond];
 
 export function SummaryBadges({ users }: { users: UserBadges }) {
   const { _ } = useLingui();
@@ -74,7 +74,7 @@ export function SummaryBadges({ users }: { users: UserBadges }) {
         <Tooltip
           cursor={{ fill: "oklch(var(--bc) / 0.1)" }}
           content={TooltipContent}
-          formatter={(value, num) => [value, _(msg`${num} badge`)]}
+          formatter={(value, num) => [value, _(msg`${num} categorie`)]}
         />
         {range(numCategories + 1).map((i) => (
           <Bar

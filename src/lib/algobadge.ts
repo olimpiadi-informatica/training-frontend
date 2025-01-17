@@ -175,7 +175,7 @@ export const algobadge: Record<CategoryId, Category> = {
   },
 };
 
-export const unlockScore = 50 / 250;
+export const honorableScore = 50 / 250;
 export const bronzeScore = 100 / 250;
 export const silverScore = 150 / 250;
 export const goldScore = 200 / 250;
@@ -184,10 +184,11 @@ export const diamondScore = 250 / 250;
 export enum Badge {
   Locked = 0,
   None = 1,
-  Bronze = 2,
-  Silver = 3,
-  Gold = 4,
-  Diamond = 5,
+  Honorable = 2,
+  Bronze = 3,
+  Silver = 4,
+  Gold = 5,
+  Diamond = 6,
 }
 
 export type CategoryBadge = {
@@ -203,6 +204,7 @@ function computeBadge(score: number, maxScore: number): Badge {
   if (score >= maxScore * goldScore) return Badge.Gold;
   if (score >= maxScore * silverScore) return Badge.Silver;
   if (score >= maxScore * bronzeScore) return Badge.Bronze;
+  if (score >= maxScore * honorableScore) return Badge.Honorable;
   return Badge.None;
 }
 
@@ -229,7 +231,7 @@ function computeCategoryBadges(
       const parentNode = categoryBadges[parent];
       if (
         parentNode.badge === Badge.Locked ||
-        parentNode.score < parentNode.maxScore * unlockScore
+        parentNode.score < parentNode.maxScore * honorableScore
       ) {
         locked = true;
       }
@@ -280,8 +282,9 @@ function computeCategoryBadge(
 }
 
 export const badgeBackground: Record<Badge, `bg-${string}`> = {
-  [Badge.None]: "bg-white",
   [Badge.Locked]: "bg-neutral-500",
+  [Badge.None]: "bg-white",
+  [Badge.Honorable]: "bg-green-500",
   [Badge.Bronze]: "bg-amber-600",
   [Badge.Silver]: "bg-gray-400",
   [Badge.Gold]: "bg-amber-400",
@@ -289,8 +292,9 @@ export const badgeBackground: Record<Badge, `bg-${string}`> = {
 };
 
 export const badgeStroke: Record<Badge, `stroke-${string}`> = {
-  [Badge.None]: "stroke-transparent",
   [Badge.Locked]: "stroke-transparent",
+  [Badge.None]: "stroke-transparent",
+  [Badge.Honorable]: "stroke-green-500",
   [Badge.Bronze]: "stroke-amber-600",
   [Badge.Silver]: "stroke-gray-400",
   [Badge.Gold]: "stroke-amber-400",
@@ -298,8 +302,9 @@ export const badgeStroke: Record<Badge, `stroke-${string}`> = {
 };
 
 export const badgeColor: Record<Badge, string> = {
-  [Badge.None]: "",
   [Badge.Locked]: "",
+  [Badge.None]: "",
+  [Badge.Honorable]: "text-green-600",
   [Badge.Bronze]: "text-amber-700",
   [Badge.Silver]: "text-gray-500",
   [Badge.Gold]: "text-amber-500",

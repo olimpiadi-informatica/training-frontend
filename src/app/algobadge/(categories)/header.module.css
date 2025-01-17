@@ -26,6 +26,11 @@
   @apply progressStriped;
 }
 
+.progressHonorable {
+  --progress-color: theme(colors.green.600);
+  @apply progressStriped;
+}
+
 .progressBronze {
   --progress-color: theme(colors.amber.600);
   @apply progressStriped;

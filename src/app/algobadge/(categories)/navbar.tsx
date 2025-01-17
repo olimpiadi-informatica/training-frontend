@@ -69,6 +69,7 @@ function Title({ badge }: { badge: Badge }) {
   const color = (threshold: Badge) =>
     badge >= threshold ? clsx(badgeColor[threshold], "font-bold") : undefined;
 
+  const honorable = color(Badge.Honorable);
   const bronze = color(Badge.Bronze);
   const silver = color(Badge.Silver);
   const gold = color(Badge.Gold);
@@ -82,15 +83,13 @@ function Title({ badge }: { badge: Badge }) {
       <span className={clsx("max-xs:text-2xl text-4xl", bronze)}>B</span>A
       <span className={diamond}>D</span>
       GE
-      {badge >= Badge.Bronze && badge < Badge.Diamond && (
+      {badge >= Badge.Honorable && badge < Badge.Diamond && (
         <Medal
           size={32}
           strokeWidth={2.5}
           className={clsx(
             "ml-2 inline-block align-sub last:*:hidden max-sm:hidden",
-            bronze,
-            silver,
-            gold,
+            gold ?? silver ?? bronze ?? honorable,
           )}
         />
       )}

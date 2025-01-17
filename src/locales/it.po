@@ -18,8 +18,8 @@ msgid "{0} punti"
 msgstr "{0} punti"
 
 #: src/app/algobadge/bulk/summary-badges.tsx
-msgid "{num} badge"
-msgstr "{num} badge"
+msgid "{num} categorie"
+msgstr "{num} categorie"
 
 #: src/app/(training)/(home)/page.tsx
 msgid "<0>Portale di allenamento delle</0> <1><2>Olimpiadi</2> <3>Italiane di</3> <4>Informatica</4></1>"
@@ -596,6 +596,10 @@ msgstr "Memoria"
 #: src/app/(training)/task/[name]/submissions/[id]/page-client.tsx
 msgid "Memoria utilizzata:"
 msgstr "Memoria utilizzata:"
+
+#: src/app/algobadge/bulk/common.ts
+msgid "Menzione"
+msgstr "Menzione"
 
 #: src/app/(training)/(home)/footer.tsx
 msgid "Ministero dell'Istruzione e del Merito"
