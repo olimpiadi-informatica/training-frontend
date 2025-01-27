@@ -84,17 +84,34 @@ function TreeNode({ categoryId, badge, searchParams }: NodeProps) {
   );
 }
 
+function PulsatingDot() {
+  return (
+    <span className="absolute top-0 left-2 flex size-5">
+      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"/>
+      <span className="relative inline-flex size-5 rounded-full bg-sky-500"/>
+    </span>
+  )
+}
+
 function TreeNodeUnlocked({ categoryId, badge, searchParams }: NodeProps) {
   const newParams = new URLSearchParams(searchParams);
   newParams.set("category", categoryId);
+
+  const shouldShowPulsatingDot = (
+    categoryId === 'intro' && badge.badge === Badge.None
+  );
+
   return (
     <Link
       href={`/algobadge?${newParams}`}
       className={clsx(
-        "flex flex-col items-center justify-center text-neutral-900",
+        "relative flex flex-col items-center justify-center text-neutral-900 hover:ring-2 hover:ring-sky-500",
         badgeBackground[badge.badge],
       )}
       scroll={false}>
+      {shouldShowPulsatingDot && (
+        <PulsatingDot />
+      )}
       <div className="font-mono text-lg xs:text-2xl">{categoryId}</div>
       <div className="max-xs:text-sm">
         {badge.score} / {badge.maxScore}
