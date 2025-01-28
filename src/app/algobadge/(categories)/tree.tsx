@@ -87,19 +87,17 @@ function TreeNode({ categoryId, badge, searchParams }: NodeProps) {
 function PulsatingDot() {
   return (
     <span className="absolute top-0 left-2 flex size-5">
-      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"/>
-      <span className="relative inline-flex size-5 rounded-full bg-sky-500"/>
+      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75" />
+      <span className="relative inline-flex size-5 rounded-full bg-sky-500" />
     </span>
-  )
+  );
 }
 
 function TreeNodeUnlocked({ categoryId, badge, searchParams }: NodeProps) {
   const newParams = new URLSearchParams(searchParams);
   newParams.set("category", categoryId);
 
-  const shouldShowPulsatingDot = (
-    categoryId === 'intro' && badge.badge === Badge.None
-  );
+  const shouldShowPulsatingDot = categoryId === "intro" && badge.badge === Badge.None;
 
   return (
     <Link
@@ -109,9 +107,7 @@ function TreeNodeUnlocked({ categoryId, badge, searchParams }: NodeProps) {
         badgeBackground[badge.badge],
       )}
       scroll={false}>
-      {shouldShowPulsatingDot && (
-        <PulsatingDot />
-      )}
+      {shouldShowPulsatingDot && <PulsatingDot />}
       <div className="font-mono text-lg xs:text-2xl">{categoryId}</div>
       <div className="max-xs:text-sm">
         {badge.score} / {badge.maxScore}
