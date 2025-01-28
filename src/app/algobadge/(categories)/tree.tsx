@@ -4,13 +4,7 @@ import type { CSSProperties } from "react";
 import clsx from "clsx";
 import { LockKeyhole } from "lucide-react";
 
-import {
-  Badge,
-  type CategoryBadge,
-  type CategoryId,
-  algobadge,
-  badgeBackground,
-} from "~/lib/algobadge";
+import { Badge, type CategoryBadge, CategoryId, algobadge, badgeBackground } from "~/lib/algobadge";
 
 type TreeProps = {
   badges: Record<CategoryId, CategoryBadge>;
@@ -95,9 +89,10 @@ function PulsatingDot() {
 
 function TreeNodeUnlocked({ categoryId, badge, searchParams }: NodeProps) {
   const newParams = new URLSearchParams(searchParams);
-  newParams.set("category", categoryId);
+  const shouldShowPulsatingDot =
+    categoryId === CategoryId.Intro && badge.badge === Badge.None && !newParams.has("category");
 
-  const shouldShowPulsatingDot = categoryId === "intro" && badge.badge === Badge.None;
+  newParams.set("category", categoryId);
 
   return (
     <Link
