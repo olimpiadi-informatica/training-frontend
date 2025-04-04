@@ -46,7 +46,7 @@
     "lodash-es": "^4.17",
     "lucide-react": ">=0.395, <1",
     "monaco-editor-core": "^0.52",
-    "next": "^14.1",
+    "next": "^14.2",
     "next-mdx-remote": "^5.0",
     "parse-entities": "^4.0",
     "pdfobject": "^2.3",
