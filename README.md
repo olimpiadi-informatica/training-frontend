@@ -1,3 +1,7 @@
+# This repository was merged with https://github.com/olimpiadi-informatica/cmsocial
+
+---
+
 # Italian Olympiads in Informatics Training Website
 
 This repository contains the source code for the new training website of the Italian Olympiads in Informatics.
